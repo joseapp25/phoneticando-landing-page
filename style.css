@@ -81,61 +81,92 @@ html, body {
 
 
 
-/* HEADER ↓ */
+/* HEADER & GLOBAL MENU ↓ */
 
-.header-content {
-    padding-top: 32px;
-    padding-bottom: 32px;
-    margin-left: auto;
-    margin-right: auto;
+.global-menu {
+    position: fixed;
     display: flex;
     align-items: center;
-    gap: 8px;
-    max-width: 80vw;
+    width: 100%;
+    height: 64px;
+    top: 0;
+    background-color: white;
+    box-shadow: 0px 0px 4px var(--graycool200);
+    z-index: 1;
 }
 
-.header-title {
-    color: var(--cerulean400);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 26px;
+.global-menu-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media only screen and (min-width: 600px) {
-    .header-content {
-        max-width: none;
-        padding-left: 32px;
+    .global-menu-container {
+        max-width: 600px;
     }
-
 }
 
-.contacts-link {
+.global-menu-logo-container {
+    gap: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.global-menu h1 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+    font-weight: 500;
+    color: var(--graycool800);
+}
+
+.global-menu-anchor-container {
+    gap: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.global-menu-anchor {
+    height: 24px;
+    width: 24px;
+    display: flex;
     border-radius: 4px;
     padding: 4px;
     cursor: pointer;
     align-items: center;
     transition-duration: 0.2s;
+    fill: var(--cerulean600);
 }
 
-.contacts-link:hover {
-    background-color: var(--cerulean100);
+.global-menu-anchor:hover {
+    background-color: var(--cerulean600);
     transition-duration: 0.2s;
-    box-shadow: 0px 0px 4px var(--cerulean300);
+    box-shadow: 0px 0px 4px var(--cerulean800);
+    fill: var(--graycool50);
 }
 
-.header-content > a {
-    display: flex;
-    margin-left: auto;
+.global-menu-logo {
+    width: 40px;
+    height: 40px;
+    fill: var(--cerulean600);
+    padding: 4px;
+    transition-duration: 0.2s;
+    border-radius: 4px;
 }
 
-@media only screen and (min-width: 600px) {
-    .header-content > a {
-        padding-right: 32px;
-    }
-    
+.global-menu-logo:hover {
+    background-color: var(--cerulean600);
+    transition-duration: 0.2s;
+    box-shadow: 0px 0px 4px var(--cerulean800);
+    fill: var(--graycool50);
+    padding: 4px;
+    transition-duration: 0.2s;
 }
 
-/* HEADER ↑ */
+/* HEADER & GLOBAL MENU ↑ */
 
 
 
@@ -188,6 +219,7 @@ html, body {
 
 .headline-section {
     padding-bottom: 80px;
+    padding-top: 64px;
 }
 
 .headline-section-content {
@@ -271,8 +303,20 @@ html, body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 32px;
-    box-shadow: 0px 0px 4px var(--cerulean400);
-    border-radius: 10px;
+    box-shadow: 0px 0px 4px var(--graycool600);
+    border-radius: 4px;
+}
+
+.hero-banner {
+    max-width: 600px;
+    max-height: 600px;
+}
+
+@media only screen and (max-width: 600px) {
+    .hero-banner {
+        max-width: 320px;
+        max-height: 320px;
+    }
 }
 
 .hero-section-content {
@@ -331,6 +375,7 @@ html, body {
         max-width: 360px;
     }
 }
+
 /* HERO SECTION ↑ */
 
 
@@ -719,15 +764,41 @@ html, body {
 
 
 
-/*FOOTER ↓ */
+/* FOOTER, CONTACTS ↓ */
 
-footer {
-    color: var(--graycool0);
+.contacts-container {
+    gap: 4px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.contacts-link {
+    height: 24px;
+    width: 24px;
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+    align-items: center;
+    transition-duration: 0.2s;
+    fill: var(--cerulean600);
+}
+
+.contacts-link:hover {
+    background-color: var(--cerulean600);
+    transition-duration: 0.2s;
+    box-shadow: 0px 0px 4px var(--cerulean800);
+    fill: var(--graycool50);
+}
+
+.footer-style {
     background-image: linear-gradient(to right, var(--graycool1000), var(--graycool900));
+    color: var(--graycool0);
+    font-weight: 300;
+    font-size: 16px;
     padding-top: 40px;
     padding-bottom: 40px;
-    font-size: 16px;
-    font-weight: 300;
+
 }
 
 .footer-copyright-container {
@@ -744,16 +815,12 @@ footer {
     margin-left: 2px;
 }
 
-footer img {
+.footer-logo {
     display: flex;
     justify-content: center;
+    height: 40px;
+    width: 40px;
+    fill: var(--cerulean100);
 }
 
-.social-media-container {
-    gap: 8px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 16px;
-}
-
-/*FOOTER ↑ */
+/* FOOTER, CONTACTS ↑ */
