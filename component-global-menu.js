@@ -12,16 +12,18 @@ class ComponentGlobalMenu extends HTMLElement{
 
                     <div class="global-menu-logo-container">
 
-                        <a href="#">
+                        <a href="#" class="logo-anchor">
 
                             <svg class="global-menu-logo" viewBox="0 0 1024 1024">
                                 <path d="M899.471 169.143V32L124.531 169.143H899.471Z"/>
                                 <path d="M757.135 717.714L899.471 224H124.531V498.286H266.867L124.531 992H899.471V717.714H757.135Z"/>
                             </svg>
 
+                            <h1>@phoneticando</h1>
+
                         </a>
 
-                        <h1>Zé Antonio<br>Phoneticando</h1>
+                        
 
                     </div>
 
