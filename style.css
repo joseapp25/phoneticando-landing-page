@@ -170,7 +170,6 @@ html, body {
     transition-duration: 0.2s;
     color: var(--cerulean400);
     fill: var(--cerulean400);
-    text-decoration: underline;
 }
 
 /* HEADER & GLOBAL MENU ↑ */
