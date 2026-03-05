@@ -4,25 +4,13 @@
 <g filter="url(#filter0_f_4263_3564)">
 <circle cx="400" cy="800" r="512" fill="#2269D3"/>
 </g>
-<g filter="url(#filter1_d_4263_3564)">
-<rect x="-242.047" y="11.4609" width="1098" height="1464" transform="rotate(-5.45074 -242.047 11.4609)" fill="url(#pattern0_4263_3564)" shape-rendering="crispEdges"/>
-</g>
+<rect x="-242.047" y="11.4609" width="1098" height="1464" transform="rotate(-5.45074 -242.047 11.4609)" fill="url(#pattern0_4263_3564)"/>
 </g>
 <defs>
 <filter id="filter0_f_4263_3564" x="-712" y="-312" width="2224" height="2224" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="300" result="effect1_foregroundBlur_4263_3564"/>
-</filter>
-<filter id="filter1_d_4263_3564" x="-246.047" y="-96.8359" width="1240.1" height="1569.68" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.792157 0 0 0 0 0.862745 0 0 0 0 0.964706 0 0 0 1 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4263_3564"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4263_3564" result="shape"/>
 </filter>
 <pattern id="pattern0_4263_3564" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_4263_3564" transform="scale(0.000333333 0.00025)"/>
