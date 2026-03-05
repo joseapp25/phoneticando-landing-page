@@ -62,7 +62,7 @@ html, body {
 /* PIC SECTION ↓ */
 
 .section-pic {
-    margin-top: 128px;
+    margin-top: 80px;
 }
 
 .section-pic img {
@@ -77,6 +77,9 @@ html, body {
 }
 
 .section-title-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-size: 16px;
     max-width: 600px;
     margin-left: auto;
@@ -85,8 +88,8 @@ html, body {
 }
 
 .section-anchor {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 
 .section-anchor-container {
