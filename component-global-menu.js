@@ -6,8 +6,6 @@ class ComponentGlobalMenu extends HTMLElement{
 
             <link rel="stylesheet" href="style.css">
 
-            <link rel="stylesheet" href="component-global-menu.css">
-
             <div class="global-menu">
 
                 <div class="global-menu-container">

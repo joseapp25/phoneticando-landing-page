@@ -6,8 +6,6 @@ class ComponentFooter extends HTMLElement{
 
             <link rel="stylesheet" href="style.css">
 
-            <link rel="stylesheet" href="component-footer.css">
-
             <div class="footer-style">
 
                 <div class="contacts-container">
