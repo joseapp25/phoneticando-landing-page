@@ -6,6 +6,67 @@ class ComponentFooter extends HTMLElement{
 
             <link rel="stylesheet" href="style.css">
 
+            <style>
+
+                .contacts-container {
+                    gap: 4px;
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 16px;
+                }
+
+                .contacts-link {
+                    height: 24px;
+                    width: 24px;
+                    border-radius: 4px;
+                    padding: 4px;
+                    cursor: pointer;
+                    align-items: center;
+                    transition-duration: 0.2s;
+                    fill: var(--cerulean600);
+                }
+
+                .contacts-link:hover {
+                    background-color: var(--cerulean600);
+                    transition-duration: 0.2s;
+                    box-shadow: 0px 0px 4px var(--cerulean800);
+                    fill: var(--graycool50);
+                }
+
+                .footer-style {
+                    background-image: linear-gradient(to right, var(--graycool1000), var(--graycool900));
+                    color: var(--graycool0);
+                    font-weight: 300;
+                    font-size: 16px;
+                    padding-top: 40px;
+                    padding-bottom: 40px;
+
+                }
+
+                .footer-copyright-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .footer-logo-container {
+                    margin-right: 2px;
+                }
+
+                .footer-text-container {
+                    margin-left: 2px;
+                }
+
+                .footer-logo {
+                    display: flex;
+                    justify-content: center;
+                    height: 40px;
+                    width: 40px;
+                    fill: var(--cerulean100);
+                }
+
+            </style>
+
             <div class="footer-style">
 
                 <div class="contacts-container">

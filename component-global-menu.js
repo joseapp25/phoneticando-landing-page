@@ -6,6 +6,95 @@ class ComponentGlobalMenu extends HTMLElement{
 
             <link rel="stylesheet" href="style.css">
 
+            <style>
+
+                .global-menu {
+                    position: fixed;
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    height: 64px;
+                    top: 0;
+                    background-color: white;
+                    box-shadow: 0px 0px 4px var(--graycool200);
+                    z-index: 1;
+                }
+
+                .global-menu-container {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 85vw;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                @media only screen and (min-width: 600px) {
+                    .global-menu-container {
+                        max-width: 600px;
+                    }
+                }
+
+                .global-menu-logo-container {
+                    gap: 16px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .global-menu h1 {
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 18px;
+                    font-weight: 500;
+                }
+
+                .global-menu-anchor-container {
+                    gap: 4px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .global-menu-anchor {
+                    height: 24px;
+                    width: 24px;
+                    display: flex;
+                    border-radius: 4px;
+                    padding: 4px;
+                    cursor: pointer;
+                    align-items: center;
+                    transition-duration: 0.2s;
+                    fill: var(--cerulean600);
+                }
+
+                .global-menu-anchor:hover {
+                    background-color: var(--cerulean600);
+                    transition-duration: 0.2s;
+                    box-shadow: 0px 0px 4px var(--cerulean800);
+                    fill: var(--graycool50);
+                }
+
+                .global-menu-logo {
+                    width: 32px;
+                    height: 32px;
+                }
+
+                .global-menu-logo-anchor {
+                    display: flex;
+                    color: var(--cerulean600);
+                    fill: var(--cerulean600);
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    transition-duration: 0.2s;
+                }
+
+                .global-menu-logo-anchor:hover {
+                    transition-duration: 0.2s;
+                    color: var(--cerulean400);
+                    fill: var(--cerulean400);
+                }
+                    
+            </style>
+
             <div class="global-menu">
 
                 <div class="global-menu-container">
