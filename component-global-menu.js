@@ -11,7 +11,7 @@ class ComponentGlobalMenu extends HTMLElement{
                 .global-menu {
                     position: fixed;
                     display: flex;
-                    align-items: center;
+                    
                     width: 100%;
                     height: 40px;
                     top: 0;
@@ -22,6 +22,8 @@ class ComponentGlobalMenu extends HTMLElement{
 
                 .global-menu-container {
                     display: flex;
+                    justify-content: center;
+                    gap: 4px;
                     width: 90vw;
                     margin-left: auto;
                     margin-right: auto;
@@ -40,6 +42,7 @@ class ComponentGlobalMenu extends HTMLElement{
 
                 .global-menu-logo-anchor {
                     display: flex;
+                    gap: 4px;
                     color: var(--cerulean600);
                     fill: var(--cerulean600);
                     justify-content: center;
@@ -53,14 +56,6 @@ class ComponentGlobalMenu extends HTMLElement{
                     color: var(--cerulean400);
                     fill: var(--cerulean400);
                 }
-
-                .margin-r {
-                    margin-right: auto;
-                }
-
-                .margin-l {
-                    margin-left: auto;
-                }
                     
             </style>
 
@@ -68,18 +63,14 @@ class ComponentGlobalMenu extends HTMLElement{
 
                 <div class="global-menu-container">
 
-                        <a href="index.html" class="global-menu-logo-anchor margin-r">
+                        <a href="index.html" class="global-menu-logo-anchor">
 
-                            <svg class="global-menu-logo" viewBox="0 0 1024 1024">
-                                <path d="M899.471 169.143V32L124.531 169.143H899.471Z"/>
-                                <path d="M757.135 717.714L899.471 224H124.531V498.286H266.867L124.531 992H899.471V717.714H757.135Z"/>
-                            </svg>
+                                <svg class="global-menu-logo" viewBox="0 0 1024 1024">
+                                    <path d="M899.471 169.143V32L124.531 169.143H899.471Z"/>
+                                    <path d="M757.135 717.714L899.471 224H124.531V498.286H266.867L124.531 992H899.471V717.714H757.135Z"/>
+                                </svg>
 
-                        </a>
-
-                        <a href="#" class="global-menu-logo-anchor margin-l">
-
-                            @phoneticando
+                                @phoneticando
 
                         </a>
 
