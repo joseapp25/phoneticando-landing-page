@@ -72,8 +72,6 @@ class ComponentGlobalMenu extends HTMLElement{
 
             </div>
 
-
-
         `
     }
 }
