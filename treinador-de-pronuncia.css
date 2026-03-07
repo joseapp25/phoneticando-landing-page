@@ -2,10 +2,17 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 180px;
-    margin-bottom: 180px;
+    margin-bottom: 8px;
     display: flex;
     width: 264px;
     height: 264px;
     fill: var(--cerulean600);
 }
 
+.warning-paragraph {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 180px;
+    font-size: 32px;
+    line-height: 48px;
+}
