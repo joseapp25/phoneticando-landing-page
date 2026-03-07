@@ -146,13 +146,13 @@
     margin-bottom: 24px;
     font-size: 32px;
     font-weight: 700;
-    line-height: 42px;
+    line-height: 40px;
 }
 
 .hero-paragraph {
     font-size: 16px;
     font-weight: 400;
-    line-height: 26px;
+    line-height: 24px;
     margin-bottom: 32px;
 }
 
@@ -238,14 +238,14 @@
     margin-bottom: 32px;
     font-size: 32px;
     font-weight: 700;
-    line-height: 42px;
+    line-height: 40px;
 }
 
 .benefits-paragraph {
     text-align: left;
     font-size: 16px;
     font-weight: 500;
-    line-height: 26px;
+    line-height: 24px;
     font-weight: 500;
 }
 
@@ -312,7 +312,7 @@
     margin-bottom: 32px;
     font-size: 32px;
     font-weight: 700;
-    line-height: 42px;
+    line-height: 40px;
 }
 
 .social-quote-container {
@@ -328,7 +328,7 @@
 .social-paragraph {
     font-style: italic;
     font-size: 16px;
-    line-height: 26px;
+    line-height: 24px;
     margin-bottom: 8px;
 }
 
@@ -336,7 +336,7 @@
     color: var(--cerulean600);
     font-size: 16px;
     font-weight: 500;
-    line-height: 26px;
+    line-height: 24px;
 
 }
 
