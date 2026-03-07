@@ -1,0 +1,11 @@
+.lock-logo {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 180px;
+    margin-bottom: 180px;
+    display: flex;
+    width: 264px;
+    height: 264px;
+    fill: var(--cerulean600);
+}
+
