@@ -108,8 +108,7 @@ html, body {
     gap: 8px;
     padding-top: 16px;
     padding-bottom: 16px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 16px;
     margin: 16px;
     border-radius: 8px;
     text-decoration: none;
