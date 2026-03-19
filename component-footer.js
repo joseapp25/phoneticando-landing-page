@@ -78,7 +78,7 @@ class ComponentFooter extends HTMLElement{
 
             </style>
             <div class="footer-style">
-                <a href="https://phoneticando.com.br" target="_blank" class="website-anchor">phoneticando.com.br</a>
+                <a href="#" class="website-anchor">phoneticando.com.br</a>
                 <div class="contacts-container">
                     <a href="https://www.youtube.com/@phoneticando" target="_blank">
                         <svg class="contacts-link" viewBox="0 0 1024 1024">
