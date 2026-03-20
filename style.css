@@ -88,7 +88,7 @@ html, body {
 }
 
 .section-anchor {
-    padding-top: 32px;
+    padding-top: 16px;
     padding-bottom: 32px;
 }
 
@@ -96,6 +96,12 @@ html, body {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.section-anchor-container h2 {
+    padding-left: 16px;
+    margin-top: 32px;
+    font-size: 1.2em;
 }
 
 /* PIC SECTION ↑ */
@@ -106,10 +112,13 @@ html, body {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-left: 16px;
-    margin: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 16px;
+    margin-right: 16px;
     border-radius: 8px;
     text-decoration: none;
     background-color: white;
@@ -124,7 +133,7 @@ html, body {
     box-shadow: 0px 0px 8px var(--cerulean600);
     background-color: var(--cerulean600);
     color: var(--graycool50);
-    fill: var(--cerulean100);
+    fill: var(--sunset400);
     transition-duration: 0.2s;
 }
 
