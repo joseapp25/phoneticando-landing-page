@@ -50,7 +50,7 @@ class ComponentButton extends HTMLElement{
             
             </style>
 
-            <a href="https://wa.me/qr/U2BU7A5QAB3HG1" target="_blank" class="button-anchor">
+            <a href="https://wa.me/5521999828080" target="_blank" class="button-anchor">
 
                     Conversar com Zé
 

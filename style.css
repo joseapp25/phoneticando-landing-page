@@ -101,7 +101,8 @@ html, body {
 .section-anchor-container h2 {
     padding-left: 16px;
     margin-top: 32px;
-    font-size: 1.2em;
+    font-size: 1.1em;
+    font-weight: 500;
 }
 
 /* PIC SECTION ↑ */
