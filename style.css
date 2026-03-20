@@ -93,8 +93,11 @@ html, body {
 
 .section-anchor-container {
     max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 8px;
 }
 
