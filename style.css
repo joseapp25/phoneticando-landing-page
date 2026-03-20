@@ -88,21 +88,23 @@ html, body {
 }
 
 .section-anchor {
-    padding-top: 16px;
     padding-bottom: 32px;
 }
 
 .section-anchor-container {
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.section-anchor-container h2 {
+.heading-two {
     padding-left: 16px;
-    margin-top: 32px;
+    margin-top: 48px;
+    margin-bottom: 16px;
     font-size: 1.1em;
     font-weight: 500;
+    text-align: center;
 }
 
 /* PIC SECTION ↑ */
@@ -113,11 +115,9 @@ html, body {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 8px;
-    margin-top: 8px;
-    margin-bottom: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
     margin-left: 16px;
     margin-right: 16px;
     border-radius: 8px;
