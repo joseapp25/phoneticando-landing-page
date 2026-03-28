@@ -35,7 +35,9 @@ class ComponentFooter extends HTMLElement{
                     border-radius: 4px;
                     padding: 4px;
                     cursor: pointer;
+                    display: flex;
                     align-items: center;
+                    justify-content: center;
                     transition-duration: 0.2s;
                     fill: var(--cerulean600);
                 }
