@@ -43,7 +43,7 @@ class ComponentFooter extends HTMLElement{
                 .contacts-link:hover {
                     background-color: var(--cerulean600);
                     transition-duration: 0.2s;
-                    box-shadow: 0px 0px 4px var(--cerulean800);
+                    box-shadow: 0px 0px 4px var(--cerulean600);
                     fill: var(--graycool50);
                 }
 
