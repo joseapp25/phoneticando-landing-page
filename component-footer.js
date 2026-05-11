@@ -37,7 +37,7 @@ class ComponentFooter extends HTMLElement{
                     text-decoration: none;
                     transition-duration: 0.2s;
                     font-weight: 900;
-                    font-size: 32px;
+                    font-size: 16px;
                     padding: 4px;
                 }
 
