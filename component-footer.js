@@ -131,7 +131,7 @@ class ComponentFooter extends HTMLElement{
                     align-items: center;
                     height: 16px;
                     width: 16px;
-                    fill: var(--cerulean100);
+                    fill: var(--cerulean600);
                 }
             </style>
 
