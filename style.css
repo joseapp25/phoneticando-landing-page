@@ -126,7 +126,7 @@ html, body {
     border-radius: 8px;
     text-decoration: none;
     background-color: white;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 16px;
     color: var(--graycool800);
     fill: var(--cerulean600);
@@ -138,6 +138,7 @@ html, body {
     background-color: var(--cerulean600);
     color: var(--graycool50);
     fill: var(--sunset400);
+    font-weight: 600;
     transition-duration: 0.2s;
 }
 
