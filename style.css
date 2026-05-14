@@ -54,7 +54,7 @@
 
 html, body {
     color: var(--graycool800);
-    background-color: var(--graycool0);
+    background-color: white;
     font-family: var(--font-grotesk);
     scroll-behavior: smooth;
 }
@@ -125,7 +125,7 @@ html, body {
     margin-right: 16px;
     border-radius: 8px;
     text-decoration: none;
-    background-color: white;
+    background-color: var(--cerulean50);
     font-weight: 400;
     font-size: 16px;
     color: var(--graycool800);
