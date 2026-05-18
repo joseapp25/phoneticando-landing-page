@@ -16,3 +16,34 @@
     font-size: 32px;
     line-height: 48px;
 }
+
+/* - ↓ */
+
+/* - ↑ */
+
+
+/* SECTION-CONTAINER-PADDING ↓ */
+
+.section-container-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* SECTION-CONTAINER-PADDING ↑ */
+
+/* BACKGROUNDS ↓ */
+
+.graycool-background {
+    background-color: var(--graycool100);
+}
+
+.cerulean-background {
+    background-color: var(--cerulean100);
+}
+
+.sunset-background {
+    background-color: var(--sunset100);
+}
+
+/* BACKGROUNDS ↑ */
+
