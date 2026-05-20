@@ -64,29 +64,6 @@
     margin-bottom: 8px;
 }
 
-.headline-anchor {
-    margin-top: 32px;
-    font-size: 24px;
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--graycool0);
-    background-color: var(--cerulean600);
-    padding-top: 24px;
-    padding-bottom: 24px;
-    border-radius: 8px;
-    transition-duration: 0.2s;
-}
-
-.headline-anchor:hover {
-    background-color: var(--cerulean800);
-    box-shadow: 0px 0px 8px var(--cerulean800);
-    transition-duration: 0.2s;
-}
-
 @media only screen and (min-width: 600px) {
     .headline-section-content {
         max-width: 600px;
@@ -155,30 +132,6 @@
     line-height: 24px;
     margin-bottom: 32px;
 }
-
-.hero-anchor {
-    margin-top: 32px;
-    font-size: 24px;
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--graycool0);
-    background-color: var(--cerulean600);
-    padding-top: 24px;
-    padding-bottom: 24px;
-    border-radius: 8px;
-    transition-duration: 0.2s;
-}
-
-.hero-anchor:hover {
-    background-color: var(--cerulean800);
-    box-shadow: 0px 0px 8px var(--cerulean800);
-    transition-duration: 0.2s;
-}
-
 
 @media only screen and (min-width: 600px) {
     .hero-section-content {
@@ -249,29 +202,6 @@
     font-weight: 500;
 }
 
-.benefits-anchor {
-    margin-top: 32px;
-    font-size: 24px;
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--graycool0);
-    background-color: var(--cerulean600);
-    padding-top: 24px;
-    padding-bottom: 24px;
-    border-radius: 8px;
-    transition-duration: 0.2s;
-}
-
-.benefits-anchor:hover {
-    background-color: var(--cerulean800);
-    box-shadow: 0px 0px 8px var(--cerulean800);
-    transition-duration: 0.2s;
-}
-
 @media only screen and (min-width: 600px) {
     .benefits-section-content {
         max-width: 600px;
@@ -316,9 +246,8 @@
 }
 
 .social-quote-container {
-    background-color: white;
     border-left: 4px solid var(--cerulean300);
-    box-shadow: 0px 0px 4px var(--cerulean100);
+    box-shadow: 0px 0px 8px var(--cerulean100);
     padding: 16px;
     margin-top: 32px;
     margin-bottom: 24px;
@@ -335,32 +264,8 @@
 .social-paragraph-name {
     color: var(--cerulean600);
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 24px;
-
-}
-
-.social-anchor {
-    margin-top: 32px;
-    font-size: 24px;
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--graycool0);
-    background-color: var(--cerulean600);
-    padding-top: 24px;
-    padding-bottom: 24px;
-    border-radius: 8px;
-    transition-duration: 0.2s;
-}
-
-.social-anchor:hover {
-    background-color: var(--cerulean800);
-    box-shadow: 0px 0px 8px var(--cerulean800);
-    transition-duration: 0.2s;
 }
 
 @media only screen and (min-width: 600px) {
