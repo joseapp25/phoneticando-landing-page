@@ -17,10 +17,6 @@
     line-height: 48px;
 }
 
-/* - ↓ */
-
-/* - ↑ */
-
 
 /* SECTION-CONTAINER-PADDING ↓ */
 
@@ -44,6 +40,16 @@
 
 /* SECTION-CONTAINER-PADDING ↑ */
 
+
+
+
+
+
+
+
+
+
+
 /* BACKGROUNDS ↓ */
 
 .graycool-background {
@@ -60,16 +66,56 @@
 
 /* BACKGROUNDS ↑ */
 
+
+
+
+
+
+
+
+
+
 /* HEADING-ONE ↓ */
 
 .heading-one {
     font-size: 40px;
     line-height: 48px;
+    margin-bottom: 16px;
 }
 
 /* HEADING-ONE ↑ */
 
+
+
+
+
+
+
+
+
+
+/* PARAGRAPH STYLE ↓ */
+
+.paragraph-style {
+    font-size: 16px;
+    text-align: justify;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+
+/* PARAGRAPH STYLE ↑ */
+
+
+
+
+
+
+
+
+
+
+
 /* - ↓ */
 
 /* - ↑ */
-
