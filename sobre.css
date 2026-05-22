@@ -3,7 +3,7 @@
 .sobre-pic-section {
     margin-top: 48px;
     display: flex;
-    background-color: var(--cerulean500);
+    background-image: linear-gradient(to right, var(--cerulean700), var(--cerulean800));
     justify-content: right;
 }
 
@@ -42,7 +42,8 @@
 }
 
 .sobre-container {
-    max-width: 80vw;
+    padding-left: 24px;
+    padding-right: 24px;
     margin-left: auto;
     margin-right: auto;
 }
