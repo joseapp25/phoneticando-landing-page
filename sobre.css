@@ -2,9 +2,12 @@
 
 .sobre-pic-section {
     margin-top: 48px;
+    margin-bottom: 32px;
     display: flex;
     background-image: linear-gradient(to right, var(--cerulean700), var(--cerulean800));
-    justify-content: right;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -14,18 +17,20 @@
 
 }
 
-.sobre-caption {
-    font-size: 12px;
-    line-height: 16px;
-    text-align: center;
-    margin-top: 8px;
-    margin-bottom: 24px;
-    font-weight: 100;
+.sobre-title-none {
+    display: none;
+    color: var(--sunset500);
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    letter-spacing: -2px;
 }
 
-.sobre-caption-highlight {
-    color: var(--cerulean600);
-    font-weight: 600;
+@media only screen and (min-width: 600px) {
+    .sobre-title-none {
+        display: flex;
+    }
+
 }
 
 .sobre-title {
