@@ -3,7 +3,7 @@
 .headline-poster {
     position: relative;
     margin-top: 80px;
-    border-radius: 10px;
+    border-radius: 8px;
     background-image: linear-gradient(100deg, var(--cerulean200), var(--cerulean300));
     box-shadow: 0px 0px 8px var(--cerulean300);
 }
@@ -16,7 +16,7 @@
 
 .headline-poster-invisible-element {
     display: flex;
-    padding: 104px;
+    padding: 88px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -37,19 +37,6 @@
 
 
 /* HEADLINE SECTION ↓ */
-
-.headline-section {
-    padding-bottom: 80px;
-    padding-top: 64px;
-}
-
-.headline-section-content {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
-}
 
 .headline-title {
     margin-top: 40px;
@@ -87,15 +74,7 @@
 
 
 
-
-
 /* HERO SECTION ↓ */
-
-.hero-section {
-    background-color: var(--cerulean100);
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
 
 .hero-banner {
     display: block;
@@ -113,14 +92,6 @@
         max-width: 320px;
         max-height: 320px;
     }
-}
-
-.hero-section-content {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
 }
 
 .hero-title {
@@ -162,23 +133,10 @@
 
 /* BENEFITS-SECTION ↓ */
 
-.benefits-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
-
 .benefits-section-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-.benefits-section-content {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
 }
 
 .benefits-cards {
@@ -236,18 +194,6 @@
 
 /* SOCIAL SECTION ↓ */
 
-.social-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
-
-.social-section-content {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
-}
 
 .social-title {
     margin-bottom: 32px;

@@ -1,0 +1,122 @@
+/* PIC SECTION ↓ */
+
+.section-pic {
+    margin-top: 80px;
+}
+
+.section-pic img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+    box-shadow: 0px 0px 8px var(--graycool800);
+    border-radius: 999px;
+    width: 188px;
+    height: 188px;
+}
+
+.section-title-text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.social-name h1 {
+    font-weight: 500;
+    font-size: 32px;
+}
+
+.social-name h2 {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--cerulean600);
+}
+
+.social-name a {
+    text-decoration: none;
+    color: var(--graycool800);
+    transition-duration: 0.2s;
+}
+
+.social-name a:hover {
+    color: var(--cerulean600);
+    transition-duration: 0.2s;
+}
+
+.section-anchor {
+    padding-bottom: 64px;
+}
+
+.section-anchor-container {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* PIC SECTION ↑ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MAIN ANCHOR STYLE ↓ */
+
+.main-anchor {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    margin-left: 24px;
+    margin-right: 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    background-color: var(--cerulean50);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--graycool800);
+    fill: var(--cerulean600);
+    transition-duration: 0.2s;
+}
+
+.main-anchor:hover {
+    box-shadow: 0px 0px 8px var(--cerulean600);
+    background-color: var(--cerulean600);
+    color: var(--graycool50);
+    fill: var(--sunset400);
+    font-weight: 600;
+    transition-duration: 0.2s;
+}
+
+.main-anchor-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.heading-two {
+    margin-top: 48px;
+    margin-bottom: 16px;
+    font-size: 1.1em;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* MAIN ANCHOR STYLE ↑ */
