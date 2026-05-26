@@ -54,7 +54,6 @@
 
 html, body {
     color: var(--graycool800);
-    background-color: white;
     font-family: var(--font-grotesk);
     scroll-behavior: smooth;
 }
