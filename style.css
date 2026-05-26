@@ -102,6 +102,80 @@ html, body {
 
 
 
+/* LISTS ↓ */
+
+.lists-style {
+    list-style-position: inside;
+}
+
+/* LISTS ↑ */
+
+
+
+
+
+
+
+
+
+
+/* HIGHLIGHT TEXT ↓ */
+
+.cerulean-highlight {
+    color: var(--cerulean600);
+    font-weight: 600;
+}
+
+
+.sunset-highlight {
+    color: var(--sunset600);
+    font-weight: 600;
+}
+
+.graycool-highlight {
+    color: var(--graycool800);
+    font-weight: 600;
+}
+
+
+/* HIGHLIGHT TEXT ↑ */
+
+
+
+
+
+
+
+
+
+
+/* IN-LINE ANCHOR ↓ */
+
+.in-line-anchor {
+    text-decoration: none;
+    color: var(--sunset600);
+    fill: var(--sunset600);
+    transition-duration: 0.2s;
+    font-weight: 600;
+}
+
+.in-line-anchor:hover {
+    color: var(--sunset300);
+    fill: var(--sunset300);
+    transition-duration: 0.2s;
+}
+
+/* IN-LINE ANCHOR ↑ */
+
+
+
+
+
+
+
+
+
+
 /* BACKGROUNDS ↓ */
 
 .graycool-background {
