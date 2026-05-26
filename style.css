@@ -157,12 +157,20 @@ html, body {
     fill: var(--sunset600);
     transition-duration: 0.2s;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .in-line-anchor:hover {
     color: var(--sunset300);
     fill: var(--sunset300);
     transition-duration: 0.2s;
+}
+
+.in-line-anchor svg {
+    width: 16px;
+    height: 16px;
 }
 
 /* IN-LINE ANCHOR ↑ */
@@ -239,11 +247,16 @@ html, body {
     padding-right: 8px;
 }
 
-
 .faq-body { 
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.6s ease;
+}
+
+.faq-p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 8px;
 }
 
 .faq-item.open .faq-body {
