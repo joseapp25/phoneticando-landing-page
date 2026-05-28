@@ -72,8 +72,8 @@ html, body {
 /* SECTION STYLE ↓ */
 
 .section-container-padding {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 64px;
+    padding-bottom: 64px;
 }
 
 .section-content {

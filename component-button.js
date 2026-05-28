@@ -9,9 +9,9 @@ class ComponentButton extends HTMLElement{
             <style>
 
                 .button-anchor {
-                    max-width: 320px;
+                    max-width: 400px;
                     margin-top: 32px;
-                    font-size: 24px;
+                    font-size: 32px;
                     display: flex;
                     gap: 8px;
                     justify-content: center;
@@ -38,7 +38,7 @@ class ComponentButton extends HTMLElement{
 
                 @media only screen and (min-width: 600px) {
                     .button-anchor {
-                        max-width: 320px;
+                        max-width: 400px;
                     }
                 }
 
