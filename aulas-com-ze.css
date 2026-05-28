@@ -47,18 +47,6 @@
     margin-bottom: 8px;
 }
 
-@media only screen and (min-width: 600px) {
-    .headline-section-content {
-        max-width: 600px;
-    }
-}
-
-@media only screen and (min-width: 600px) {
-    .headline-anchor {
-        max-width: 360px;
-    }
-}
-
 /* HEADLINE SECTION ↑ */
 
 
@@ -83,8 +71,8 @@
 
 @media only screen and (max-width: 600px) {
     .hero-banner {
-        max-width: 320px;
-        max-height: 320px;
+        max-width: 400px;
+        max-height: 400px;
     }
 }
 

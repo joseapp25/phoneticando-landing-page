@@ -9,9 +9,9 @@ class ComponentButton extends HTMLElement{
             <style>
 
                 .button-anchor {
-                    max-width: 400px;
+                    max-width: 364px;
                     margin-top: 32px;
-                    font-size: 32px;
+                    font-size: 24px;
                     display: flex;
                     gap: 8px;
                     justify-content: center;
