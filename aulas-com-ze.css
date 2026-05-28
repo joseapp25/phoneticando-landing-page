@@ -66,15 +66,16 @@
 }
 
 .benefits-cards {
+    background-color: var(--graycool0);
     display: flex;
     align-items: center;
     gap: 16px;
     padding: 16px;
     margin-top: 16px;
     margin-bottom: 16px;
-    border: 4px solid var(--cerulean50);
+    border: 4px solid var(--cerulean300);
     border-radius: 8px;
-    box-shadow: 0px 0px 4px var(--cerulean50);
+    box-shadow: 0px 0px 4px var(--cerulean300);
 }
 
 .benefits-cards-img {
@@ -99,15 +100,54 @@
 
 
 
+/* TRANSFORMATION-SECTION ↓ */
+
+.transformation-cards {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.transformation-cards-img {
+    display: flex;
+}
+
+.transformation-heading-two {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.transformation-paragraph {
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 24px;
+    font-weight: 200;
+}
+
+/* TRANSFORMATION-SECTION ↑ */
+
+
+
+
+
+
+
+
+
+
 /* SOCIAL SECTION ↓ */
 
 .social-quote-container {
-    border-left: 4px solid var(--cerulean200);
-    box-shadow: 0px 0px 8px var(--cerulean100);
+    border-left: 4px solid var(--cerulean600);
+    box-shadow: 0px 0px 8px var(--cerulean300);
     padding: 16px;
     margin-bottom: 32px;
     border-radius: 4px;
-    background-color: white;
+    background-color: var(--graycool0);
 }
 
 .social-paragraph {
