@@ -38,7 +38,7 @@ class ComponentButton extends HTMLElement{
 
                 @media only screen and (min-width: 600px) {
                     .button-anchor {
-                        max-width: 400px;
+                        max-width: 384px;
                     }
                 }
 

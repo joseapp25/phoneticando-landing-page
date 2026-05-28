@@ -71,8 +71,8 @@
 
 @media only screen and (max-width: 600px) {
     .hero-banner {
-        max-width: 400px;
-        max-height: 400px;
+        max-width: 384px;
+        max-height: 384px;
     }
 }
 
