@@ -144,7 +144,7 @@
     flex-direction: column;
     border-left: 8px solid var(--sunset600);
     padding: 16px;
-    margin-bottom: 32px;
+    margin: 8px;
     border-radius: 4px;
     background-color: var(--graycool0);
     box-shadow: 0px 0px 8px var(--graycool0);
