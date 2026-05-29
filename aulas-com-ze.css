@@ -84,7 +84,6 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
-    font-weight: 500;
 }
 
 /* BENEFITS-SECTION ↑ */
@@ -122,12 +121,14 @@
     align-items: center;
     justify-content: center;
     gap: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
 
 .transformation-arrow {
     width: 40px;
     height: 40px;
-    fill: var(--graycool600);
+    fill: var(--graycool700);
 }
 
 .transformation-cards-img {
@@ -136,9 +137,8 @@
 
 .transformation-paragraph {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 24px;
-    font-weight: 200;
 }
 
 /* TRANSFORMATION-SECTION ↑ */
