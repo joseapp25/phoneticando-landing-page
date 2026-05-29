@@ -23,16 +23,23 @@ class ComponentButton extends HTMLElement{
                     font-weight: bold;
                     color: var(--graycool0);
                     fill: var(--graycool0);
-                    background-color: var(--cerulean600);
+                    background-color: var(--sunset600);
                     padding-top: 24px;
                     padding-bottom: 24px;
                     border-radius: 8px;
                     transition-duration: 0.2s;
+                    box-shadow: 0px 0px 8px var(--sunset600);
                 }
 
                 .button-anchor:hover {
-                    background-color: var(--cerulean800);
-                    box-shadow: 0px 0px 8px var(--cerulean800);
+                    background-color: var(--cerulean600);
+                    box-shadow: 0px 0px 8px var(--cerulean600);
+                    transition-duration: 0.2s;
+                }
+
+                .button-anchor:active {
+                    background-color: var(--cerulean400);
+                    box-shadow: 0px 0px 8px var(--cerulean400);
                     transition-duration: 0.2s;
                 }
 

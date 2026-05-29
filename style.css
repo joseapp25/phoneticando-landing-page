@@ -186,12 +186,20 @@ html, body {
 
 /* BACKGROUNDS ↓ */
 
-.graycool-background {
-    background-color: var(--graycool100);
+.graycool-title {
+    color: var(--graycool0);
+}
+
+.dark-graycool-background {
+    background-color: var(--graycool1000);
 }
 
 .cerulean-background {
     background-color: var(--cerulean100);
+}
+
+.dark-cerulean-background {
+    background-color: var(--cerulean1000);
 }
 
 .sunset-background {
