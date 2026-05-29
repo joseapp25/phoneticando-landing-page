@@ -139,6 +139,22 @@
 
 /* SOCIAL SECTION ↓ */
 
+.social-section-content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.social-title-style {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 16px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
 .social-quote-container {
     display: flex;
     flex-direction: column;
@@ -152,7 +168,6 @@
 
 .social-paragraph {
     font-style: italic;
-    text-align: justify;
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 8px;
@@ -175,6 +190,7 @@
 
 .social-carousel-inner {
     display: flex;
+    align-items: center;
     gap: 16px;
     animation: spin 32s infinite linear;
 }
