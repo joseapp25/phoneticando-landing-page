@@ -196,7 +196,7 @@
 }
 
 .social-carousel-card {
-    flex: 0 0 24em;
+    flex: 0 0 16em;
 }
 
 @keyframes spin {
