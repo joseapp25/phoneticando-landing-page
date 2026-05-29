@@ -60,7 +60,7 @@ class ComponentButton extends HTMLElement{
 
             <a href="https://wa.me/5521999828080" target="_blank" class="button-anchor">
 
-                    Conversar com Zé
+                    CONVERSAR COM ZÉ
 
                     <svg class="button-icon" viewBox="0 0 1024 1024">
 
