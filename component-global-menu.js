@@ -58,24 +58,26 @@ class ComponentGlobalMenu extends HTMLElement{
                     fill: var(--sunset600);
                 }
 
-                .hamburger-menu {
+                .hamburger-menu-icon {
                     width: 24px;
                     height: 24px;
                 }
 
-                .hamburger-menu-container {
-                    display: flex;
-                    gap: 4px;
-                    fill: var(--cerulean600);
-                    justify-content: center;
-                    align-items: center;
-                    text-decoration: none;
-                    transition-duration: 0.2s;
+                .hamburger-menu-button {
+                    background: none;
+                    border: none;
+                    padding: 0;
                     cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition-duration: 0.2s;
+                    fill: var(--cerulean600);
                 }
 
-                .hamburger-menu-container:hover {
+                .hamburger-menu-button:hover {
                     transition-duration: 0.2s;
+                    cursor: pointer;
                     fill: var(--sunset600);
                 }
                     
@@ -87,10 +89,10 @@ class ComponentGlobalMenu extends HTMLElement{
 
                         <a href="index.html" class="global-menu-logo-anchor">
 
-                                <svg class="global-menu-logo" viewBox="0 0 1024 1024">
-                                    <path d="M899.471 169.143V32L124.531 169.143H899.471Z"/>
-                                    <path d="M757.135 717.714L899.471 224H124.531V498.286H266.867L124.531 992H899.471V717.714H757.135Z"/>
-                                </svg>
+                            <svg class="global-menu-logo" viewBox="0 0 1024 1024">
+                                <path d="M899.471 169.143V32L124.531 169.143H899.471Z"/>
+                                <path d="M757.135 717.714L899.471 224H124.531V498.286H266.867L124.531 992H899.471V717.714H757.135Z"/>
+                            </svg>
 
                         </a>
 
@@ -100,26 +102,26 @@ class ComponentGlobalMenu extends HTMLElement{
                         
                         </div>
 
-                        <div class="hamburger-menu-container">
+                        <div>
 
-                            <svg class="hamburger-menu" viewBox="0 0 1024 1024">
-                                <path d="M853.334 341.333H170.667V256H853.334V341.333Z" />
-                                <path d="M853.334 554.667H170.667V469.333H853.334V554.667Z" />
-                                <path d="M170.667 768H853.334V682.667H170.667V768Z" />
-                            </svg>
+                            <button class="hamburger-menu-button">
+
+                                <svg class="hamburger-menu-icon" viewBox="0 0 1024 1024">
+                                    <path d="M853.334 341.333H170.667V256H853.334V341.333Z" />
+                                    <path d="M853.334 554.667H170.667V469.333H853.334V554.667Z" />
+                                    <path d="M170.667 768H853.334V682.667H170.667V768Z" />
+                                </svg>
+
+                            </button>
 
                         </div>
 
                 </div>
 
             </div>
-
-
-
- 
-
         `
     }
 }
 
 customElements.define('component-global-menu', ComponentGlobalMenu);
+
