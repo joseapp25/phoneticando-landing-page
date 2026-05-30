@@ -28,8 +28,7 @@ class ComponentButton extends HTMLElement{
                     padding-bottom: 24px;
                     border-radius: 8px;
                     transition-duration: 0.2s;
-                    box-shadow: 0px 0px 8px var(--graycool900);
-                    border: 4px solid var(--graycool900);
+                    border: 2px solid var(--graycool900);
                 }
 
                 .button-anchor:hover {
