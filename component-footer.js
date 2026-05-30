@@ -134,7 +134,7 @@ class ComponentFooter extends HTMLElement{
                     width: 16px;
                     fill: var(--cerulean600);
                 }
-                    
+
             </style>
 
             <div class="footer-style">
@@ -203,11 +203,11 @@ class ComponentFooter extends HTMLElement{
                         </svg>
                     </div>
                     <div class="footer-all-rights-reserved">
-                        <p>Zé Antonio — Phoneticando</p>
+                        <span>Copyright</span>
+                        <span>&#169;</span>
+                        <span>2026</span>
                         <span>|</span>
-                        <p>&#174;2026</p>
-                        <span>|</span>
-                        <p>All Rights Reserved</p>
+                        <p>Todos os Direitos Reservados</p>
                     </div>
                 </div>
             </div>
