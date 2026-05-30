@@ -21,16 +21,19 @@ class ComponentGlobalMenu extends HTMLElement{
 
                 .global-menu-container {
                     display: flex;
-                    justify-content: center;
+                    justify-content: space-between;
+                    align-items: center;
                     gap: 4px;
-                    width: 90vw;
+                    width: 100vw;
+                    padding-left: 24px;
+                    padding-right: 24px;
                     margin-left: auto;
                     margin-right: auto;
                 }
 
                 @media only screen and (min-width: 600px) {
                     .global-menu-container {
-                        max-width: 600px;
+                        max-width: 552px;
                     }
                 }
 
@@ -42,18 +45,38 @@ class ComponentGlobalMenu extends HTMLElement{
                 .global-menu-logo-anchor {
                     display: flex;
                     gap: 4px;
-                    color: var(--cerulean600);
                     fill: var(--cerulean600);
                     justify-content: center;
                     align-items: center;
                     text-decoration: none;
                     transition-duration: 0.2s;
+                    cursor: pointer;
                 }
 
                 .global-menu-logo-anchor:hover {
                     transition-duration: 0.2s;
-                    color: var(--cerulean400);
-                    fill: var(--cerulean400);
+                    fill: var(--sunset600);
+                }
+
+                .hamburger-menu {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .hamburger-menu-container {
+                    display: flex;
+                    gap: 4px;
+                    fill: var(--cerulean600);
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    transition-duration: 0.2s;
+                    cursor: pointer;
+                }
+
+                .hamburger-menu-container:hover {
+                    transition-duration: 0.2s;
+                    fill: var(--sunset600);
                 }
                     
             </style>
@@ -69,9 +92,23 @@ class ComponentGlobalMenu extends HTMLElement{
                                     <path d="M757.135 717.714L899.471 224H124.531V498.286H266.867L124.531 992H899.471V717.714H757.135Z"/>
                                 </svg>
 
-                                @phoneticando
-
                         </a>
+
+                        <div>
+
+                            @phoneticando
+                        
+                        </div>
+
+                        <div class="hamburger-menu-container">
+
+                            <svg class="hamburger-menu" viewBox="0 0 1024 1024">
+                                <path d="M853.334 341.333H170.667V256H853.334V341.333Z" />
+                                <path d="M853.334 554.667H170.667V469.333H853.334V554.667Z" />
+                                <path d="M170.667 768H853.334V682.667H170.667V768Z" />
+                            </svg>
+
+                        </div>
 
                 </div>
 

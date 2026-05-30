@@ -6,7 +6,8 @@ class ComponentFooter extends HTMLElement{
 
             <link rel="stylesheet" href="style.css">
 
-            <style scoped>
+            <style>
+
                 .footer-style {
                     display: flex;
                     flex-direction: column;
@@ -133,6 +134,7 @@ class ComponentFooter extends HTMLElement{
                     width: 16px;
                     fill: var(--cerulean600);
                 }
+                    
             </style>
 
             <div class="footer-style">
