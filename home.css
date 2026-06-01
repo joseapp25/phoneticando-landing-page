@@ -36,17 +36,6 @@
     color: var(--cerulean600);
 }
 
-.social-name a {
-    text-decoration: none;
-    color: var(--graycool800);
-    transition-duration: 0.2s;
-}
-
-.social-name a:hover {
-    color: var(--cerulean600);
-    transition-duration: 0.2s;
-}
-
 .section-anchor {
     padding-bottom: 64px;
 }
