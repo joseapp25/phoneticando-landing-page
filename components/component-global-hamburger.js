@@ -4,7 +4,7 @@ class ComponentGlobalHamburger extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
 
-            <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="styles/style.css">
 
             <style>
 
