@@ -100,18 +100,18 @@ class ComponentGlobalMenu extends HTMLElement{
                 }
 
                 .hamburger-menu-nav {
-                    background-color: var(--graycool100);
-                    box-shadow: 0px 0px 8px var(--graycool600);
-                    border-radius: 8px;
+                    height: -webkit-fill-available;
+                    width: 128px;
+                    background-color: white;
+                    box-shadow: 0px 0px 8px var(--graycool200);
                     padding: 16px;
                     position: fixed;
-                    right: 16px;
-                    top: 64px;
+                    top: 0;
+                    right: 0;
                 }
 
                 @media only screen and (min-width: 600px) {
                     .hamburger-menu-nav {
-                        right: 680px;
                     }
                 }
 

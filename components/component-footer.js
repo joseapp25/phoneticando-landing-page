@@ -1,8 +1,8 @@
 class ComponentFooter extends HTMLElement{
-    constructor(){
+    constructor() {
         super();
-        this.attachShadow({mode: 'open'})
-        this.shadowRoot.innerHTML=`
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.innerHTML = `
 
             <link rel="stylesheet" href="styles/style.css">
 

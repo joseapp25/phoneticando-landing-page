@@ -17,29 +17,6 @@
 
 }
 
-.sobre-title-none {
-    display: none;
-    color: var(--sunset500);
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 600;
-    letter-spacing: -2px;
-    text-shadow: 2px 2px 0px var(--graycool1000);
-}
-
-@media only screen and (min-width: 600px) {
-    .sobre-title-none {
-        display: flex;
-    }
-
-}
-
-.sobre-title {
-    font-size: 24px;
-    line-height: 32px;
-    margin-bottom: 16px;
-}
-
 .sobre-paragraph {
     font-size: 16px;
     line-height: 32px;
