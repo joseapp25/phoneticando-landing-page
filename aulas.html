@@ -14,24 +14,15 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/aulas.css">
     <script src="scripts/main.js"></script>
+    <script src="components/component-global-menu.js"></script>
+    <script src="components/component-button.js"></script>
+    <script src="components/component-footer.js"></script>
 </head>
 <body>
 
     <header>
 
-            <script src="components/component-global-bar.js"></script>
-            <script src="components/component-global-logo.js"></script>
-            <script src="components/component-global-text.js"></script>
-            <script src="components/component-global-hamburger.js"></script>
-
-
-            <component-global-bar>
-
-                <component-global-logo></component-global-logo>
-                <component-global-text></component-global-text>
-                <component-global-hamburger></component-global-hamburger>
-
-            </component-global-bar>               
+        <component-global-menu></component-global-menu>
 
     </header>
 
@@ -57,8 +48,6 @@
 
                 <component-button></component-button>
 
-                <script src="components/component-button.js"></script>
-
             </div>
 
         </section>
@@ -69,54 +58,49 @@
 
                 <h1 class="section-title-style">Por aqui, nós temos:</h1>
 
-                <div class="benefits-cards">
-                    <div class="benefits-cards-img">
-                        <img src="images/icons/online-lesson-icon.svg" alt="Aulas Online">
-                    </div>
-                    <div>
-                        <p class="benefits-paragraph">Aulas Online e Personalizadas</p>
-                    </div>
-                </div>
+                    <script src="components/component-benefits-card.js"></script>
 
-                <div class="benefits-cards">
-                    <div class="benefits-cards-img">
-                        <img src="images/icons/flexible-time-icon.svg" alt="Horário Flexível">
-                    </div>
-                    <div>
-                        <p class="benefits-paragraph">Horários Flexíveis</p>
-                    </div>
-                </div>
+                        <component-benefits-card>
 
-                <div class="benefits-cards">
-                    <div class="benefits-cards-img">
-                        <img src="images/icons/material-icon.svg" alt="Material Digital">
-                    </div>
-                    <div>
-                        <p class="benefits-paragraph">Material Digital</p>
-                    </div>
-                </div>
+                            <img slot="img" src="images/icons/online-lesson-icon.svg" alt="Aulas Online">
 
-                <div class="benefits-cards">
-                    <div class="benefits-cards-img">
-                        <img src="images/icons/emotional-support-icon.svg" alt="Suporte Emocional">
-                    </div>
-                    <div>
-                        <p class="benefits-paragraph">Incentivo Emocional e Prático</p>
-                    </div>
-                </div>
+                            <p slot="text">Aulas Online e Personalizadas</p>
 
-                <div class="benefits-cards">
-                    <div class="benefits-cards-img">
-                        <img src="images/icons/community-icon.svg" alt="Comunidade">
-                    </div>
-                    <div>
-                        <p class="benefits-paragraph">Acesso à Comunidade</p>
-                    </div>
-                </div>
+                        </component-benefits-card>
+
+                        <component-benefits-card>
+
+                            <img slot="img" src="images/icons/flexible-time-icon.svg" alt="Horários Flexíveis">
+
+                            <p slot="text">Horários Flexíveis</p>
+
+                        </component-benefits-card>
+
+                        <component-benefits-card>
+
+                            <img slot="img" src="images/icons/material-icon.svg" alt="Material Digital">
+
+                            <p slot="text">Material Digital</p>
+
+                        </component-benefits-card>
+
+                        <component-benefits-card>
+
+                            <img slot="img" src="images/icons/emotional-support-icon.svg" alt="Suporte Emocional">
+
+                            <p slot="text">Incentivo Emocional e Prático</p>
+
+                        </component-benefits-card>
+
+                        <component-benefits-card>
+
+                            <img slot="img" src="images/icons/community-icon.svg" alt="Comunidade">
+
+                            <p slot="text">Acesso à Comunidade</p>
+
+                        </component-benefits-card>
 
                 <component-button></component-button>
-
-                <script src="components/component-button.js"></script>
 
             </div>
             
@@ -229,8 +213,6 @@
                     </div>
 
                     <component-button></component-button>
-
-                    <script src="components/component-button.js"></script>
 
             </div>
         
@@ -353,8 +335,6 @@
             </div>
 
             <component-button></component-button>
-
-            <script src="components/component-button.js"></script>
 
         </section>
 
@@ -505,8 +485,6 @@
 
                 <component-button></component-button>
 
-                <script src="components/component-button.js"></script>
-
             </div>
 
         </section>
@@ -516,8 +494,6 @@
     <footer>
 
         <component-footer></component-footer>
-
-        <script src="components/component-footer.js"></script>
     
     </footer>
 
