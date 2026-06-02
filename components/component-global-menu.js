@@ -33,7 +33,7 @@ class ComponentGlobalMenu extends HTMLElement{
 
                 @media only screen and (min-width: 600px) {
                     .global-menu-container {
-                        max-width: 552px;
+                        
                     }
                 }
                     
@@ -100,15 +100,21 @@ class ComponentGlobalMenu extends HTMLElement{
                 }
 
                 .hamburger-menu-nav {
+                    transition: transform 0.3s ease;
                     height: -webkit-fill-available;
-                    width: 128px;
+                    width: 264px;
                     background-color: white;
                     box-shadow: 0px 0px 8px var(--graycool200);
                     padding: 16px;
                     position: fixed;
                     top: 0;
                     right: 0;
+                    transform: translateX(100%);
                 }
+
+                .hamburger-menu-nav.open {
+                    transform: translateX(0);
+                }                
 
                 @media only screen and (min-width: 600px) {
                     .hamburger-menu-nav {
@@ -118,10 +124,12 @@ class ComponentGlobalMenu extends HTMLElement{
                 .hamburger-menu-nav a {
                     text-decoration: none;
                     color: var(--cerulean600);
+                    box-shadow: 0px 0px 4px var(--cerulean100);
                     transition-duration: 0.2s;
                     padding: 4px 8px 4px 8px;
                     border-radius: 4px;
                     font-weight: 500;
+                    transition-duration: 0.2s;
                     
                 }
 
@@ -134,12 +142,41 @@ class ComponentGlobalMenu extends HTMLElement{
 
                 .hamburger-menu-nav a:active {
                     color: var(--sunset300);
+                    transition-duration: 0.2s;
                 }
 
                 .hamburger-menu-nav-container {
                     display: flex;
                     flex-direction: column;
-                    gap: 8px;
+                    gap: 16px;
+                    transition-duration: 0.2s;
+                }
+
+                .hamburger-menu-nav-container-title {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    font-size: 1.1em;
+                    font-weight: 900;
+                }
+
+                .hamburger-menu-close-button {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    fill: var(--cerulean600);
+                    align-self: flex-start;
+                    padding: 4px;
+                    transition-duration: 0.2s;
+                }
+
+                .hamburger-menu-close-button:hover {
+                    fill: var(--sunset600);
+                }
+                
+                .hamburger-menu-close-button-icon {
+                    width: 24px;
+                    height: 24px;
                 }
 
             </style>
@@ -156,7 +193,7 @@ class ComponentGlobalMenu extends HTMLElement{
                     </a>
 
                     <div>
-                        <span class="phoneticando-text">@phoneticando</span>
+                        <span class="phoneticando-text">Phoneticando | <slot></slot></span>
                     </div>
 
                     <button class="hamburger-menu-button" aria-label="Open menu" aria-expanded="false">
@@ -167,12 +204,22 @@ class ComponentGlobalMenu extends HTMLElement{
                         </svg>
                     </button>
 
-                    <nav class="hamburger-menu-nav" hidden>
+                    <nav class="hamburger-menu-nav">
                         <div class="hamburger-menu-nav-container">
-                            <a href="index.html" tabindex="_self">Início</a>
-                            <a href="trainer.html" tabindex="_self">Trainer</a>
-                            <a href="aulas.html" tabindex="_self">Aulas</a>
-                            <a href="sobre.html" tabindex="_self">Sobre</a>
+                            <div class="hamburger-menu-nav-container-title">
+                                <div>
+                                Menu
+                                </div>
+                                <button class="hamburger-menu-close-button" aria-label="Close menu">
+                                    <svg class="hamburger-menu-close-button-icon" viewBox="0 0 1024 1024">
+                                        <path d="M243.507 840.837L512.007 572.337L780.507 840.837L840.846 780.497L572.346 511.997L840.84 243.504L780.5 183.164L512.007 451.658L243.513 183.164L183.173 243.504L451.667 511.997L183.167 780.497L243.507 840.837Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <a href="index.html" target="_self">Início</a>
+                            <a href="trainer.html" target="_self">Trainer</a>
+                            <a href="aulas.html" target="_self">Aulas</a>
+                            <a href="sobre.html" target="_self">Sobre</a>
                         </div>
                     </nav>
 
@@ -181,38 +228,43 @@ class ComponentGlobalMenu extends HTMLElement{
             </div>
         `
     }
-    connectedCallback() {
-        this._button = this.shadowRoot.querySelector('.hamburger-menu-button');
-        this._nav = this.shadowRoot.querySelector('.hamburger-menu-nav');
 
-        this._button.addEventListener('click', () => this.handleToggle());
+connectedCallback() {
+    this._button = this.shadowRoot.querySelector('.hamburger-menu-button');
+    this._nav = this.shadowRoot.querySelector('.hamburger-menu-nav');
+    this._closeBtn = this.shadowRoot.querySelector('.hamburger-menu-close-button');
+
+    this._button.addEventListener('click', () => this.handleToggle());
+    this._closeBtn.addEventListener('click', () => this.handleToggle());  // ← add this
+}
+
+disconnectedCallback() {
+    this._button.removeEventListener('click', () => this.handleToggle());
+    this._closeBtn.removeEventListener('click', () => this.handleToggle());
+}
+
+handleToggle() {
+    const isOpen = this.getAttribute('open') !== null;
+
+    if (isOpen) {
+        this.removeAttribute('open');
+        this._nav.classList.remove('open');          // ← use class instead of hidden
+        this._button.setAttribute('aria-expanded', 'false');
+        this._button.setAttribute('aria-label', 'Open menu');
+    } else {
+        this.setAttribute('open', '');
+        this._nav.classList.add('open');             // ← use class instead of hidden
+        this._button.setAttribute('aria-expanded', 'true');
+        this._button.setAttribute('aria-label', 'Close menu');
     }
 
-    disconnectedCallback() {
-        this._button.removeEventListener('click', () => this.handleToggle());
-    }
+    this.dispatchEvent(new CustomEvent('menu-toggle', {
+        detail: { open: !isOpen },
+        bubbles: true,
+        composed: true
+    }));
+}
 
-    handleToggle() {
-        const isOpen = this.getAttribute('open') !== null;
-
-        if (isOpen) {
-            this.removeAttribute('open');
-            this._nav.setAttribute('hidden', '');
-            this._button.setAttribute('aria-expanded', 'false');
-            this._button.setAttribute('aria-label', 'Open menu');
-        } else {
-            this.setAttribute('open', '');
-            this._nav.removeAttribute('hidden');
-            this._button.setAttribute('aria-expanded', 'true');
-            this._button.setAttribute('aria-label', 'Close menu');
-        }
-
-        this.dispatchEvent(new CustomEvent('menu-toggle', {
-            detail: { open: !isOpen },
-            bubbles: true,
-            composed: true
-        }));
-    }
 }
 
 customElements.define('component-global-menu', ComponentGlobalMenu);
