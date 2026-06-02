@@ -100,16 +100,20 @@ class ComponentGlobalMenu extends HTMLElement{
                 }
 
                 .hamburger-menu-nav {
+                    overflow-y: auto;
                     transition: transform 0.3s ease;
                     height: -webkit-fill-available;
                     width: 264px;
                     background-color: white;
                     box-shadow: 0px 0px 8px var(--graycool200);
-                    padding: 16px;
                     position: fixed;
                     top: 0;
                     right: 0;
                     transform: translateX(100%);
+                }
+
+                .hamburger-menu-nav::-webkit-scrollbar {
+                    display: none;
                 }
 
                 .hamburger-menu-nav.open {
@@ -124,18 +128,16 @@ class ComponentGlobalMenu extends HTMLElement{
                 .hamburger-menu-nav a {
                     text-decoration: none;
                     color: var(--cerulean600);
-                    box-shadow: 0px 0px 4px var(--cerulean100);
                     transition-duration: 0.2s;
                     padding: 4px 8px 4px 8px;
-                    border-radius: 4px;
                     font-weight: 500;
+                    padding: 16px;
                     transition-duration: 0.2s;
                     
                 }
 
                 .hamburger-menu-nav a:hover {
                     background-color: var(--cerulean600);
-                    box-shadow: 0px 0px 8px var(--cerulean600);
                     color: var(--graycool0);
                     transition-duration: 0.2s;
                 }
@@ -148,16 +150,20 @@ class ComponentGlobalMenu extends HTMLElement{
                 .hamburger-menu-nav-container {
                     display: flex;
                     flex-direction: column;
-                    gap: 16px;
                     transition-duration: 0.2s;
                 }
 
                 .hamburger-menu-nav-container-title {
                     display: flex;
+                    top: 0;
                     align-items: center;
                     justify-content: space-between;
-                    font-size: 1.1em;
+                    font-size: 16px;
                     font-weight: 900;
+                    height: 48px;
+                    padding-left: 16px;
+                    padding-right: 16px;
+                    background-color: var(--cerulean50);
                 }
 
                 .hamburger-menu-close-button {
@@ -165,8 +171,6 @@ class ComponentGlobalMenu extends HTMLElement{
                     border: none;
                     cursor: pointer;
                     fill: var(--cerulean600);
-                    align-self: flex-start;
-                    padding: 4px;
                     transition-duration: 0.2s;
                 }
 
@@ -205,22 +209,21 @@ class ComponentGlobalMenu extends HTMLElement{
                     </button>
 
                     <nav class="hamburger-menu-nav">
-                        <div class="hamburger-menu-nav-container">
-                            <div class="hamburger-menu-nav-container-title">
-                                <div>
-                                Menu
-                                </div>
-                                <button class="hamburger-menu-close-button" aria-label="Close menu">
-                                    <svg class="hamburger-menu-close-button-icon" viewBox="0 0 1024 1024">
-                                        <path d="M243.507 840.837L512.007 572.337L780.507 840.837L840.846 780.497L572.346 511.997L840.84 243.504L780.5 183.164L512.007 451.658L243.513 183.164L183.173 243.504L451.667 511.997L183.167 780.497L243.507 840.837Z" />
-                                    </svg>
-                                </button>
-                            </div>
+                    <div class="hamburger-menu-nav-container-title">
+                        <div>Phoneticando</div>
+                        <button class="hamburger-menu-close-button" aria-label="Close menu">
+                            <svg class="hamburger-menu-close-button-icon" viewBox="0 0 1024 1024">
+                                <path d="M243.507 840.837L512.007 572.337L780.507 840.837L840.846 780.497L572.346 511.997L840.84 243.504L780.5 183.164L512.007 451.658L243.513 183.164L183.173 243.504L451.667 511.997L183.167 780.497L243.507 840.837Z" />
+                            </svg>
+                        </button>
+                    </div>
+                        <div class="hamburger-menu-nav-container">    
                             <a href="index.html" target="_self">Início</a>
                             <a href="trainer.html" target="_self">Trainer</a>
                             <a href="aulas.html" target="_self">Aulas</a>
                             <a href="sobre.html" target="_self">Sobre</a>
                         </div>
+
                     </nav>
 
                 </div>
