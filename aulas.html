@@ -16,7 +16,10 @@
     <script src="scripts/main.js"></script>
     <script src="components/component-global-menu.js"></script>
     <script src="components/component-page-title.js"></script>
+    <script src="components/component-benefits-card.js"></script>
     <script src="components/component-button.js"></script>
+    <script src="components/component-faq-card.js"></script>
+    <script src="components/component-inline-anchor.js"></script>
     <script src="components/component-footer.js"></script>
 </head>
 <body>
@@ -60,8 +63,6 @@
             <div class="section-content">
 
                 <h1 class="section-title-style">Por aqui, nós temos:</h1>
-
-                    <script src="components/component-benefits-card.js"></script>
 
                         <component-benefits-card>
 
@@ -347,144 +348,68 @@
 
                 <h1 class="section-title-style">Perguntas Frequentes</h1>
 
-                <div class="faq-item" id="q1">
-                        <div class="faq-q" onclick="toggle('q1')" role="button" aria-expanded="false">
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 1024 1024">
-                                    <path d="M225.833 383.997L286.166 323.664L512 549.497L737.833 323.664L798.166 383.997L512 670.164L225.833 383.997Z"/>
-                                </svg>
-                            </div>
-                            <span>As aulas são online?</span>
+                    <component-faq-card>
+                        <div slot="question">
+                            As aulas são online?
                         </div>
-                        <div class="faq-body">
-                            <div class="faq-body-inner">
-                                <p class="faq-p">Sim, as aulas são totalmente online.</p>
-                            </div>
+                        <div slot="answer">
+                            Sim, as aulas são totalmente online.
                         </div>
-                    </div>
+                    </component-faq-card>
 
-                    <div class="faq-item" id="q2">
-                        <div class="faq-q" onclick="toggle('q2')" role="button" aria-expanded="false">
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 1024 1024">
-                                    <path d="M225.833 383.997L286.166 323.664L512 549.497L737.833 323.664L798.166 383.997L512 670.164L225.833 383.997Z"/>
-                                </svg>
-                            </div>
-                            <span>Qual plataforma de é usada nas aulas?</span>
+                    <component-faq-card>
+                        <div slot="question">
+                            Qual plataforma é usada nas aulas?
                         </div>
-                        <div class="faq-body">
-                            <div class="faq-body-inner">
+                        <div slot="answer">
 
-                                <p class="faq-p">As aulas podem ser realizadas pelo
+                                Tanto
+                                <inline-anchor href="https://meet.google.com" target="_blank">Meet</inline-anchor>
+                                quanto
+                                <inline-anchor href="https://www.zoom.com" target="_blank">Zoom</inline-anchor>
+                                são alternativas de plataforma.
+
+                        </div>
+                    </component-faq-card>
+                    
+                    <component-faq-card>
+                        <div slot="question">
+                            Qual é a duração de uma aula?
+                        </div>
+                        <div slot="answer">
+
+                            As opções de duração de aulas são de <span class="sunset-highlight">30 minutos</span> ou de <span class="sunset-highlight">45 minutos</span>.
+                            
+                        </div>
+                    </component-faq-card>
+
+                    <component-faq-card>
+                        <div slot="question">
+                            Qual é o método das aulas?
+                        </div>
+                        <div slot="answer">
+
+                            Cada pessoa possui suas próprias <span class="sunset-highlight">necessidades</span> e <span class="sunset-highlight">objetivos</span>
                                 
-                                    <a class="in-line-anchor" href="https://meet.google.com" target="_blank">
-                                        <svg viewBox="0 0 1024 1024">
-                                            <path d="M384 170.67H170.667V853.336H853.333V640.003H938.667V938.67H85.333V85.3359H384V170.67ZM938.667 512.003H853.333V231.016L414.173 670.176L353.833 609.836L792.999 170.67H512V85.3359H938.667V512.003Z" />
-                                        </svg>
-                                        Meet
-                                    </a>
-                                    ou
-                                    <a class="in-line-anchor" href="https://www.zoom.com/" target="_blank">
-                                        <svg viewBox="0 0 1024 1024">
-                                            <path d="M384 170.67H170.667V853.336H853.333V640.003H938.667V938.67H85.333V85.3359H384V170.67ZM938.667 512.003H853.333V231.016L414.173 670.176L353.833 609.836L792.999 170.67H512V85.3359H938.667V512.003Z" />
-                                        </svg>
-                                        Zoom
-                                    </a>.
-                                </p>
-
-                            </div>
+                            Logo, os métodos são <span class="sunset-highlight">adaptados para atender as necessidades</span> de cada pessoa.
+                            
                         </div>
-                    </div>
+                    </component-faq-card>
 
-                    <div class="faq-item" id="q3">
-                        <div class="faq-q" onclick="toggle('q3')" role="button" aria-expanded="false">
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 1024 1024">
-                                    <path d="M225.833 383.997L286.166 323.664L512 549.497L737.833 323.664L798.166 383.997L512 670.164L225.833 383.997Z"/>
-                                </svg>
-                            </div>
-                            <span>Qual é a duração de uma aula?</span>
+                    <component-faq-card>
+                        <div slot="question">
+                            Qual a frequência semanal recomendada?
                         </div>
-                        <div class="faq-body">
-                            <div class="faq-body-inner">
-                                <p class="faq-p">As opções de duração de cada aula são:</p>
-                                <ul class="lists-style">
-                                    <li>
-                                        Aulas de <span class="sunset-highlight">30 minutos</span>
-                                    </li>
-                                    <li>
-                                        Aulas de <span class="sunset-highlight">45 minutos</span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div slot="answer">
+
+                            <div>Quanto mais estamos em contato com um idioma, melhor. Porém, essa não é a realidade da maioria das pessoas.</div>
+
+                            <div>Logo, a recomendação é que <span class="sunset-highlight">todos tenham uma rotina de estudos semanais</span></div>
+
+                            <div>E <span class="sunset-highlight">cada aula seja o momento para praticar</span> e tirar dúvidas que surgirem durante os estudos.</div>
+                            
                         </div>
-                    </div>
-
-                    <div class="faq-item" id="q4">
-                        <div class="faq-q" onclick="toggle('q4')" role="button" aria-expanded="false">
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 1024 1024">
-                                    <path d="M225.833 383.997L286.166 323.664L512 549.497L737.833 323.664L798.166 383.997L512 670.164L225.833 383.997Z"/>
-                                </svg>
-                            </div>
-                            <span>Qual é o método das aulas?</span>
-                        </div>
-                        <div class="faq-body">
-                            <div class="faq-body-inner">
-
-                                <p class="faq-p">Cada pessoa possui suas próprias <span class="sunset-highlight">necessidades</span> e <span class="sunset-highlight">objetivos</span>.</p>
-                                
-                                <p class="faq-p">Logo, os métodos são <span class="sunset-highlight">adaptados para atender as necessidades</span> de cada pessoa.</p>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" id="q5">
-                        <div class="faq-q" onclick="toggle('q5')" role="button" aria-expanded="false">
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 1024 1024">
-                                    <path d="M225.833 383.997L286.166 323.664L512 549.497L737.833 323.664L798.166 383.997L512 670.164L225.833 383.997Z"/>
-                                </svg>
-                            </div>
-                            <span>Qual a frequência semanal recomendada?</span>
-                        </div>
-                        <div class="faq-body">
-                            <div class="faq-body-inner">
-
-                                <p class="faq-p">Quanto mais estamos em contato com um idioma, melhor. Porém, essa não é a realidade da maioria das pessoas.</p>
-
-                                <p class="faq-p">Logo, a recomendação é que <span class="sunset-highlight">todos tenham uma rotina de estudos semanais</span>.</p>
-
-                                <p class="faq-p">E <span class="sunset-highlight">cada aula seja o momento para praticar</span> e tirar dúvidas que surgirem durante os estudos.</p></div>
-
-                        </div>
-                    </div>
-
-                    <div class="faq-item" id="q6">
-                        <div class="faq-q" onclick="toggle('q6')" role="button" aria-expanded="false">
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 1024 1024">
-                                    <path d="M225.833 383.997L286.166 323.664L512 549.497L737.833 323.664L798.166 383.997L512 670.164L225.833 383.997Z"/>
-                                </svg>
-                            </div>
-                            <span>Quem é Zé Antonio?</span>
-                        </div>
-                        <div class="faq-body">
-                            <div class="faq-body-inner">
-                                Acesse
-                                <a class="in-line-anchor" href="sobre.html" target="_self">
-                                        <svg viewBox="0 0 1024 1024">
-                                            <path d="M780.5 243.504C726.47 189.474 638.87 189.474 584.84 243.504L499.506 328.838L439.167 268.498L524.5 183.164C611.855 95.8096 753.485 95.8098 840.84 183.165C928.195 270.519 928.195 412.15 840.84 499.504L755.506 584.838L695.167 524.498L780.5 439.165C834.53 385.135 834.53 297.534 780.5 243.504Z" />
-                                            <path d="M712.84 371.509L371.506 712.842L311.167 652.503L652.5 311.169L712.84 371.509Z" />
-                                            <path d="M467.605 771.021C408.338 830.288 312.248 830.288 252.982 771.022C193.715 711.755 193.715 615.665 252.982 556.398L352.537 456.843L292.197 396.503L192.642 496.059C100.05 588.65 100.05 738.77 192.642 831.361C285.233 923.953 435.353 923.952 527.945 831.361L627.5 731.806L567.16 671.466L467.605 771.021Z" />
-                                        </svg>
-                                        Sobre
-                                    </a>
-                                e saiba mais.
-                            </div>
-                        </div>
-                    </div>
+                    </component-faq-card>
 
                 <component-button></component-button>
 

@@ -167,6 +167,7 @@ class ComponentGlobalMenu extends HTMLElement{
                 }
 
                 .hamburger-menu-close-button {
+                    display: flex;
                     background: none;
                     border: none;
                     cursor: pointer;
