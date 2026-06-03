@@ -15,6 +15,7 @@ class ComponentPageTitle extends HTMLElement{
                     font-weight: 600;
                     letter-spacing: -2px;
                     text-shadow: 2px 2px 0px var(--graycool1000);
+                    font-family: var(--font-dm-sans);
                 }
 
             </style>
