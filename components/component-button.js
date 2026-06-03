@@ -12,6 +12,7 @@ class ComponentButton extends HTMLElement{
                     max-width: 320px;
                     margin-top: 32px;
                     font-size: 24px;
+                    font-family: var(--font-inter-tight);
                     display: flex;
                     gap: 8px;
                     justify-content: center;
