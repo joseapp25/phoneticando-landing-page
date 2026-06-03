@@ -409,11 +409,31 @@
   <script>
     // ── Data ──────────────────────────────────────────────────────
     const CARDS = [
-      { q: "What is spaced repetition?",         a: "Reviewing material at increasing intervals to boost long-term retention." },
-      { q: "What does the forgetting curve show?", a: "Memory decays exponentially over time without review." },
-      { q: "What is active recall?",              a: "Retrieving information from memory instead of passively re-reading." },
-      { q: "Why is interleaving effective?",      a: "Mixing topics forces the brain to discriminate, strengthening memory." },
-      { q: "What is the spacing effect?",         a: "Learning is more durable when study sessions are spread over time." },
+      { 
+        q: "What is spaced repetition?",
+        a: "Reviewing material at increasing intervals to boost long-term retention.",
+        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+      },
+      { 
+        q: "What does the forgetting curve show?",
+        a: "Memory decays exponentially over time without review.",
+        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1" 
+      },
+      { 
+        q: "What is active recall?",
+        a: "Retrieving information from memory instead of passively re-reading.",
+        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1" 
+      },
+      { 
+        q: "Why is interleaving effective?",
+        a: "Mixing topics forces the brain to discriminate, strengthening memory.",
+        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+      },
+      { 
+        q: "What is the spacing effect?",       
+        a: "Learning is more durable when study sessions are spread over time.",
+        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+      },
     ];
 
     // Minimal SM-2-inspired intervals (days)
@@ -464,7 +484,7 @@
         <div class="flashcard-player-main">
 
           <!-- Audio button (decorative in demo) -->
-          <button class="play-audio-button-top" onclick="playAudio()">
+          <button class="play-audio-button-top" onclick="playAudio('${current.url}')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
@@ -587,12 +607,14 @@
       render();
     }
 
-    function playAudio() {
+    function playAudio(url) {
       // Decorative in demo — show a brief visual pulse
       const btn = document.querySelector('.play-audio-button-top');
       if (!btn) return;
       btn.style.background = 'var(--cerulean50)';
-      setTimeout(() => btn.style.background = '#ffffff', 300);
+      const audio = new Audio(url);
+      audio.addEventListener('ended', () => { btn.style.background = '#ffffff'});
+      audio.play();
     }
 
     // ── Boot ──────────────────────────────────────────────────────
