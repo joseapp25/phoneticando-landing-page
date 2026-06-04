@@ -68,7 +68,7 @@ class ComponentGlobalMenu extends HTMLElement{
             
                 .phoneticando-text {
                     font-size: 16px;
-                    font-weight: 400;
+                    font-weight: 300;
                     color: var(--cerulean700);
                 }
 
@@ -159,7 +159,6 @@ class ComponentGlobalMenu extends HTMLElement{
                     align-items: center;
                     justify-content: space-between;
                     font-size: 16px;
-                    font-weight: 900;
                     height: 48px;
                     padding-left: 16px;
                     padding-right: 16px;
