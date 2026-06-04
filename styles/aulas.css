@@ -1,21 +1,6 @@
 /* AULAS POSTER ↓ */
 
-.aulas-poster {
-    margin-top: 48px;
-    background-image: linear-gradient(to right, var(--cerulean700), var(--cerulean800));
-    display: flex;
-    justify-content: space-between;
-    padding-left: 24px;
-    align-items: center;
-}
 
-@media only screen and (min-width: 600px) {
-    .aulas-poster {
-        justify-content: center;
-        gap: 64px;
-    }
-
-}
 
 .aulas-paragraph {
     font-size: 16px;

@@ -52,10 +52,10 @@
     --sunset900: #5C300A;
     --sunset1000: #371D06;
 
-    --font-noto: "Noto Serif", serif;
-    --font-grotesk: "Space Grotesk", sans-serif;
-    --font-dm-sans: "DM Sans", sans-serif;
     --font-inter-tight: "Inter Tight", sans-serif;
+    --font-dm-sans: "DM Sans", sans-serif;
+    --font-grotesk: "Space Grotesk", sans-serif;
+    --font-noto: "Noto Serif", serif;
     
 }
 
@@ -72,6 +72,25 @@ html, body {
 
 
 
+
+
+
+.header-poster-section {
+    margin-top: 48px;
+    background-image: linear-gradient(to right, var(--cerulean900), var(--cerulean1000));
+    display: flex;
+    justify-content: space-between;
+    padding-left: 24px;
+    align-items: center;
+}
+
+@media only screen and (min-width: 600px) {
+    .header-poster-section {
+        justify-content: center;
+        gap: 64px;
+    }
+
+}
 
 
 

@@ -29,7 +29,7 @@
     margin-top: 48px;
     margin-bottom: 32px;
     display: flex;
-    background-image: linear-gradient(to right, var(--cerulean700), var(--cerulean800));
+    background-image: linear-gradient(to right, var(--cerulean900), var(--cerulean1000));
     justify-content: center;
     align-items: center;
     gap: 32px;

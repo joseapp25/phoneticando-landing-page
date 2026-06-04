@@ -89,7 +89,7 @@
     font-size: 16px;
     color: var(--graycool800);
     fill: var(--cerulean600);
-    box-shadow: 0px 0px 4px var(--cerulean300);
+    box-shadow: 0px 0px 4px var(--graycool200);
     transition-duration: 0.2s;
 }
 

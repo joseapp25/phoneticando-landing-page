@@ -21,7 +21,7 @@ class ComponentButton extends HTMLElement{
                     margin-left: auto;
                     margin-right: auto;
                     text-decoration: none;
-                    font-weight: bold;
+                    font-weight: 600;
                     color: var(--graycool0);
                     fill: var(--graycool0);
                     background-color: var(--sunset600);
@@ -29,7 +29,7 @@ class ComponentButton extends HTMLElement{
                     padding-bottom: 24px;
                     border-radius: 8px;
                     transition-duration: 0.2s;
-                    border: 2px solid var(--graycool900);
+                    box-shadow: 0px 0px 16px var(--sunset600);
                 }
 
                 .button-anchor:hover {
