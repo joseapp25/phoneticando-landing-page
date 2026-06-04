@@ -10,9 +10,6 @@ class ComponentBenefitsCard extends HTMLElement{
 
                 .benefits-cards {
                     background-color: var(--graycool0);
-                    display: flex;
-                    align-items: center;
-                    gap: 16px;
                     padding: 16px;
                     margin-top: 16px;
                     margin-bottom: 16px;
@@ -20,25 +17,44 @@ class ComponentBenefitsCard extends HTMLElement{
                     box-shadow: 0px 0px 8px var(--cerulean300);
                 }
 
+                .benefits-img-title-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-bottom: 8px;
+                }
+
                 .benefits-cards-img {
                     display: flex;
                 }
 
-                .benefits-paragraph {
+                .benefits-title {
                     font-size: 16px;
                     font-weight: 500;
                     line-height: 24px;
+                }
+
+                .benefits-text {
+                    font-size: 12px;
+                    font-weight: 300;
+                    line-height: 16px;
+                    text-align: justify;
                 }
             
             </style>
 
             <div class="benefits-cards">
-                <div class="benefits-cards-img">
-                    <slot name="img"></slot>
+                <div class="benefits-img-title-container">
+                    <div class="benefits-cards-img">
+                        <slot name="img"></slot>
+                    </div>
+                    <div class="benefits-title">
+                        <slot name="title"></slot>
+                    </div>
                 </div>
-                <div class="benefits-paragraph">
+                <div class="benefits-text">
                     <slot name="text"></slot>
-                </div>
+                <div>
             </div>
 
         `
