@@ -11,9 +11,8 @@ class ComponentFaqCard extends HTMLElement {
                     margin-top: 16px;
                     margin-bottom: 16px;
                     padding: 8px;
-                    border: 4px solid var(--cerulean50);
                     border-radius: 8px;
-                    box-shadow: 0px 0px 4px var(--cerulean50);
+                    box-shadow: 0px 0px 4px var(--cerulean300);
                     background-color: white;
                 }
 
