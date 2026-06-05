@@ -63,7 +63,7 @@
     .next-review-info {
       margin-top: 1rem;
       padding: 1rem;
-      background-color: var(--cerulean50);
+      background-color: var(--cerulean100);
       border-radius: 8px;
       text-align: center;
     }
@@ -323,8 +323,17 @@
       border-radius: 100px;
     }
 
-    .chip-correct { background: #e8f5e9; color: #2e7d32; }
-    .chip-wrong   { background: #ffebee; color: #c62828; }
+    .chip-correct {
+       background: #e8f5e9;
+       color: #2e7d32;
+       box-shadow: 0px 0px 4px var(--graycool400);
+      }
+
+    .chip-wrong   { 
+      background: #ffebee;
+      color: #c62828;
+      box-shadow: 0px 0px 4px var(--graycool400);
+    }
 
     .ipa {
       font-size: 1.1rem;
@@ -530,7 +539,7 @@
           </div>
 
           <div class="next-review-info">
-            <p>Sua próxima revisão incluirá cartas que você errou mais novas cartas.</p>
+            <p>Sua próxima revisão incluirá cartas que você errou e também novas cartas.</p>
             <button class="action-button" onclick="restart()">Recomeçar →</button>
           </div>
         </div>
