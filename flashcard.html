@@ -3,48 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flashcard SRS Demo</title>
+  <title>Flashcard Demonstração</title>
   <link rel="stylesheet" href="styles/style.css">
   <style>
     /* ── Design Tokens ───────────────────────────────────────────── */
     :root {
-        
-        --graycool0: #F1F1FF;
-        --graycool50: #EEEEF1;
-        --graycool100: #E2E4E9;
-        --graycool200: #C7C8D1;
-        --graycool300: #B0B2BF;
-        --graycool400: #9A9CAC;
-        --graycool500: #83869A;
-        --graycool600: #6E7187;
-        --graycool700: #535565;
-        --graycool800: #40424F;
-        --graycool900: #2E2F38;
-        --graycool1000: #1C1C22;
-
-        --cerulean50: #EDF3FC;
-        --cerulean100: #CADCF6;
-        --cerulean200: #A7C5F1;
-        --cerulean300: #84ADEB;
-        --cerulean400: #6196E5;
-        --cerulean500: #3E7EE0;
-        --cerulean600: #2269D3;
-        --cerulean700: #1D58AF;
-        --cerulean800: #143D7B;
-        --cerulean900: #0E2C58;
-        --cerulean1000: #091A35;
-
-        --sunset50: #FDF4ED;
-        --sunset100: #FBE9DA;
-        --sunset200: #F5C9A3;
-        --sunset300: #F1B37E;
-        --sunset400: #ED9F5A;
-        --sunset500: #E98935;
-        --sunset600: #DC7418;
-        --sunset700: #A55712;
-        --sunset800: #81440E;
-        --sunset900: #5C300A;
-        --sunset1000: #371D06;
 
         --bg: #f0f7ff;
         --card-radius: 16px;
@@ -54,6 +17,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
+      font-family: var(--font-dm-sans);
       background: var(--graycool0);
       min-height: 100vh;
       display: flex;
@@ -61,46 +25,6 @@
       align-items: center;
       justify-content: flex-start;
       padding: 3rem 1rem 4rem;
-    }
-
-    /* ── Landing Header ──────────────────────────────────────────── */
-    .landing-header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .landing-header .label {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--cerulean600);
-      background: var(--cerulean50);
-      border: 1px solid var(--cerulean300);
-      border-radius: 100px;
-      padding: 4px 14px;
-      margin-bottom: 1rem;
-    }
-
-    .landing-header h1 {
-      font-size: clamp(2rem, 5vw, 3.25rem);
-      color: var(--graycool800);
-      line-height: 1.15;
-      margin-bottom: 0.75rem;
-    }
-
-    .landing-header h1 em {
-      font-style: italic;
-      color: var(--cerulean600);
-    }
-
-    .landing-header p {
-      font-size: 1.05rem;
-      color: var(--graycool600);
-      max-width: 420px;
-      margin: 0 auto;
-      line-height: 1.6;
     }
 
     /* ── Progress Bar ────────────────────────────────────────────── */
@@ -193,6 +117,7 @@
     }
 
     .play-audio-button-top {
+      font-family: var(--font-dm-sans);
       background-color: #ffffff;
       border: 2px solid var(--cerulean600);
       color: var(--cerulean500);
@@ -240,6 +165,7 @@
       padding: 12px 24px;
       border-radius: 8px;
       cursor: pointer;
+      font-family: var(--font-dm-sans);
       font-size: 1rem;
       font-weight: bold;
       transition: all 0.2s;
@@ -410,28 +336,53 @@
     // ── Data ──────────────────────────────────────────────────────
     const CARDS = [
       { 
-        q: "What is spaced repetition?",
-        a: "Reviewing material at increasing intervals to boost long-term retention.",
+        q: "pig | big",
+        a: "pig",
         url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
       },
       { 
-        q: "What does the forgetting curve show?",
-        a: "Memory decays exponentially over time without review.",
+        q: "pig | big",
+        a: "big",
         url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1" 
       },
       { 
-        q: "What is active recall?",
-        a: "Retrieving information from memory instead of passively re-reading.",
+        q: "ruche | rouge",
+        a: "ruche",
         url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1" 
       },
       { 
-        q: "Why is interleaving effective?",
-        a: "Mixing topics forces the brain to discriminate, strengthening memory.",
+        q: "ruche | rouge",
+        a: "rouge",
         url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
       },
       { 
-        q: "What is the spacing effect?",       
-        a: "Learning is more durable when study sessions are spread over time.",
+        q: "chin | gin",       
+        a: "chin",
+        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+      },
+      { 
+        q: "chin | gin",
+        a: "gin",
+        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+      },
+      { 
+        q: "sue | zoo",
+        a: "sue",
+        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1" 
+      },
+      { 
+        q: "sue | zoo",
+        a: "zoo",
+        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1" 
+      },
+      { 
+        q: "thigh | thy",
+        a: "thigh",
+        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+      },
+      { 
+        q: "thigh | thy",       
+        a: "thy",
         url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
       },
     ];
@@ -479,7 +430,7 @@
       app.innerHTML = `
         <!-- Progress -->
         <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
-        <div class="progress-label">${done} / ${CARDS.length} reviewed</div>
+        <div class="progress-label">${done} / ${CARDS.length} revisadas</div>
 
         <div class="flashcard-player-main">
 
@@ -490,18 +441,18 @@
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
               <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
             </svg>
-            Play audio
+            Tocar Áudio
           </button>
 
           <!-- Card -->
           <div class="flashcard-content">
             <div class="card-inner" id="cardInner">
               <div class="card-face front">
-                <span class="hint">Question</span>
+                <span class="hint">Frente - Pergunta</span>
                 <p class="flashcard-text-question">${current.q}</p>
               </div>
               <div class="card-face back">
-                <span class="hint">Answer</span>
+                <span class="hint">Verso - Resposta</span>
                 <p class="flashcard-text-answer">${current.a}</p>
               </div>
             </div>
@@ -510,8 +461,8 @@
           <!-- Stage info -->
           <div class="stage-badge">
             <span class="stage-dot"></span>
-            Stage ${stageN} of ${INTERVALS.correct.length} &nbsp;·&nbsp;
-            Next review: <span class="${iv.cls}" style="margin-left:4px">${iv.text}</span>
+            Estágio ${stageN} de ${INTERVALS.correct.length} &nbsp;·&nbsp;
+            Próxima Revisão: <span class="${iv.cls}" style="margin-left:4px">${iv.text}</span>
           </div>
 
           <!-- Buttons -->
@@ -520,10 +471,10 @@
               ? `<div class="actions-container">
                    <button class="flashcard-button-answer" onclick="showAnswer()">
                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                     Show Answer
+                     Mostrar Resposta
                    </button>
                  </div>`
-              : `<p>How did you do?</p>
+              : `<p>Você acertou?</p>
                  <div class="actions-container" style="display:flex">
                    <button class="flashcard-button-wrong" onclick="grade(false)" title="Forgot">
                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f44336" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -572,7 +523,7 @@
       document.getElementById('cardInner').classList.add('flipped');
       // swap buttons without full re-render for smooth flip
       document.getElementById('btnArea').innerHTML = `
-        <p>How did you do?</p>
+        <p>Você acertou?</p>
         <div class="actions-container" style="display:flex">
           <button class="flashcard-button-wrong" onclick="grade(false)" title="Forgot">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f44336" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
