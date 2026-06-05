@@ -54,7 +54,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: var(--bg);
+      background: var(--graycool0);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -544,23 +544,23 @@
       app.innerHTML = `
         <div class="flashcard-finished-container">
           <div class="finished-icon">🎉</div>
-          <p class="finished-title">Session complete!</p>
-          <p class="finished-subtitle">You've reviewed all ${CARDS.length} cards. They'll resurface right when you need them.</p>
+          <p class="finished-title">Sessão Finalizada!</p>
+          <p class="finished-subtitle">Você revisou todas as ${CARDS.length} cartas. Elas reaparecerão no tempo certo para serem revisadas.</p>
 
           <div class="score-chips">
             <div class="score-chip chip-correct">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              ${stats.correct} correct
+              ${stats.correct} acertos
             </div>
             <div class="score-chip chip-wrong">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              ${stats.wrong} missed
+              ${stats.wrong} erros
             </div>
           </div>
 
           <div class="next-review-info">
-            <p>Your next review session will include cards you missed plus new material.</p>
-            <button class="action-button" onclick="restart()">Start over →</button>
+            <p>Sua próxima revisão incluirá cartas que você errou mais novas cartas.</p>
+            <button class="action-button" onclick="restart()">Recomeçar →</button>
           </div>
         </div>
       `;
