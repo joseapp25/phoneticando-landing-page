@@ -19,6 +19,7 @@ class ComponentFaqCard extends HTMLElement {
                 .faq-q {
                     font-weight: 600;
                     font-size: 16px;
+
                     line-height: 24px;
                     cursor: pointer;
                     display: flex;

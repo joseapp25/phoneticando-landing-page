@@ -34,11 +34,13 @@ class ComponentButton extends HTMLElement{
 
                 .button-anchor:hover {
                     background-color: var(--sunset500);
+                    box-shadow: 0px 0px 16px var(--sunset500);
                     transition-duration: 0.2s;
                 }
 
                 .button-anchor:active {
                     background-color: var(--sunset700);
+                    box-shadow: 0px 0px 16px var(--sunset700);
                     transition-duration: 0.2s;
                 }
 

@@ -35,9 +35,10 @@ class ComponentBenefitsCard extends HTMLElement{
                 }
 
                 .benefits-text {
-                    font-size: 12px;
+                    color: var(--graycool500);
+                    font-size: 16px;
                     font-weight: 300;
-                    line-height: 16px;
+                    line-height: 24px;
                     text-align: justify;
                 }
             
