@@ -107,13 +107,14 @@
 
     .flashcard-text-question {
       font-size: 1.5rem;
-      color: var(--graycool800);
+      line-height: 24px;
+      color: var(--graycool900);
     }
 
     .flashcard-text-answer {
-      font-size: 1.25rem;
-      color: var(--cerulean700);
-      font-weight: 500;
+      font-family: var(--font-grotesk);
+      font-size: 1.8rem;
+      font-weight: 900;
     }
 
     .play-audio-button-top {
@@ -324,6 +325,25 @@
 
     .chip-correct { background: #e8f5e9; color: #2e7d32; }
     .chip-wrong   { background: #ffebee; color: #c62828; }
+
+    .ipa {
+      font-size: 1.1rem;
+      font-family: var(--font-noto);
+      color: var(--graycool400);
+      font-weight: 300;
+    }
+
+    .voiceless {
+      color: var(--sunset600);
+      font-weight: 600;
+    }
+
+    .voiced {
+      color: var(--cerulean600);
+      font-weight: 600;
+    }
+
+
   </style>
 </head>
 <body>
@@ -336,54 +356,54 @@
     // ── Data ──────────────────────────────────────────────────────
     const CARDS = [
       { 
-        q: "pig | big",
-        a: "pig",
-        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+        q: "pig<br>—<br>big",
+        a: "pig<br><span class='ipa'>/<span class='voiceless'>p</span>ɪɡ/</span>",
+        url: "https://www.dropbox.com/scl/fi/mwnki043b6ljz11nd3ylm/pig-elevenlabs.mp3?rlkey=k3etvqwf5j9jsefalslrpc0pv&st=pib90dig&dl=1"
       },
       { 
-        q: "pig | big",
-        a: "big",
-        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1" 
+        q: "pig<br>—<br>big",
+        a: "big<br><span class='ipa'>/<span class='voiced'>b</span>ɪɡ/</span>",
+        url: "https://www.dropbox.com/scl/fi/vbvemdkaya3feraqffl7q/big-elevenlabs.mp3?rlkey=cxknh06bctfavnhqtc9kiev7a&st=kght38rf&dl=1" 
       },
       { 
-        q: "ruche | rouge",
-        a: "ruche",
-        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1" 
+        q: "ruche<br>—<br>rouge",
+        a: "ruche<br><span class='ipa'>/ruː<span class='voiceless'>ʃ</span>/</span>",
+        url: "https://www.dropbox.com/scl/fi/11zdq01e3aipxkmomydkr/ruche-elevenlabs.mp3?rlkey=3ydimtbdgk25xl6mjp6h2m3oo&st=axhv4hbg&dl=1" 
       },
       { 
-        q: "ruche | rouge",
-        a: "rouge",
-        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+        q: "ruche<br>—<br>rouge",
+        a: "rouge<br><span class='ipa'>/ruː<span class='voiced'>ʒ</span>/</span>",
+        url: "https://www.dropbox.com/scl/fi/08o7wdik3i2acbukuuhwr/rouge-elevenlabs.mp3?rlkey=gao69fk851uurigz4yvprureo&st=49vqm1to&dl=1"
       },
       { 
-        q: "chin | gin",       
-        a: "chin",
-        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+        q: "chin<br>—<br>gin",       
+        a: "chin<br><span class='ipa'>/<span class='voiceless'>tʃ</span>ɪn/</span>",
+        url: "https://www.dropbox.com/scl/fi/9bvdjhd02mwlbl9mo7cqw/chin-elevenlabs.mp3?rlkey=lrvrrfj6p981151fztwazklxx&st=cwgepywa&dl=1"
       },
       { 
-        q: "chin | gin",
-        a: "gin",
-        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+        q: "chin<br>—<br>gin",
+        a: "gin<br><span class='ipa'>/<span class='voiced'>dʒ</span>ɪn/</span>",
+        url: "https://www.dropbox.com/scl/fi/cfu3oifnvraxxycctx5es/gin-elevenlabs.mp3?rlkey=85e7z7wb9qyzdd93a0b1gfh4d&st=681jk3js&dl=1"
       },
       { 
-        q: "sue | zoo",
-        a: "sue",
-        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1" 
+        q: "sue<br>—<br>zoo",
+        a: "sue<br><span class='ipa'>/<span class='voiceless'>s</span>uː/</span>",
+        url: "https://www.dropbox.com/scl/fi/8t481yiqfee08etdso9z8/sue-elevenlabs.mp3?rlkey=zl4ewp3m0hfjaga6c4fbrtlcl&st=q4tkjzw0&dl=1" 
       },
       { 
-        q: "sue | zoo",
-        a: "zoo",
-        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1" 
+        q: "sue<br>—<br>zoo",
+        a: "zoo<br><span class='ipa'>/<span class='voiced'>z</span>uː/</span>",
+        url: "https://www.dropbox.com/scl/fi/g8unb8b55tn7lsda790re/zoo-elevenlabs.mp3?rlkey=cv6zcdrougtz843yx7vepp7w1&st=1ybuzgth&dl=1" 
       },
       { 
-        q: "thigh | thy",
-        a: "thigh",
-        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+        q: "thigh<br>—<br>thy",       
+        a: "thy<br><span class='ipa'>/<span class='voiceless'>θ</span>aɪ/</span>",
+        url: "https://www.dropbox.com/scl/fi/68zlvl305aqlndo5yehbk/thy-elevenlabs.mp3?rlkey=7otrqksn7qwavcqd9yq4zdxmy&st=rgh428cw&dl=1"
       },
       { 
-        q: "thigh | thy",       
-        a: "thy",
-        url: "https://www.dropbox.com/scl/fi/ganosf8vgz7n618zudnvh/voiced-elevenlabs.mp3?rlkey=ads26q5v6x1ram7vfykg6857x&st=jyvjm4j2&dl=1"
+        q: "thigh<br>—<br>thy",
+        a: "thigh<br><span class='ipa'>/<span class='voiced'>ð</span>aɪ/</span>",
+        url: "https://www.dropbox.com/scl/fi/ysjxdz1g31kp8bbhq1udz/thigh-elevenlabs.mp3?rlkey=zmgdisgufs8bmizdqt8dygs3z&st=vh3kwdug&dl=1"
       },
     ];
 
@@ -404,7 +424,7 @@
     }
 
     function intervalLabel(stage) {
-      if (stage === 0) return { text: '< 1 day', cls: 'interval-soon' };
+      if (stage === 0) return { text: '< 1 dia', cls: 'interval-soon' };
       const days = INTERVALS.correct[Math.min(stage, INTERVALS.correct.length - 1)];
       if (days <= 1)  return { text: `${days} day`,  cls: 'interval-soon'   };
       if (days <= 7)  return { text: `${days} days`, cls: 'interval-medium' };
@@ -448,11 +468,11 @@
           <div class="flashcard-content">
             <div class="card-inner" id="cardInner">
               <div class="card-face front">
-                <span class="hint">Frente - Pergunta</span>
+                <span class="hint">FRENTE</span>
                 <p class="flashcard-text-question">${current.q}</p>
               </div>
               <div class="card-face back">
-                <span class="hint">Verso - Resposta</span>
+                <span class="hint">VERSO</span>
                 <p class="flashcard-text-answer">${current.a}</p>
               </div>
             </div>
