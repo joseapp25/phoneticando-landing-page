@@ -37,3 +37,41 @@
 }
 
 /* PARAGRAPH STYLE ↑ */
+
+/* PARAGRAPH STYLE ↓ */
+
+.elevenlabs-container {
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: italic;
+}
+
+@media only screen and (min-width: 600px) {
+    .elevenlabs-container {
+        max-width: 600px;
+    }
+}
+
+.elevenlabs-container a {
+    color: var(--sunset600);
+    padding: 2px;
+    font-weight: 900;
+    text-decoration: none;
+    transition-duration: 0.2s;
+}
+
+.elevenlabs-container a:hover {
+    color: var(--sunset300);
+    transition-duration: 0.2s;
+    text-decoration: underline;
+}
+
+.elevenlabs-container a:active {
+    color: var(--sunset100);
+    transition-duration: 0.2s;
+}
+
+/* PARAGRAPH STYLE ↑ */

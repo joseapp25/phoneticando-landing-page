@@ -11,7 +11,7 @@ class ComponentGlobalMenu extends HTMLElement{
                 .global-menu {
                     position: fixed;
                     display: flex;
-                    width: 100%;
+                    width: 100vw;
                     height: 48px;
                     top: 0;
                     background-color: white;
@@ -61,6 +61,11 @@ class ComponentGlobalMenu extends HTMLElement{
                     transition-duration: 0.2s;
                     fill: var(--sunset600);
                 }
+
+                .global-menu-logo-anchor:active {
+                    fill: var(--sunset300);
+                    transition-duration: 0.2s;
+                }
                     
             </style>
 
@@ -99,6 +104,11 @@ class ComponentGlobalMenu extends HTMLElement{
                     fill: var(--sunset600);
                 }
 
+                .hamburger-menu-button:active {
+                    fill: var(--sunset300);
+                    transition-duration: 0.2s;
+                }
+
                 .hamburger-menu-nav {
                     overflow-y: auto;
                     transition: transform 0.3s ease;
@@ -133,7 +143,6 @@ class ComponentGlobalMenu extends HTMLElement{
                     font-weight: 500;
                     padding: 16px;
                     transition-duration: 0.2s;
-                    
                 }
 
                 .hamburger-menu-nav a:hover {
@@ -143,7 +152,7 @@ class ComponentGlobalMenu extends HTMLElement{
                 }
 
                 .hamburger-menu-nav a:active {
-                    color: var(--sunset300);
+                    background-color: var(--cerulean800);
                     transition-duration: 0.2s;
                 }
 
@@ -176,6 +185,12 @@ class ComponentGlobalMenu extends HTMLElement{
 
                 .hamburger-menu-close-button:hover {
                     fill: var(--sunset600);
+                    transition-duration: 0.2s;
+                }
+
+                .hamburger-menu-close-button:active {
+                    fill: var(--sunset300);
+                    transition-duration: 0.2s;
                 }
                 
                 .hamburger-menu-close-button-icon {
