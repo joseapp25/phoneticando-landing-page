@@ -112,7 +112,7 @@ class ComponentGlobalMenu extends HTMLElement{
                 .hamburger-menu-nav {
                     overflow-y: auto;
                     transition: transform 0.3s ease;
-                    height: -webkit-fill-available;
+                    height: 100vh;
                     width: 264px;
                     background-color: white;
                     box-shadow: 0px 0px 8px var(--graycool200);
