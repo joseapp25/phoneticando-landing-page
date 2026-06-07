@@ -52,8 +52,8 @@
 
   /* Box */
   .box {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -249,16 +249,15 @@
 <body>
 
 <div class="srs-widget">
-  <p class="label-top">Spaced Repetition System</p>
 
   <div class="stage-row" id="stageRow"></div>
 
-  <div class="return-path-wrap" id="returnWrap">
-    <svg class="return-svg" id="returnSvg"></svg>
-  </div>
-
   <div class="card-track" id="cardTrack">
     <div class="card-token" id="cardToken">Flashcard</div>
+  </div>
+
+  <div class="return-path-wrap" id="returnWrap">
+    <svg class="return-svg" id="returnSvg"></svg>
   </div>
 
   <div class="status" id="status">Reviewing card…</div>
@@ -270,12 +269,11 @@
 
 <script>
 const STAGES = [
-  { num: '1',  unit: 'day'   },
-  { num: '1',  unit: 'week'  },
-  { num: '1',  unit: 'month' },
-  { num: '1',  unit: 'year'  },
-  { num: '5',  unit: 'years' },
-  { num: '10', unit: 'years' },
+  { num: '1',  unit: 'dia'   },
+  { num: '4',  unit: 'dias'  },
+  { num: '2',  unit: 'semanas' },
+  { num: '1',  unit: 'mês'  },
+  { num: '1',  unit: 'ano' },
 ];
 
 // Sequence: right 2, wrong, right 3, wrong — then repeat
