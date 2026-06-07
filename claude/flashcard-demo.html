@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcard SRS Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Design Tokens ───────────────────────────────────────────── */
+    :root {
+      --cerulean50:  #e8f4fd;
+      --cerulean100: #bee3f8;
+      --cerulean300: #63b3ed;
+      --cerulean500: #2d8fcf;
+      --cerulean600: #1e74b3;
+      --cerulean700: #155b90;
+      --cerulean800: #0e4472;
+      --graycool300: #cbd5e0;
+      --graycool600: #718096;
+      --graycool800: #2d3748;
+
+      --bg: #f0f7ff;
+      --card-radius: 16px;
+    }
+
+    /* ── Reset & Base ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 3rem 1rem 4rem;
+    }
+
+    /* ── Landing Header ──────────────────────────────────────────── */
+    .landing-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .landing-header .label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cerulean600);
+      background: var(--cerulean50);
+      border: 1px solid var(--cerulean300);
+      border-radius: 100px;
+      padding: 4px 14px;
+      margin-bottom: 1rem;
+    }
+
+    .landing-header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      color: var(--graycool800);
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .landing-header h1 em {
+      font-style: italic;
+      color: var(--cerulean600);
+    }
+
+    .landing-header p {
+      font-size: 1.05rem;
+      color: var(--graycool600);
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── Progress Bar ────────────────────────────────────────────── */
+    .progress-track {
+      width: 304px;
+      background: var(--graycool300);
+      border-radius: 100px;
+      height: 6px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cerulean500), var(--cerulean300));
+      border-radius: 100px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .progress-label {
+      font-size: 0.8rem;
+      color: var(--graycool600);
+      text-align: right;
+      width: 304px;
+      margin-top: 4px;
+    }
+
+    /* ── User-supplied styles (unchanged) ───────────────────────── */
+    .flashcard-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      gap: 1.5rem;
+    }
+
+    .next-review-info {
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: var(--cerulean50);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .next-review-info p {
+      margin-bottom: 1rem;
+    }
+
+    .action-button {
+      background-color: var(--cerulean500);
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    .flashcard-player-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .flashcard-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 304px;
+      height: 264px;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 8px var(--graycool300);
+      background-color: #ffffff;
+      border: 1px solid var(--graycool300);
+      text-align: center;
+    }
+
+    .flashcard-text-question {
+      font-size: 1.5rem;
+      color: var(--graycool800);
+    }
+
+    .flashcard-text-answer {
+      font-size: 1.25rem;
+      color: var(--cerulean700);
+      font-weight: 500;
+    }
+
+    .play-audio-button-top {
+      background-color: #ffffff;
+      border: 2px solid var(--cerulean600);
+      color: var(--cerulean500);
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .play-audio-button-top:hover {
+      background-color: var(--cerulean50);
+      transition: all 0.2s;
+    }
+
+    .flashcard-buttons-container p {
+      color: var(--graycool600);
+      font-weight: 500;
+    }
+
+    .flashcard-buttons-container div {
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flashcard-buttons-container {
+      text-align: center;
+    }
+
+    .actions-container {
+      display: flex;
+      margin-top: 8px;
+    }
+
+    .flashcard-button-answer,
+    .flashcard-button-reset {
+      background-color: var(--cerulean600);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .flashcard-finished-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .flashcard-button-answer:hover,
+    .flashcard-button-reset:hover {
+      background-color: var(--cerulean800);
+      box-shadow: 0px 0px 8px var(--cerulean800);
+      transition: all 0.2s;
+    }
+
+    .flashcard-button-correct,
+    .flashcard-button-wrong {
+      background-color: #ffffff;
+      border: 2px solid var(--graycool300);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.2s;
+    }
+
+    .flashcard-button-correct {
+      background-color: #e8f5e9;
+      border-color: #4caf50;
+    }
+
+    .flashcard-button-correct:hover {
+      background-color: #C8E6C9;
+      transition: all 0.2s;
+    }
+
+    .flashcard-button-wrong {
+      background-color: #ffebee;
+      border-color: #f44336;
+    }
+
+    .flashcard-button-wrong:hover {
+      background-color: #FFCDD2;
+      transition: all 0.2s;
+    }
+
+    /* ── Extra polish ────────────────────────────────────────────── */
+    /* Card flip animation */
+    .flashcard-content {
+      perspective: 800px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-inner.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 16px;
+    }
+
+    .card-face.back {
+      transform: rotateY(180deg);
+    }
+
+    .card-face .hint {
+      font-size: 0.72rem;
+      color: var(--graycool600);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Stage badge */
+    .stage-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--graycool600);
+      font-weight: 600;
+    }
+
+    .stage-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cerulean300);
+      display: inline-block;
+    }
+
+    /* Next-review badge colours by interval */
+    .interval-soon   { color: #e53935; }
+    .interval-medium { color: #fb8c00; }
+    .interval-long   { color: #43a047; }
+
+    /* Finished state */
+    .finished-icon {
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    .finished-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: var(--graycool800);
+    }
+
+    .finished-subtitle {
+      font-size: 0.95rem;
+      color: var(--graycool600);
+      text-align: center;
+      max-width: 280px;
+      line-height: 1.5;
+    }
+
+    .score-chips {
+      display: flex;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .score-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    .chip-correct { background: #e8f5e9; color: #2e7d32; }
+    .chip-wrong   { background: #ffebee; color: #c62828; }
+  </style>
+</head>
+<body>
+
+  <header class="landing-header">
+    <div class="label">Interactive Demo</div>
+    <h1>Learn faster with<br><em>spaced repetition</em></h1>
+    <p>Cards reappear right when you're about to forget them — so every minute of study counts.</p>
+  </header>
+
+  <div class="flashcard-container" id="app">
+    <!-- injected by JS -->
+  </div>
+
+  <script>
+    // ── Data ──────────────────────────────────────────────────────
+    const CARDS = [
+      { q: "What is spaced repetition?",         a: "Reviewing material at increasing intervals to boost long-term retention." },
+      { q: "What does the forgetting curve show?", a: "Memory decays exponentially over time without review." },
+      { q: "What is active recall?",              a: "Retrieving information from memory instead of passively re-reading." },
+      { q: "Why is interleaving effective?",      a: "Mixing topics forces the brain to discriminate, strengthening memory." },
+      { q: "What is the spacing effect?",         a: "Learning is more durable when study sessions are spread over time." },
+    ];
+
+    // Minimal SM-2-inspired intervals (days)
+    const INTERVALS = { wrong: 0, correct: [1, 3, 7, 14, 30] };
+
+    // ── State ─────────────────────────────────────────────────────
+    let deck = CARDS.map((c, i) => ({ ...c, id: i, stage: 0 }));
+    let queue = [...deck];
+    let current = null;
+    let phase = 'question'; // 'question' | 'answer'
+    let stats = { correct: 0, wrong: 0 };
+
+    // ── Helpers ───────────────────────────────────────────────────
+    function nextCard() {
+      if (queue.length === 0) return null;
+      return queue[0];
+    }
+
+    function intervalLabel(stage) {
+      if (stage === 0) return { text: '< 1 day', cls: 'interval-soon' };
+      const days = INTERVALS.correct[Math.min(stage, INTERVALS.correct.length - 1)];
+      if (days <= 1)  return { text: `${days} day`,  cls: 'interval-soon'   };
+      if (days <= 7)  return { text: `${days} days`, cls: 'interval-medium' };
+      return            { text: `${days} days`, cls: 'interval-long'   };
+    }
+
+    // ── Render ────────────────────────────────────────────────────
+    const app = document.getElementById('app');
+
+    function render() {
+      current = nextCard();
+
+      if (!current) {
+        renderFinished();
+        return;
+      }
+
+      const done    = CARDS.length - queue.length;
+      const pct     = Math.round((done / CARDS.length) * 100);
+      const iv      = intervalLabel(current.stage);
+      const stageN  = Math.min(current.stage + 1, INTERVALS.correct.length);
+
+      app.innerHTML = `
+        <!-- Progress -->
+        <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+        <div class="progress-label">${done} / ${CARDS.length} reviewed</div>
+
+        <div class="flashcard-player-main">
+
+          <!-- Audio button (decorative in demo) -->
+          <button class="play-audio-button-top" onclick="playAudio()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+            Play audio
+          </button>
+
+          <!-- Card -->
+          <div class="flashcard-content">
+            <div class="card-inner" id="cardInner">
+              <div class="card-face front">
+                <span class="hint">Question</span>
+                <p class="flashcard-text-question">${current.q}</p>
+              </div>
+              <div class="card-face back">
+                <span class="hint">Answer</span>
+                <p class="flashcard-text-answer">${current.a}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage info -->
+          <div class="stage-badge">
+            <span class="stage-dot"></span>
+            Stage ${stageN} of ${INTERVALS.correct.length} &nbsp;·&nbsp;
+            Next review: <span class="${iv.cls}" style="margin-left:4px">${iv.text}</span>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flashcard-buttons-container" id="btnArea">
+            ${phase === 'question'
+              ? `<div class="actions-container">
+                   <button class="flashcard-button-answer" onclick="showAnswer()">
+                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                     Show Answer
+                   </button>
+                 </div>`
+              : `<p>How did you do?</p>
+                 <div class="actions-container" style="display:flex">
+                   <button class="flashcard-button-wrong" onclick="grade(false)" title="Forgot">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f44336" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                   </button>
+                   <div style="width:24px"></div>
+                   <button class="flashcard-button-correct" onclick="grade(true)" title="Got it!">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                   </button>
+                 </div>`
+            }
+          </div>
+
+        </div>
+      `;
+    }
+
+    function renderFinished() {
+      app.innerHTML = `
+        <div class="flashcard-finished-container">
+          <div class="finished-icon">🎉</div>
+          <p class="finished-title">Session complete!</p>
+          <p class="finished-subtitle">You've reviewed all ${CARDS.length} cards. They'll resurface right when you need them.</p>
+
+          <div class="score-chips">
+            <div class="score-chip chip-correct">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              ${stats.correct} correct
+            </div>
+            <div class="score-chip chip-wrong">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              ${stats.wrong} missed
+            </div>
+          </div>
+
+          <div class="next-review-info">
+            <p>Your next review session will include cards you missed plus new material.</p>
+            <button class="action-button" onclick="restart()">Start over →</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // ── Actions ───────────────────────────────────────────────────
+    function showAnswer() {
+      phase = 'answer';
+      document.getElementById('cardInner').classList.add('flipped');
+      // swap buttons without full re-render for smooth flip
+      document.getElementById('btnArea').innerHTML = `
+        <p>How did you do?</p>
+        <div class="actions-container" style="display:flex">
+          <button class="flashcard-button-wrong" onclick="grade(false)" title="Forgot">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f44336" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <div style="width:24px"></div>
+          <button class="flashcard-button-correct" onclick="grade(true)" title="Got it!">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+        </div>
+      `;
+    }
+
+    function grade(correct) {
+      queue.shift(); // remove from front
+      if (correct) {
+        current.stage = Math.min(current.stage + 1, INTERVALS.correct.length - 1);
+        stats.correct++;
+      } else {
+        current.stage = 0;
+        stats.wrong++;
+        queue.push(current); // re-add to end
+      }
+      phase = 'question';
+      render();
+    }
+
+    function restart() {
+      deck  = CARDS.map((c, i) => ({ ...c, id: i, stage: 0 }));
+      queue = [...deck];
+      stats = { correct: 0, wrong: 0 };
+      phase = 'question';
+      render();
+    }
+
+    function playAudio() {
+      // Decorative in demo — show a brief visual pulse
+      const btn = document.querySelector('.play-audio-button-top');
+      if (!btn) return;
+      btn.style.background = 'var(--cerulean50)';
+      setTimeout(() => btn.style.background = '#ffffff', 300);
+    }
+
+    // ── Boot ──────────────────────────────────────────────────────
+    render();
+  </script>
+</body>
+</html>

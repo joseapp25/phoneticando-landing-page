@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spaced Repetition System</title>
-<link rel="stylesheet" href="styles/style.css">
+<link rel="stylesheet" href="../styles/style.css">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap');
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-dm-sans);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,16 +21,6 @@
     width: 100%;
     max-width: 720px;
     padding: 1rem;
-  }
-
-  .label-top {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: #555;
-    text-align: center;
-    margin-bottom: 2.5rem;
   }
 
   /* ── Stage row ── */
@@ -49,8 +39,8 @@
 
   /* Box */
   .box {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -59,17 +49,15 @@
     position: relative;
     transition: transform .25s ease, background .35s ease, box-shadow .35s ease, opacity .35s ease;
     cursor: default;
-    border: 1px solid var(--graycool800);
     background: var(--cerulean200);
   }
   .box .num {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 1;
   }
   .box .unit {
-    font-size: 8px;
+    font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     margin-top: 4px;
@@ -141,21 +129,21 @@
     transition: opacity .4s ease, fill .4s ease;
   }
   .arrow.active-arrow .arrow-line {
-    stroke: #fff;
+    stroke: var(--graycool1000);
     stroke-dashoffset: 0;
     transition: stroke .4s ease, stroke-dashoffset .35s ease;
   }
   .arrow.active-arrow .arrow-head {
-    fill: #fff;
+    fill: var(--graycool1000);
     opacity: 1;
   }
   .arrow.visited-arrow .arrow-line {
-    stroke: #3a3a3a;
+    stroke: #4caf50;
     stroke-dashoffset: 0;
     transition: stroke .4s ease, stroke-dashoffset .35s ease;
   }
   .arrow.visited-arrow .arrow-head {
-    fill: #3a3a3a;
+    fill: #4caf50;
     opacity: 1;
   }
 
@@ -190,17 +178,18 @@
   .card-track {
     position: relative;
     height: 36px;
+    margin-bottom: 8px;
   }
   .card-token {
     position: absolute;
     top: 0;
     left: 0;
     transform: translateX(-50%);
-    background: var(--cerulean200);
-    border: 1px solid var(--graycool800);
+    background: var(--sunset300);
+    border: 2px solid var(--sunset600);
     color: var(--graycool800);
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 500;
     padding: 4px;
     border-radius: 8px;
     white-space: nowrap;
@@ -220,8 +209,8 @@
     transition: color .3s;
     letter-spacing: .01em;
   }
-  .status.ok { color: #7ecf9a; }
-  .status.err { color: #e07070; }
+  .status.ok { color: #4caf50; }
+  .status.err { color: #f44336; }
 
   /* ── Interval badge ── */
   .interval-badge {
@@ -229,8 +218,7 @@
     margin-top: 1rem;
   }
   .interval-badge span {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: .1em;
     color: #333;
     text-transform: uppercase;
@@ -251,10 +239,10 @@
     <svg class="return-svg" id="returnSvg"></svg>
   </div>
 
-  <div class="status" id="status">Reviewing card…</div>
+  <div class="status" id="status">Revisando…</div>
 
   <div class="interval-badge">
-    <span id="intervalLabel">Next review: 1 day</span>
+    <span id="intervalLabel">Próxima revisão: 1 dia</span>
   </div>
 </div>
 
@@ -339,7 +327,7 @@ function refreshUI() {
       (i < current ? ' visited-arrow' : i === current ? ' active-arrow' : '');
   }
   const labels = ['1 dia','4 dias','12 dias','24 dias'];
-  intervalEl.textContent = 'Next review: ' + labels[current];
+  intervalEl.textContent = 'Próxima Revisão: ' + labels[current];
 }
 
 /* ── Draw / hide return arc ── */
@@ -403,27 +391,27 @@ async function step() {
       }
       refreshUI();
       positionToken(current, true);
-      setStatus('Correct! ✓ Moving to next interval.', 'ok');
-      await delay(1400);
+      setStatus('Correta! ✓ Movendo para o próximo intervalo.', 'ok');
+      await delay(2000);
 
     } else {
       // Wrong: flash, show arc, reset
       const fromIdx = current;
       const box = document.getElementById('box-' + fromIdx);
       box.classList.add('wrong');
-      setStatus('Incorrect ✗ — back to day 1.', 'err');
-      await delay(250);
+      setStatus('Incorreta! ✗ — retorna ao dia 1.', 'err');
+      await delay(2000);
       showReturn(fromIdx, 0, true);
-      await delay(700);
+      await delay(2000);
 
       current = 0;
       refreshUI();
       box.classList.remove('wrong');
       positionToken(0, true);
-      await delay(550);
+      await delay(2000);
       showReturn(0, 0, false);
-      setStatus('Reviewing card…', '');
-      await delay(900);
+      setStatus('Revisando carta…', '');
+      await delay(2000);
     }
   }
 }
@@ -431,10 +419,10 @@ async function step() {
 /* ── Init ── */
 refreshUI();
 positionToken(0, false);
-setStatus('Reviewing card…', '');
+setStatus('Revisando carta…', '');
 
 // Small delay so the layout settles before animation starts
-setTimeout(step, 1200);
+setTimeout(step, 2000);
 
 // Reposition token on resize
 window.addEventListener('resize', () => positionToken(current, false));
