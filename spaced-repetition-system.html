@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spaced Repetition System</title>
+<link rel="stylesheet" href="styles/style.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0f0f0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  .srs-widget {
+    width: 100%;
+    max-width: 720px;
+    padding: 3rem 2rem 2.5rem;
+  }
+
+  .label-top {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #555;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── Stage row ── */
+  .stage-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+  }
+
+  .stage-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Box */
+  .box {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform .25s ease, background .35s ease, box-shadow .35s ease, opacity .35s ease;
+    cursor: default;
+    border: 1px solid rgba(255,255,255,.07);
+    background: #1a1a1a;
+    opacity: .45;
+  }
+  .box .num {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1;
+  }
+  .box .unit {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: .05em;
+    color: rgba(255,255,255,.45);
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  /* Active box */
+  .box.active {
+    background: #fff;
+    border-color: #fff;
+    opacity: 1;
+    transform: scale(1.12);
+    box-shadow: 0 0 40px rgba(255,255,255,.18), 0 0 0 1px rgba(255,255,255,.3);
+  }
+  .box.active .num { color: #0f0f0f; }
+  .box.active .unit { color: rgba(0,0,0,.5); }
+
+  /* Visited box */
+  .box.visited {
+    background: #2a2a2a;
+    border-color: rgba(255,255,255,.15);
+    opacity: .75;
+  }
+  .box.visited .num { color: rgba(255,255,255,.7); }
+  .box.visited .unit { color: rgba(255,255,255,.35); }
+
+  /* Wrong-flash */
+  @keyframes wrong-shake {
+    0%,100%{transform:scale(1.12) translateX(0)}
+    20%{transform:scale(1.12) translateX(-5px)}
+    40%{transform:scale(1.12) translateX(5px)}
+    60%{transform:scale(1.12) translateX(-3px)}
+    80%{transform:scale(1.12) translateX(3px)}
+  }
+  .box.wrong {
+    background: #3d1a1a !important;
+    border-color: #c0392b !important;
+    box-shadow: 0 0 30px rgba(192,57,43,.4) !important;
+    animation: wrong-shake .45s ease;
+  }
+  .box.wrong .num { color: #e74c3c !important; }
+  .box.wrong .unit { color: rgba(231,76,60,.6) !important; }
+
+  /* Arrow between boxes */
+  .arrow {
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .arrow svg {
+    width: 32px;
+    height: 14px;
+    overflow: visible;
+  }
+  .arrow-line {
+    stroke: #333;
+    stroke-width: 1.5;
+    fill: none;
+    transition: stroke .4s ease;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+  }
+  .arrow-head {
+    fill: #333;
+    transition: fill .4s ease;
+    opacity: 0;
+    transition: opacity .4s ease, fill .4s ease;
+  }
+  .arrow.active-arrow .arrow-line {
+    stroke: #fff;
+    stroke-dashoffset: 0;
+    transition: stroke .4s ease, stroke-dashoffset .35s ease;
+  }
+  .arrow.active-arrow .arrow-head {
+    fill: #fff;
+    opacity: 1;
+  }
+  .arrow.visited-arrow .arrow-line {
+    stroke: #3a3a3a;
+    stroke-dashoffset: 0;
+    transition: stroke .4s ease, stroke-dashoffset .35s ease;
+  }
+  .arrow.visited-arrow .arrow-head {
+    fill: #3a3a3a;
+    opacity: 1;
+  }
+
+  /* ── Return path ── */
+  .return-path-wrap {
+    position: relative;
+    height: 48px;
+    margin-top: 4px;
+    display: flex;
+    align-items: flex-end;
+  }
+  .return-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: visible;
+  }
+  .return-line {
+    fill: none;
+    stroke: #c0392b;
+    stroke-width: 1.5;
+    stroke-dasharray: 6 4;
+    stroke-linecap: round;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  .return-line.visible { opacity: 1; }
+  .return-head { fill: #c0392b; opacity: 0; transition: opacity .3s ease; }
+  .return-head.visible { opacity: 1; }
+
+  /* ── Card token ── */
+  .card-track {
+    position: relative;
+    height: 36px;
+    margin-top: 2rem;
+  }
+  .card-token {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%);
+    background: #1e1e1e;
+    border: 1px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.8);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    transition: left .55s cubic-bezier(.4,0,.2,1);
+    letter-spacing: .02em;
+  }
+  .card-token::before {
+    content: '📇 ';
+  }
+
+  /* ── Status message ── */
+  .status {
+    margin-top: 1.4rem;
+    font-size: 13px;
+    color: #555;
+    text-align: center;
+    min-height: 20px;
+    transition: color .3s;
+    letter-spacing: .01em;
+  }
+  .status.ok { color: #7ecf9a; }
+  .status.err { color: #e07070; }
+
+  /* ── Interval badge ── */
+  .interval-badge {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .interval-badge span {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: #333;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="srs-widget">
+  <p class="label-top">Spaced Repetition System</p>
+
+  <div class="stage-row" id="stageRow"></div>
+
+  <div class="return-path-wrap" id="returnWrap">
+    <svg class="return-svg" id="returnSvg"></svg>
+  </div>
+
+  <div class="card-track" id="cardTrack">
+    <div class="card-token" id="cardToken">Flashcard</div>
+  </div>
+
+  <div class="status" id="status">Reviewing card…</div>
+
+  <div class="interval-badge">
+    <span id="intervalLabel">Next review: 1 day</span>
+  </div>
+</div>
+
+<script>
+const STAGES = [
+  { num: '1',  unit: 'day'   },
+  { num: '1',  unit: 'week'  },
+  { num: '1',  unit: 'month' },
+  { num: '1',  unit: 'year'  },
+  { num: '5',  unit: 'years' },
+  { num: '10', unit: 'years' },
+];
+
+// Sequence: right 2, wrong, right 3, wrong — then repeat
+const SEQUENCE = [
+  {dir:'right'},{dir:'right'},
+  {dir:'wrong'},
+  {dir:'right'},{dir:'right'},{dir:'right'},
+  {dir:'wrong'},
+];
+
+let current = 0;   // current stage index
+let seqIdx  = 0;   // position in SEQUENCE
+let running = true;
+
+/* ── Build DOM ── */
+const stageRow  = document.getElementById('stageRow');
+const cardToken = document.getElementById('cardToken');
+const statusEl  = document.getElementById('status');
+const intervalEl= document.getElementById('intervalLabel');
+const returnSvg = document.getElementById('returnSvg');
+const returnWrap= document.getElementById('returnWrap');
+
+// Build boxes + arrows
+STAGES.forEach((s, i) => {
+  const wrap = document.createElement('div');
+  wrap.className = 'stage-wrap';
+
+  const box = document.createElement('div');
+  box.className = 'box' + (i === 0 ? ' active' : '');
+  box.id = 'box-' + i;
+  box.innerHTML = `<span class="num">${s.num}</span><span class="unit">${s.unit}</span>`;
+  wrap.appendChild(box);
+
+  if (i < STAGES.length - 1) {
+    const arr = document.createElement('div');
+    arr.className = 'arrow';
+    arr.id = 'arr-' + i;
+    arr.innerHTML = `
+      <svg viewBox="0 0 32 14" xmlns="http://www.w3.org/2000/svg">
+        <line class="arrow-line" x1="0" y1="7" x2="24" y2="7"/>
+        <polygon class="arrow-head" points="24,3 31,7 24,11"/>
+      </svg>`;
+    wrap.appendChild(arr);
+  }
+
+  stageRow.appendChild(wrap);
+});
+
+/* ── Position card token over a box ── */
+function positionToken(idx, animate) {
+  const box = document.getElementById('box-' + idx);
+  const track = document.getElementById('cardTrack');
+  const rowRect = stageRow.getBoundingClientRect();
+  const boxRect = box.getBoundingClientRect();
+  const trackRect = track.getBoundingClientRect();
+
+  const center = boxRect.left + boxRect.width / 2 - trackRect.left;
+  cardToken.style.transition = animate
+    ? 'left .55s cubic-bezier(.4,0,.2,1)'
+    : 'none';
+  cardToken.style.left = center + 'px';
+}
+
+/* ── Refresh box + arrow classes ── */
+function refreshUI() {
+  STAGES.forEach((_, i) => {
+    const box = document.getElementById('box-' + i);
+    box.className = 'box' + (i < current ? ' visited' : i === current ? ' active' : '');
+  });
+  for (let i = 0; i < STAGES.length - 1; i++) {
+    const arr = document.getElementById('arr-' + i);
+    arr.className = 'arrow' +
+      (i < current ? ' visited-arrow' : i === current ? ' active-arrow' : '');
+  }
+  const labels = ['1 day','1 week','1 month','1 year','5 years','10 years'];
+  intervalEl.textContent = 'Next review: ' + labels[current];
+}
+
+/* ── Draw / hide return arc ── */
+function showReturn(fromIdx, toIdx, visible) {
+  returnSvg.innerHTML = '';
+  if (!visible) return;
+
+  const rowRect = stageRow.getBoundingClientRect();
+  const wrapRect = returnWrap.getBoundingClientRect();
+
+  const fromBox = document.getElementById('box-' + fromIdx).getBoundingClientRect();
+  const toBox   = document.getElementById('box-' + toIdx ).getBoundingClientRect();
+
+  const x1 = fromBox.left + fromBox.width / 2 - wrapRect.left;
+  const x2 = toBox.left   + toBox.width  / 2 - wrapRect.left;
+  const y0 = 2;
+  const yBot = wrapRect.height - 6;
+
+  // Path: down from fromBox bottom → across → up to toBox bottom, arrow at end
+  const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+  const r = 10;
+  path.setAttribute('d',
+    `M ${x1} ${y0} L ${x1} ${yBot - r} Q ${x1} ${yBot} ${x1 - r} ${yBot}` +
+    ` L ${x2 + r} ${yBot} Q ${x2} ${yBot} ${x2} ${yBot - r}` +
+    ` L ${x2} ${y0 + 6}`
+  );
+  path.setAttribute('class','return-line visible');
+  returnSvg.appendChild(path);
+
+  // Arrowhead pointing up at x2, y0+6
+  const head = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+  head.setAttribute('points', `${x2-5},${y0+10} ${x2+5},${y0+10} ${x2},${y0+2}`);
+  head.setAttribute('class','return-head visible');
+  returnSvg.appendChild(head);
+}
+
+/* ── Status helpers ── */
+function setStatus(msg, type) {
+  statusEl.textContent = msg;
+  statusEl.className = 'status ' + (type || '');
+}
+
+/* ── Animation loop ── */
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function step() {
+  while (running) {
+    const action = SEQUENCE[seqIdx % SEQUENCE.length];
+    seqIdx++;
+
+    showReturn(0, 0, false); // clear return arc
+
+    if (action.dir === 'right') {
+      // Advance if not at end
+      if (current < STAGES.length - 1) {
+        current++;
+      } else {
+        // wrap back from mastered
+        current = 0;
+        seqIdx = 0;
+      }
+      refreshUI();
+      positionToken(current, true);
+      setStatus('Correct! ✓ Moving to next interval.', 'ok');
+      await delay(1400);
+
+    } else {
+      // Wrong: flash, show arc, reset
+      const fromIdx = current;
+      const box = document.getElementById('box-' + fromIdx);
+      box.classList.add('wrong');
+      setStatus('Incorrect ✗ — back to day 1.', 'err');
+      await delay(250);
+      showReturn(fromIdx, 0, true);
+      await delay(700);
+
+      current = 0;
+      refreshUI();
+      box.classList.remove('wrong');
+      positionToken(0, true);
+      await delay(550);
+      showReturn(0, 0, false);
+      setStatus('Reviewing card…', '');
+      await delay(900);
+    }
+  }
+}
+
+/* ── Init ── */
+refreshUI();
+positionToken(0, false);
+setStatus('Reviewing card…', '');
+
+// Small delay so the layout settles before animation starts
+setTimeout(step, 1200);
+
+// Reposition token on resize
+window.addEventListener('resize', () => positionToken(current, false));
+</script>
+</body>
+</html>
