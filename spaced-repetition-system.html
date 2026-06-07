@@ -12,18 +12,15 @@
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: #0f0f0f;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    padding: 2rem;
   }
 
   .srs-widget {
     width: 100%;
     max-width: 720px;
-    padding: 3rem 2rem 2.5rem;
+    padding: 1rem;
   }
 
   .label-top {
@@ -62,36 +59,32 @@
     position: relative;
     transition: transform .25s ease, background .35s ease, box-shadow .35s ease, opacity .35s ease;
     cursor: default;
-    border: 1px solid rgba(255,255,255,.07);
-    background: #1a1a1a;
-    opacity: .45;
+    border: 1px solid var(--graycool800);
+    background: var(--cerulean200);
   }
   .box .num {
     font-family: 'DM Mono', monospace;
     font-size: 12px;
     font-weight: 500;
-    color: #fff;
     line-height: 1;
   }
   .box .unit {
     font-size: 8px;
     font-weight: 500;
-    letter-spacing: .05em;
-    color: rgba(255,255,255,.45);
     text-transform: uppercase;
-    margin-top: 3px;
+    margin-top: 4px;
   }
 
   /* Active box */
   .box.active {
-    background: #fff;
-    border-color: #fff;
+    background: var(--cerulean600);
+    border-color: var(--cerulean600);
     opacity: 1;
-    transform: scale(1.12);
-    box-shadow: 0 0 40px rgba(255,255,255,.18), 0 0 0 1px rgba(255,255,255,.3);
+    transform: scale(1.1);
+    box-shadow: 0 0 8px var(--cerulean600), 0 0 0 1px var(--cerulean600);
   }
-  .box.active .num { color: #0f0f0f; }
-  .box.active .unit { color: rgba(0,0,0,.5); }
+  .box.active .num { color: var(--graycool0); }
+  .box.active .unit { color: var(--graycool0); }
 
   /* Visited box */
   .box.visited {
@@ -99,8 +92,8 @@
     border-color: rgba(255,255,255,.15);
     opacity: .75;
   }
-  .box.visited .num { color: rgba(255,255,255,.7); }
-  .box.visited .unit { color: rgba(255,255,255,.35); }
+  .box.visited .num { color: var(--graycool0); }
+  .box.visited .unit { color: var(--graycool0); }
 
   /* Wrong-flash */
   @keyframes wrong-shake {
@@ -121,7 +114,7 @@
 
   /* Arrow between boxes */
   .arrow {
-    width: 32px;
+    width: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,8 +122,8 @@
     flex-shrink: 0;
   }
   .arrow svg {
-    width: 32px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     overflow: visible;
   }
   .arrow-line {
@@ -197,23 +190,21 @@
   .card-track {
     position: relative;
     height: 36px;
-    margin-top: 2rem;
   }
   .card-token {
     position: absolute;
     top: 0;
     left: 0;
     transform: translateX(-50%);
-    background: #1e1e1e;
+    background: var(--cerulean200);
     border: 1px solid rgba(255,255,255,.15);
-    color: rgba(255,255,255,.8);
+    color: var(--graycool800);
     font-size: 12px;
-    font-weight: 500;
-    padding: 5px 14px;
-    border-radius: 20px;
+    font-weight: 300;
+    padding: 4px;
+    border-radius: 8px;
     white-space: nowrap;
     transition: left .55s cubic-bezier(.4,0,.2,1);
-    letter-spacing: .02em;
   }
   .card-token::before {
     content: '📇 ';
@@ -250,11 +241,11 @@
 
 <div class="srs-widget">
 
-  <div class="stage-row" id="stageRow"></div>
-
   <div class="card-track" id="cardTrack">
     <div class="card-token" id="cardToken">Flashcard</div>
   </div>
+
+  <div class="stage-row" id="stageRow"></div>
 
   <div class="return-path-wrap" id="returnWrap">
     <svg class="return-svg" id="returnSvg"></svg>
@@ -271,16 +262,15 @@
 const STAGES = [
   { num: '1',  unit: 'dia'   },
   { num: '4',  unit: 'dias'  },
-  { num: '2',  unit: 'semanas' },
-  { num: '1',  unit: 'mês'  },
-  { num: '1',  unit: 'ano' },
+  { num: '12',  unit: 'dias' },
+  { num: '24',  unit: 'dias'  },
 ];
 
 // Sequence: right 2, wrong, right 3, wrong — then repeat
 const SEQUENCE = [
-  {dir:'right'},{dir:'right'},
+  {dir:'right'},
   {dir:'wrong'},
-  {dir:'right'},{dir:'right'},{dir:'right'},
+  {dir:'right'},{dir:'right'},
   {dir:'wrong'},
 ];
 
