@@ -197,7 +197,7 @@
     left: 0;
     transform: translateX(-50%);
     background: var(--cerulean200);
-    border: 1px solid rgba(255,255,255,.15);
+    border: 1px solid var(--graycool800);
     color: var(--graycool800);
     font-size: 12px;
     font-weight: 300;
@@ -338,7 +338,7 @@ function refreshUI() {
     arr.className = 'arrow' +
       (i < current ? ' visited-arrow' : i === current ? ' active-arrow' : '');
   }
-  const labels = ['1 day','1 week','1 month','1 year','5 years','10 years'];
+  const labels = ['1 dia','4 dias','12 dias','24 dias'];
   intervalEl.textContent = 'Next review: ' + labels[current];
 }
 
