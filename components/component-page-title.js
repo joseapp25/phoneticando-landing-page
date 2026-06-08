@@ -9,12 +9,13 @@ class ComponentPageTitle extends HTMLElement{
             <style>
 
                 .page-title {
-                    color: var(--sunset600);
+                    font-family: var(--font-inter-tight);
+                    font-weight: 600;
                     font-size: 32px;
                     line-height: 40px;
-                    font-weight: 600;
+                    color: var(--sunset600);
                     text-shadow: 2px 2px 0px var(--graycool1000);
-                    font-family: var(--font-inter-tight);
+                    
                 }
 
             </style>

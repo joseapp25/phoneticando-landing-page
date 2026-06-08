@@ -14,7 +14,7 @@ class ComponentBenefitsCard extends HTMLElement{
                     margin-top: 16px;
                     margin-bottom: 16px;
                     border-radius: 8px;
-                    box-shadow: 0px 0px 8px var(--cerulean300);
+                    border: 2px solid var(--cerulean300);
                 }
 
                 .benefits-img-title-container {
