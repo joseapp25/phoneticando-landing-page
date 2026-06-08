@@ -17,11 +17,11 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
-      background-color: var(--graycool1000);
+      background-color: var(--graycool0);
     }
 
     body {
-      background-color: var(--graycool1000);
+      background-color: var(--graycool0);
       font-family: var(--font-dm-sans);
     }
 
@@ -119,6 +119,7 @@
       background-color: #ffffff;
       border: 2px solid var(--cerulean600);
       color: var(--cerulean500);
+      fill: var(--cerulean500);
       cursor: pointer;
       padding: 8px 16px;
       border-radius: 8px;
@@ -349,7 +350,6 @@
       font-weight: 600;
     }
 
-
   </style>
 </head>
 <body>
@@ -462,10 +462,11 @@
 
           <!-- Audio button (decorative in demo) -->
           <button class="play-audio-button-top" onclick="playAudio('${current.url}')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M13 2.23438L6.72302 6.00057H1V18.0006H6.72302L13 21.7668V2.23438ZM11 5.76676V18.2344L7.27698 16.0006H3V8.00057H7.27698L11 5.76676Z" />
+              <path d="M18.2729 5.13724C19.9645 6.92905 21 9.34283 21 12.0006C21 14.6584 19.9645 17.0722 18.2729 18.864L19.7271 20.237C21.7552 18.0888 23 15.189 23 12.0006C23 8.81229 21.7552 5.91251 19.7271 3.76428L18.2729 5.13724Z" />
+              <path d="M18.0002 12.0006C18.0002 10.3442 17.4262 8.82462 16.4654 7.62604L18.0259 6.3751C19.2609 7.91571 20.0002 9.87316 20.0002 12.0006C20.0002 14.128 19.2609 16.0854 18.0259 17.626L16.4654 16.3751C17.4262 15.1765 18.0002 13.6569 18.0002 12.0006Z" />
+              <path d="M14.2009 9.60114C14.703 10.2696 15.0001 11.0989 15.0001 12.0006C15.0001 12.9022 14.703 13.7316 14.2009 14.4L15.8001 15.6011C16.5534 14.5983 17.0001 13.3501 17.0001 12.0006C17.0001 10.651 16.5534 9.40287 15.8001 8.39999L14.2009 9.60114Z" "/>
             </svg>
             Tocar Áudio
           </button>
