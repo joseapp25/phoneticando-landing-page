@@ -29,9 +29,9 @@ class InlineAnchor extends HTMLElement {
 
                 .inline-anchor {
                     text-decoration: none;
-                    color: var(--cerulean600,);
-                    fill: var(--cerulean600,);
-                    transition: color 0.2s, fill 0.2s;
+                    color: var(--cerulean600);
+                    fill: var(--cerulean600);
+                    transition-duration: 0.2s;
                     font-weight: 600;
                     font-size: 16px;
                     display: inline-flex;
@@ -41,8 +41,15 @@ class InlineAnchor extends HTMLElement {
                 }
 
                 .inline-anchor:hover {
-                    color: var(--cerulean300,);
-                    fill: var(--cerulean300,);
+                    color: var(--sunset600);
+                    fill: var(--sunset600);
+                    transition-duration: 0.2s;
+                }
+
+                .inline-anchor:active {
+                    color: var(--sunset400);
+                    fill: var(--sunset400);
+                    transition-duration: 0.2s;
                 }
 
                 .inline-anchor svg {

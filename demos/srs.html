@@ -201,7 +201,8 @@
 
   /* ── Status message ── */
   .status {
-    margin-top: 1.4rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     font-size: 13px;
     color: #555;
     text-align: center;
@@ -228,6 +229,7 @@
 <body>
 
 <div class="srs-widget">
+  <div class="status" id="status">Revisando…</div>
 
   <div class="card-track" id="cardTrack">
     <div class="card-token" id="cardToken">Flashcard</div>
@@ -238,9 +240,7 @@
   <div class="return-path-wrap" id="returnWrap">
     <svg class="return-svg" id="returnSvg"></svg>
   </div>
-
-  <div class="status" id="status">Revisando…</div>
-
+  
   <div class="interval-badge">
     <span id="intervalLabel">Próxima revisão: 1 dia</span>
   </div>
