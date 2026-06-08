@@ -75,6 +75,10 @@ html, body {
 
 
 
+
+
+/* HEADER POSTER ↓ */
+
 .header-poster-section {
     margin-top: 48px;
     background-image: linear-gradient(to right, var(--cerulean900), var(--cerulean1000));
@@ -91,6 +95,13 @@ html, body {
     }
 
 }
+
+/* HEADER POSTER ↑ */
+
+
+
+
+
 
 
 
@@ -131,23 +142,6 @@ html, body {
 
 
 
-/* LISTS ↓ */
-
-.lists-style {
-    list-style-position: inside;
-}
-
-/* LISTS ↑ */
-
-
-
-
-
-
-
-
-
-
 /* HIGHLIGHT TEXT ↓ */
 
 .cerulean-highlight {
@@ -178,25 +172,11 @@ html, body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* BACKGROUNDS ↓ */
-
-.graycool-title {
-    color: var(--graycool0);
-}
 
 .dark-graycool-background {
     background-color: var(--graycool1000);
+    color: var(--graycool0);
 }
 
 .cerulean-background {
@@ -205,6 +185,7 @@ html, body {
 
 .dark-cerulean-background {
     background-color: var(--cerulean900);
+    color: var(--graycool0);
 }
 
 .sunset-background {

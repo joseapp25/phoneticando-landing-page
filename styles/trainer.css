@@ -38,7 +38,7 @@
 
 /* PARAGRAPH STYLE ↑ */
 
-/* PARAGRAPH STYLE ↓ */
+/* ELEVENLABS ↓ */
 
 .elevenlabs-container {
     margin-top: 8px;
@@ -56,23 +56,4 @@
     }
 }
 
-.elevenlabs-container a {
-    color: var(--sunset600);
-    padding: 2px;
-    font-weight: 900;
-    text-decoration: none;
-    transition-duration: 0.2s;
-}
-
-.elevenlabs-container a:hover {
-    color: var(--sunset300);
-    transition-duration: 0.2s;
-    text-decoration: underline;
-}
-
-.elevenlabs-container a:active {
-    color: var(--sunset100);
-    transition-duration: 0.2s;
-}
-
-/* PARAGRAPH STYLE ↑ */
+/* ELEVENLABS ↑ */
