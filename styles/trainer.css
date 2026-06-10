@@ -79,6 +79,12 @@
 
 /* IPA & ALPHABET ↓ */
 
+.sounds-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
 .voiced {
     font-family: var(--font-noto);
     font-size: 1.6em;
@@ -86,7 +92,6 @@
     width: 64px;
     height: 64px;
     padding: 4px;
-    margin: 8px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -102,7 +107,6 @@
     width: 64px;
     height: 64px;
     padding: 4px;
-    margin: 8px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -112,13 +116,12 @@
 }
 
 .alphabet-letter {
-    font-family: var(--font-noto);
+    font-family: var(--font-space);
     display: grid;
     align-content: space-evenly;
     width: 64px;
     height: 64px;
     padding: 4px;
-    margin: 8px;
     justify-content: center;
     align-items: center;
     text-align: center;
