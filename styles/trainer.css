@@ -38,6 +38,16 @@
 
 /* PARAGRAPH STYLE ↑ */
 
+
+
+
+
+
+
+
+
+
+
 /* ELEVENLABS ↓ */
 
 .elevenlabs-container {
@@ -57,3 +67,137 @@
 }
 
 /* ELEVENLABS ↑ */
+
+
+
+
+
+
+
+
+
+
+/* IPA & ALPHABET ↓ */
+
+.voiced {
+    font-family: var(--font-noto);
+    font-size: 1.6em;
+    display: flex;
+    width: 64px;
+    height: 64px;
+    padding: 4px;
+    margin: 8px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 4px;
+    background-color: var(--cerulean200);
+    transition: all 0.2s ease;
+}
+
+.voiceless {
+    font-family: var(--font-noto);
+    font-size: 1.6rem;
+    display: flex;
+    width: 64px;
+    height: 64px;
+    padding: 4px;
+    margin: 8px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 4px;
+    background-color: var(--sunset200);
+    transition: all 0.2s ease;
+}
+
+.alphabet-letter {
+    font-family: var(--font-noto);
+    display: grid;
+    align-content: space-evenly;
+    width: 64px;
+    height: 64px;
+    padding: 4px;
+    margin: 8px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 4px;
+    background-color: var(--graycool200);
+    transition: all 0.2s ease;
+}
+
+.alphabet-main-letter {
+    font-size: 1.6rem;
+}
+
+.alphabet-transcription {
+    font-family: var(--font-noto);
+    font-size: 1rem;
+}
+
+/* IPA & ALPHABET ↑ */
+
+
+
+
+
+
+
+
+
+
+/* HOVERED/CLICKED ↓ */
+
+.hovered-alphabet {
+    color: var(--graycool0);
+    background-color: var(--graycool800);
+    box-shadow: 0px 0px 4px var(--graycool800);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.hovered-voiced {
+    color: var(--graycool0);
+    background-color: var(--cerulean600);
+    box-shadow: 0px 0px 4px var(--cerulean600);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.hovered-voiceless {
+    color: var(--graycool0);
+    background-color: var(--sunset600);
+    box-shadow: 0px 0px 4px var(--sunset600);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.clicked-alphabet {
+    color: var(--graycool0);
+    background-color: var(--graycool800);
+    box-shadow: 0px 0px 4px var(--graycool800);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.clicked-voiced {
+    color: var(--graycool0);
+    background-color: var(--cerulean600);
+    box-shadow: 0px 0px 4px var(--cerulean600);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.clicked-voiceless {
+    color: var(--graycool0);
+    background-color: var(--sunset600);
+    box-shadow: 0px 0px 4px var(--sunset600);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+/* HOVER/CLICK ↑ */
