@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+
 
     const letters = document.querySelectorAll(".alphabet-letter, .voiced, .voiceless");
 
@@ -45,5 +45,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     });
-
-});
