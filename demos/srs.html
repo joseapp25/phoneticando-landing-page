@@ -184,18 +184,18 @@
   /* ── Card token ── */
   .card-track {
     position: relative;
-    height: 36px;
-    margin-bottom: 8px;
+    height: 40px;
+    margin-bottom: 24px;
   }
   .card-token {
     position: absolute;
     top: 0;
     left: 0;
     transform: translateX(-50%);
-    background: var(--sunset300);
-    border: 2px solid var(--sunset600);
-    color: var(--graycool800);
-    font-size: 12px;
+    background: var(--graycool800);
+    border: 2px solid var(--graycool600);
+    color: var(--graycool0);
+    font-size: 8px;
     font-weight: 900;
     padding: 4px;
     border-radius: 8px;
@@ -203,7 +203,21 @@
     transition: left .55s cubic-bezier(.4,0,.2,1);
   }
   .card-token::before {
-    content: '📇 ';
+    content: '';
+  }
+
+  .card-token-flashcard {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    fill: var(--sunset600);
+  }
+
+  .flashcard-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   /* ── Status message ── */
@@ -239,7 +253,17 @@
   <div class="status" id="status">Revisando…</div>
 
   <div class="card-track" id="cardTrack">
-    <div class="card-token" id="cardToken">Flashcard</div>
+    <div class="card-token" id="cardToken">
+      <div class="flashcard-content">
+        <svg class="card-token-flashcard" viewBox="0 0 1024 1024">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M682.666 767.997H401.458L731.625 856.456L875.166 320.664L756.958 288.997L779.041 206.581L979.666 260.331L791.958 960.956L214.958 806.372L225.25 767.997H85.333V42.6641H682.666V767.997ZM170.666 682.664H597.333V127.997H170.666V682.664Z" />
+        </svg>
+        <div>
+          Flashcard
+        </div>
+      </div>
+      
+    </div>
   </div>
 
   <div class="stage-row" id="stageRow"></div>
