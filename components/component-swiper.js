@@ -174,8 +174,9 @@ class ComponentSwiper extends HTMLElement {
       }
 
       .slide {
+          padding-top: 16px;
+          padding-bottom: 16px;
           min-width: 100%;
-          padding: 1rem;
           box-sizing: border-box;
           display: flex;
           align-items: center;
@@ -186,8 +187,6 @@ class ComponentSwiper extends HTMLElement {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 8px;
-          margin-top: 1rem;
       }
 
       .prev,
@@ -199,8 +198,8 @@ class ComponentSwiper extends HTMLElement {
 
       .chevron-svg-icons {
           display: flex;
-          width: 24px;
-          height: 24px;
+          width: 32px;
+          height: 32px;
           fill: var(--graycool800);
           cursor: pointer;
           transition-duration: 0.2s;
@@ -221,9 +220,12 @@ class ComponentSwiper extends HTMLElement {
           cursor: not-allowed;
       }
 
+      .dots {
+          display: flex;
+          gap: 8px;
+      }
+
       .dot {
-          margin-left: 2px;
-          margin-right: 2px;
           width: 8px;
           height: 8px;
           border-radius: 50%;
