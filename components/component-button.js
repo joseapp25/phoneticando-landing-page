@@ -24,24 +24,35 @@ class ComponentButton extends HTMLElement{
                     font-weight: 600;
                     color: var(--graycool0);
                     fill: var(--graycool0);
-                    background-color: var(--sunset600);
                     padding-top: 24px;
                     padding-bottom: 24px;
                     border-radius: 8px;
-                    transition-duration: 0.2s;
-                    box-shadow: 0px 0px 16px var(--sunset600);
+                    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+
+                    /* Pulsing glow animation */
+                    animation: glow-pulse 2.5s ease-in-out infinite;
+                }
+
+                @keyframes glow-pulse {
+                    0%, 100% {
+                        box-shadow: 0px 0px 16px var(--sunset600);
+                        background-color: var(--sunset600);
+                    }
+                    50% {
+                        box-shadow: 0px 0px 16px var(--cerulean600);
+                        background-color: var(--cerulean600);
+                    }
                 }
 
                 .button-anchor:hover {
-                    background-color: var(--sunset500);
-                    box-shadow: 0px 0px 16px var(--sunset500);
-                    transition-duration: 0.2s;
+                    background: var(--cerulean1000);
+                    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+                    transform: scale(1.1);
                 }
 
                 .button-anchor:active {
-                    background-color: var(--sunset700);
-                    box-shadow: 0px 0px 16px var(--sunset700);
-                    transition-duration: 0.2s;
+                    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+                    transform: scale(1.2);
                 }
 
                 @media only screen and (min-width: 600px) {
