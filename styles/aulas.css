@@ -113,18 +113,6 @@
     margin-right: auto;
 }
 
-.social-title-style {
-    font-family: var(--font-inter-tight);
-    font-size: 32px;
-    line-height: 40px;
-    margin-bottom: 16px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
-}
-
 .social-quote-container {
     border-left: 8px solid var(--sunset600);
     padding: 16px;
