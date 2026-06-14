@@ -15,7 +15,7 @@ class ComponentPageTitle extends HTMLElement{
                     line-height: 40px;
                     color: var(--sunset600);
                     text-shadow: 2px 2px 0px var(--graycool1000);
-                    
+                    text-transform: uppercase;
                 }
 
             </style>

@@ -83,15 +83,16 @@ html, body {
     margin-top: 48px;
     background-image: linear-gradient(to right, var(--cerulean900), var(--cerulean1000));
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 32px;
     padding-left: 24px;
     align-items: center;
+
 }
 
 @media only screen and (min-width: 600px) {
     .header-poster-section {
-        justify-content: center;
-        gap: 64px;
+        gap: 128px;
     }
 
 }
