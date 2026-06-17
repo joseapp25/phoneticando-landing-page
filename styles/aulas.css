@@ -1,7 +1,5 @@
 /* AULAS POSTER ↓ */
 
-
-
 .aulas-paragraph {
     font-size: 16px;
     font-weight: 400;
@@ -18,47 +16,15 @@
 
 
 
-
-
-/* BENEFITS-SECTION ↓ */
-
-.hero-banner {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 32px;
-    box-shadow: 0px 0px 4px var(--graycool600);
-    border-radius: 4px;
-    max-width: 600px;
-    max-height: 600px;
-}
-
-@media only screen and (max-width: 600px) {
-    .hero-banner {
-        max-width: 320px;
-        max-height: 320px;
-    }
-}
-
-/* BENEFITS-SECTION ↑ */
-
-
-
-
-
-
-
-
-
-
 /* TRANSFORMATION-SECTION ↓ */
 
 .transformation-container {
+    background-color: white;
+    box-shadow: 0px 0px 8px var(--graycool200);
     display: flex;
     flex-direction: column;
     gap: 8px;
     border-radius: 8px;
-    border: 2px solid var(--cerulean300);
     margin-top: 16px;
     margin-bottom: 16px;
     padding: 16px;
@@ -80,9 +46,9 @@
 }
 
 .transformation-arrow {
-    width: 40px;
-    height: 40px;
-    fill: var(--graycool700);
+    width: 32px;
+    height: 32px;
+    fill: var(--graycool600);
 }
 
 .transformation-cards-img {
