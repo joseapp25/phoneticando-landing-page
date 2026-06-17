@@ -1,4 +1,4 @@
-class InlineAnchor extends HTMLElement {
+class SelfAnchor extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
@@ -18,16 +18,21 @@ class InlineAnchor extends HTMLElement {
 
     render() {
         const href   = this.getAttribute('href')   || '#';
-        const target = this.getAttribute('target') || '_blank';
+        const target = this.getAttribute('target') || '_self';
         const label  = this.getAttribute('label')  || '';
 
         this.shadowRoot.innerHTML = `
             <style>
-                :host {
-                    display: inline;
+
+                .self-anchor-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 8px;
+                    text-align: left;
                 }
 
-                .inline-anchor {
+                .self-anchor {
                     text-decoration: none;
                     color: var(--sunset600);
                     fill: var(--sunset600);
@@ -40,19 +45,19 @@ class InlineAnchor extends HTMLElement {
                     cursor: pointer;
                 }
 
-                .inline-anchor:hover {
+                .self-anchor:hover {
                     color: var(--sunset400);
                     fill: var(--sunset400);
                     transition-duration: 0.2s;
                 }
 
-                .inline-anchor:active {
+                .self-anchor:active {
                     color: var(--sunset200);
                     fill: var(--sunset200);
                     transition-duration: 0.2s;
                 }
 
-                .inline-anchor svg {
+                .self-anchor svg {
                     width: 16px;
                     height: 16px;
                     flex-shrink: 0;
@@ -64,16 +69,20 @@ class InlineAnchor extends HTMLElement {
                 }
             </style>
 
-            <a class="inline-anchor" href="${href}" target="${target}" rel="noopener noreferrer">
-                <span class="label">
-                    ${label}<slot></slot>
-                </span>
-                <svg viewBox="0 0 1024 1024" aria-hidden="true">
-                    <path d="M384 170.67H170.667V853.336H853.333V640.003H938.667V938.67H85.333V85.3359H384V170.67ZM938.667 512.003H853.333V231.016L414.173 670.176L353.833 609.836L792.999 170.67H512V85.3359H938.667V512.003Z" />
-                </svg>
-            </a>
+            <div class="self-anchor-container">
+                <a class="self-anchor" href="${href}" target="${target}" rel="noopener noreferrer">
+                    <span class="label">
+                        ${label}<slot></slot>
+                    </span>
+                    <svg viewBox="0 0 1024 1024" aria-hidden="true">
+                        <path d="M384 170.669H170.666V853.336H853.333V640.003H938.666V938.669H85.333V85.3359H384V170.669ZM926.173 158.176L487.013 597.336H768V682.669H341.333V256.003H426.666V537.003L865.833 97.8359L926.173 158.176Z" />
+                    </svg>
+                </a>
+            </div>
+
+            
         `;
     }
 }
 
-customElements.define('inline-anchor', InlineAnchor);
+customElements.define('self-anchor', SelfAnchor);
