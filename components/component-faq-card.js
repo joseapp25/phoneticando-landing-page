@@ -12,14 +12,14 @@ class ComponentFaqCard extends HTMLElement {
                     margin-bottom: 16px;
                     padding: 8px;
                     border-radius: 8px;
-                    box-shadow: 0px 0px 4px var(--cerulean300);
+                    box-shadow: 0px 0px 8px var(--graycool200);
                     background-color: white;
+                    color: var(--graycool800);
                 }
 
                 .faq-q {
                     font-weight: 600;
                     font-size: 16px;
-
                     line-height: 24px;
                     cursor: pointer;
                     display: flex;

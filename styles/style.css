@@ -207,7 +207,7 @@ html, body {
 }
 
 .dark-cerulean-background {
-    background-color: var(--cerulean900);
+    background-color: var(--cerulean1000);
     color: var(--graycool0);
 }
 

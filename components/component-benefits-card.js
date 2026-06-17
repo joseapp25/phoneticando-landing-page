@@ -11,10 +11,10 @@ class ComponentBenefitsCard extends HTMLElement{
                 .benefits-cards {
                     background-color: var(--graycool0);
                     padding: 16px;
-                    margin-top: 16px;
-                    margin-bottom: 16px;
+                    margin-top: 24px;
+                    margin-bottom: 24px;
                     border-radius: 8px;
-                    border: 2px solid var(--cerulean300);
+                    box-shadow: 0px 0px 8px var(--graycool200);
                 }
 
                 .benefits-img-title-container {
