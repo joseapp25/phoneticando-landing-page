@@ -88,9 +88,30 @@ html, body {
     align-items: center;
 }
 
-@media only screen and (min-width: 600px) {
-    .header-poster-section {
-        gap: 128px;
+.aula-small-pic-container {
+    display: flex;
+    position: absolute;
+    right: 2px;
+    bottom: 0;
+}
+
+@media only screen and (min-width: 1200px) {
+    .aula-small-pic-container {
+        display: none;
+    }
+
+}
+
+.aula-big-pic-container {
+    display: none;
+    position: absolute;
+    right: 64px;
+    bottom: 0;
+}
+
+@media only screen and (min-width: 1200px) {
+    .aula-big-pic-container {
+        display: flex;
     }
 
 }
