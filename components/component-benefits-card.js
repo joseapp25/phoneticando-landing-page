@@ -9,7 +9,7 @@ class ComponentBenefitsCard extends HTMLElement{
             <style>
 
                 .benefits-cards {
-                    background-color: var(--graycool0);
+                    background-color: white;
                     padding: 16px;
                     margin-top: 24px;
                     margin-bottom: 24px;
@@ -39,7 +39,6 @@ class ComponentBenefitsCard extends HTMLElement{
                     font-size: 16px;
                     font-weight: 300;
                     line-height: 24px;
-                    text-align: justify;
                 }
             
             </style>

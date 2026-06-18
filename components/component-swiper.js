@@ -1,157 +1,3 @@
-/*class ComponentSwiper extends HTMLElement {
-  connectedCallback() {
-    const shadow = this.attachShadow({ mode: 'open' });
-
-    const slides = Array.from(this.querySelectorAll('swiper-slide'));
-    const total = slides.length;
-    let current = 0;
-
-    shadow.innerHTML = `
-
-    <link rel="stylesheet" href="styles/style.css">
-
-    <link rel="stylesheet" href="styles/trainer.css">
-
-      <style>
-        .wrapper {
-            overflow: hidden;
-        }
-
-        .track {
-            display: flex;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform;
-        }
-
-        .slide {
-            min-width: 100%;
-            padding: 1rem;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 1rem;
-        }
-
-        .prev,
-        .next {
-            padding: 0;
-            background: none;
-            border: none;
-        }
-
-        .chevron-svg-icons {
-            display: flex;
-            width: 24px;
-            height: 24px;
-            fill: var(--graycool800);
-            cursor: pointer;
-            transition-duration: 0.2s;
-        }
-
-        .chevron-svg-icons:hover {
-            fill: var(--sunset600);
-            transition-duration: 0.2s;
-        }
-
-        .chevron-svg-icons:active {
-            fill: var(--cerulean600);
-            transition-duration: 0.2s;
-        }
-
-        button:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .dot {
-            margin-left: 2px;
-            margin-right: 2px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--cerulean300);
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .dot.active {
-            background: var(--cerulean600);
-            transform: scale(1.5);
-        }
-
-      </style>
-
-      <div class="wrapper">
-        <div class="track">
-          ${slides.map(s => `<div class="slide">${s.innerHTML}</div>`).join('')}
-        </div>
-      </div>
-
-      <div class="controls">
-        <button class="prev" disabled>
-            <svg class="chevron-svg-icons" viewBox="0 0 1024 1024">
-                <path d="M624.917 210.75L685.25 271.083L459.417 496.917L685.25 722.75L624.917 783.083L338.75 496.917L624.917 210.75Z" />
-            </svg>
-        </button>
-        <div class="dots"></div>
-        <button class="next">
-            <svg class="chevron-svg-icons" viewBox="0 0 1024 1024" >
-                <path d="M399.083 783.083L338.75 722.75L564.583 496.917L338.75 271.083L399.083 210.75L685.25 496.917L399.083 783.083Z" />
-            </svg>
-        </button>
-      </div>
-    `;
-
-    const track = shadow.querySelector('.track');
-    const prev = shadow.querySelector('.prev');
-    const next = shadow.querySelector('.next');
-    const dotsContainer = shadow.querySelector('.dots');
-
-    const dots = Array.from({ length: total }, (_, i) => {
-      const d = document.createElement('button');
-      d.className = 'dot';
-      d.setAttribute('aria-label', `Slide ${i + 1}`);
-      d.onclick = () => goTo(i);
-      dotsContainer.appendChild(d);
-      return d;
-    });
-
-    let startX = 0;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
-    }, { passive: true });
-
-    function goTo(idx) {
-      current = Math.max(0, Math.min(total - 1, idx));
-      track.style.transform = `translateX(-${current * 100}%)`;
-      prev.disabled = current === 0;
-      next.disabled = current === total - 1;
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
-    }
-
-    function go(dir) { goTo(current + dir); }
-
-    prev.addEventListener('click', () => go(-1));
-    next.addEventListener('click', () => go(1));
-
-    goTo(0);
-  }
-}
-
-customElements.define('component-swiper', ComponentSwiper);*/
-
 class ComponentSwiper extends HTMLElement {
   connectedCallback() {
     const shadow = this.attachShadow({ mode: 'open' });
@@ -181,6 +27,7 @@ class ComponentSwiper extends HTMLElement {
           display: flex;
           align-items: center;
           justify-content: center;
+          margin-top: 40px;
       }
 
       .controls {
@@ -249,7 +96,7 @@ class ComponentSwiper extends HTMLElement {
 
     const styleTrainer = document.createElement('link');
     styleTrainer.rel = 'stylesheet';
-    styleTrainer.href = 'styles/trainer.css';
+    styleTrainer.href = 'styles/ipa.css';
 
     // Track — move nodes instead of copying innerHTML
     const track = document.createElement('div');

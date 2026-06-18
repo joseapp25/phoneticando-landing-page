@@ -1,36 +1,24 @@
-/* ELEVENLABS ↓ */
-
-.elevenlabs-container {
+.div-noclip {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     max-width: 600px;
-    padding-left: 24px;
-    padding-right: 24px;
-    margin-top: 8px;
-    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 24px;
     margin-left: auto;
     margin-right: auto;
-    font-weight: 400;
-    font-size: 16px;
-    font-style: italic;
+    margin-bottom: 8px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
-@media only screen and (min-width: 600px) {
-    .elevenlabs-container {
-        max-width: 600px;
-    }
+.section-list {
+    list-style: inside;
+    list-style-type: decimal;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
-
-/* ELEVENLABS ↑ */
-
-
-
-
-
-
-
-
-
-
-/* IPA & ALPHABET ↓ */
 
 .sounds-container {
     display: flex;
@@ -93,19 +81,6 @@
     font-size: 1.2rem;
 }
 
-/* IPA & ALPHABET ↑ */
-
-
-
-
-
-
-
-
-
-
-/* HOVERED/CLICKED ↓ */
-
 .hovered-alphabet {
     color: var(--graycool800);
     background-color: var(--graycool0);
@@ -156,5 +131,3 @@
     cursor: pointer;
     transform: scale(1.1);
 }
-
-/* HOVER/CLICK ↑ */

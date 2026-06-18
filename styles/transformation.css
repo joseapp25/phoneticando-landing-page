@@ -1,0 +1,42 @@
+.transformation-container {
+    background-color: white;
+    box-shadow: 0px 0px 8px var(--graycool200);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 16px;
+}
+
+.transformation-cards {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.transformation-arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.transformation-arrow {
+    width: 32px;
+    height: 32px;
+    fill: var(--graycool600);
+}
+
+.transformation-cards-img {
+    display: flex;
+}
+
+.transformation-paragraph {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
