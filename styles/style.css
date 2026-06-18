@@ -149,8 +149,8 @@ html, body {
 
 .section-title-style {
     max-width: 600px;
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 24px;
+    line-height: 32px;
     margin-bottom: 16px;
     font-weight: 500;
     font-family: var(--font-inter-tight);
@@ -163,8 +163,8 @@ html, body {
     max-width: 600px;
     padding-left: 24px;
     padding-right: 24px;
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 24px;
+    line-height: 32px;
     margin-bottom: 16px;
     font-weight: 500;
     font-family: var(--font-inter-tight);
