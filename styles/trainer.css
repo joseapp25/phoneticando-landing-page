@@ -116,16 +116,16 @@
 
 .hovered-voiced {
     color: var(--graycool800);
-    background-color: var(--cerulean200);
-    box-shadow: 0px 0px 4px var(--cerulean200);
+    background-color: var(--cerulean100);
+    box-shadow: 0px 0px 4px var(--cerulean100);
     transition: all 0.2s ease;
     cursor: pointer;
 }
 
 .hovered-voiceless {
     color: var(--graycool800);
-    background-color: var(--sunset200);
-    box-shadow: 0px 0px 4px var(--sunset200);
+    background-color: var(--sunset100);
+    box-shadow: 0px 0px 4px var(--sunset100);
     transition: all 0.2s ease;
     cursor: pointer;
 }
@@ -141,8 +141,8 @@
 
 .clicked-voiced {
     color: var(--graycool800);
-    background-color: var(--cerulean200);
-    box-shadow: 0px 0px 4px var(--cerulean200);
+    background-color: var(--cerulean100);
+    box-shadow: 0px 0px 4px var(--cerulean100);
     transition: all 0.2s ease;
     cursor: pointer;
     transform: scale(1.1);
@@ -150,8 +150,8 @@
 
 .clicked-voiceless {
     color: var(--graycool800);
-    background-color: var(--sunset200);
-    box-shadow: 0px 0px 4px var(--sunset200);
+    background-color: var(--sunset100);
+    box-shadow: 0px 0px 4px var(--sunset100);
     transition: all 0.2s ease;
     cursor: pointer;
     transform: scale(1.1);
