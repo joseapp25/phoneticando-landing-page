@@ -27,7 +27,7 @@ class ComponentSwiper extends HTMLElement {
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-top: 40px;
+          margin-top: 16px;
       }
 
       .controls {
