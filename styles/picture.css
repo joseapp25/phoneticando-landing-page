@@ -42,8 +42,13 @@
 .trainer-small-pic-container {
     display: flex;
     position: absolute;
-    left: 16px;
+    left: 0;
     bottom: 0;
+}
+
+.trainer-small-pic-container img {
+    width: 160px;
+    height: auto;
 }
 
 @media only screen and (min-width: 1200px) {
