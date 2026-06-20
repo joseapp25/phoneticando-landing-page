@@ -9,7 +9,7 @@ class ComponentPayButton extends HTMLElement{
             <style>
 
                 .button-anchor {
-                    max-width: 384px;
+                    max-width: 320px;
                     margin-top: 32px;
                     font-size: 24px;
                     font-family: var(--font-inter-tight);
@@ -68,7 +68,7 @@ class ComponentPayButton extends HTMLElement{
             
             </style>
 
-            <a href="#" target="_blank" class="button-anchor">
+            <a href="#" /*target="_blank"*/ class="button-anchor">
 
                 <slot></slot>
 
