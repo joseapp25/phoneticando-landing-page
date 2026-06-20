@@ -1,3 +1,4 @@
+/* ─── AULA SMALL PIC ─── */
 .aula-small-pic-container {
     display: flex;
     position: absolute;
@@ -11,7 +12,13 @@
     }
 
 }
+/* ───────────────────────── */
 
+
+
+
+
+/* ─── AULA BIG PIC ─── */
 .aula-big-pic-container {
     display: none;
     position: absolute;
@@ -25,3 +32,31 @@
     }
 
 }
+/* ───────────────────────── */
+
+
+
+
+
+/* ─── TRAINER SMALL PIC ─── */
+.trainer-small-pic-container {
+    display: flex;
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+}
+
+@media only screen and (min-width: 1200px) {
+    .trainer-small-pic-container {
+        display: none;
+    }
+
+}
+/* ───────────────────────── */
+
+
+
+
+
+/* ─── TRAINER BIG PIC ─── */
+/* ───────────────────────── */
