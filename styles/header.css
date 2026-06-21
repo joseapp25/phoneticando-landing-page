@@ -1,6 +1,6 @@
 .header-poster-section {
     margin-top: 48px;
-    height: 180px;
+    height: 200px;
     background-image: linear-gradient(to right, var(--cerulean900), var(--cerulean1000));
     display: flex;
     justify-content: center;
