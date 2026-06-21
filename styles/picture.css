@@ -6,6 +6,11 @@
     bottom: 0;
 }
 
+.aula-small-pic-container img {
+    width: 144px;
+    height: auto;
+}
+
 @media only screen and (min-width: 1200px) {
     .aula-small-pic-container {
         display: none;
