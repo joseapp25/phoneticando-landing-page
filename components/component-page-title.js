@@ -16,7 +16,6 @@ class ComponentPageTitle extends HTMLElement{
                     color: var(--sunset600);
                     text-shadow: 2px 2px 0px var(--graycool1000);
                     text-transform: uppercase;
-                    text-align: center;
                 }
 
             </style>

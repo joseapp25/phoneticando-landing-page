@@ -3,6 +3,16 @@
     height: 200px;
     background-image: linear-gradient(to right, var(--cerulean900), var(--cerulean1000));
     display: flex;
-    justify-content: center;
     align-items: center;
+}
+
+.header-poster-section-container {
+    padding-left: 24px;
+}
+
+@media only screen and (min-width: 600px) {
+    .header-poster-section {
+        justify-content: center;
+    }
+
 }
