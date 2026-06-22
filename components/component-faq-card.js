@@ -24,11 +24,18 @@ class ComponentFaqCard extends HTMLElement {
                     cursor: pointer;
                     display: flex;
                     align-items: center;
+                    transition-duration: 0.2s;
                 }
 
                 .faq-q:hover {
                     color: var(--cerulean600);
                     fill: var(--cerulean600);
+                    transition-duration: 0.2s;
+                }
+
+                .faq-q:active {
+                    color: var(--cerulean400);
+                    fill: var(--cerulean400);
                     transition-duration: 0.2s;
                 }
 
