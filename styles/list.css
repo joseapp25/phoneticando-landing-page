@@ -1,0 +1,7 @@
+.section-list {
+    list-style: inside;
+    list-style-type: decimal;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}

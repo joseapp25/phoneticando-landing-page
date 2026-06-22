@@ -31,12 +31,12 @@ class ComponentTutorialCard extends HTMLElement {
                 }
 
                 .tutorial-q:hover {
-                    color: var(--sunset600);
+                    color: var(--cerulean600);
                     transition-duration: 0.2s;
                 }
 
                 .tutorial-q:active {
-                    color: var(--sunset400);
+                    color: var(--cerulean400);
                     transition-duration: 0.2s;
                 }
 
@@ -59,17 +59,41 @@ class ComponentTutorialCard extends HTMLElement {
                 .tutorial-item.open .tutorial-body {
                     max-height: 400px;
                 }
+
+                .tutorial-item.open .tutorial-icon {
+                    transform: rotate(-270deg);
+                }
+
+                .tutorial-icon svg {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 24px;
+                    height: 24px;
+                    transform: rotate(270deg);
+                    fill: var(--cerulean600);
+                }
             </style>
 
             <div class="tutorial-item-container">
+
                 <div class="tutorial-item">
+
                     <div class="tutorial-q" role="button" aria-expanded="false">
+                        <div class="tutorial-icon">
+                            <svg viewBox="0 0 1024 1024">
+                                <path d="M225.833 383.997L286.166 323.664L512 549.497L737.833 323.664L798.166 383.997L512 670.164L225.833 383.997Z"/>
+                            </svg>
+                        </div>
                         <slot name="tutorial-title"></slot>
                     </div>
+
                     <div class="tutorial-body">
                         <slot class="tutorial-body-inner" name="tutorial-content"></slot>
                     </div>
+
                 </div>
+
             </div>
 
         `;
