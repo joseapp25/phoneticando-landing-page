@@ -27,17 +27,21 @@ class ComponentTutorialCard extends HTMLElement {
                     cursor: pointer;
                     display: flex;
                     align-items: center;
+                    gap: 4px;
                     transition-duration: 0.2s;
+                    fill: var(--sunset600);
                 }
 
                 .tutorial-q:hover {
                     color: var(--cerulean600);
                     transition-duration: 0.2s;
+                    fill: var(--cerulean600);
                 }
 
                 .tutorial-q:active {
                     color: var(--cerulean400);
                     transition-duration: 0.2s;
+                    fill: var(--cerulean400);
                 }
 
                 .tutorial-body {
@@ -60,18 +64,12 @@ class ComponentTutorialCard extends HTMLElement {
                     max-height: 400px;
                 }
 
-                .tutorial-item.open .tutorial-icon {
-                    transform: rotate(-270deg);
-                }
-
-                .tutorial-icon svg {
+                .tutorial-icon-svg {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     width: 24px;
                     height: 24px;
-                    transform: rotate(270deg);
-                    fill: var(--cerulean600);
                 }
             </style>
 
@@ -81,8 +79,8 @@ class ComponentTutorialCard extends HTMLElement {
 
                     <div class="tutorial-q" role="button" aria-expanded="false">
                         <div class="tutorial-icon">
-                            <svg viewBox="0 0 1024 1024">
-                                <path d="M225.833 383.997L286.166 323.664L512 549.497L737.833 323.664L798.166 383.997L512 670.164L225.833 383.997Z"/>
+                            <svg class="tutorial-icon-svg" viewBox="0 0 1024 1024">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M512 85.3359C747.641 85.3359 938.666 276.361 938.666 512.003C938.666 747.644 747.641 938.669 512 938.669C276.358 938.669 85.333 747.644 85.333 512.003C85.333 276.361 276.358 85.3359 512 85.3359ZM426.666 426.669V512.003H469.333V682.669H426.666V768.003H597.333V682.669H554.666V426.669H426.666ZM469.333 256.003V341.336H554.666V256.003H469.333Z" />
                             </svg>
                         </div>
                         <slot name="tutorial-title"></slot>
