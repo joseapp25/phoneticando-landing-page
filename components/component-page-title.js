@@ -13,8 +13,8 @@ class ComponentPageTitle extends HTMLElement{
                     font-weight: 600;
                     font-size: 32px;
                     line-height: 40px;
-                    color: var(--sunset600);
-                    text-shadow: 2px 2px 0px var(--graycool1000);
+                    color: var(--graycool0);
+                    text-shadow: 1px 1px 0px var(--sunset600);
                     text-transform: uppercase;
                 }
 
