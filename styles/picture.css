@@ -1,21 +1,6 @@
-/* ─── AULA SMALL PIC ─── */
+/* ─── AULA PIC ─── */
 .aula-small-pic-container {
     display: flex;
-    position: absolute;
-    right: 2px;
-    bottom: 0;
-}
-
-.aula-small-pic-container img {
-    width: 192px;
-    height: auto;
-}
-
-@media only screen and (min-width: 1200px) {
-    .aula-small-pic-container {
-        display: none;
-    }
-
 }
 /* ───────────────────────── */
 
@@ -23,37 +8,12 @@
 
 
 
-/* ─── AULA BIG PIC ─── */
-/* ───────────────────────── */
 
 
 
 
-
-/* ─── TRAINER SMALL PIC ─── */
+/* ─── TRAINER PIC ─── */
 .trainer-small-pic-container {
     display: flex;
-    position: absolute;
-    right: 0;
-    bottom: 0;
 }
-
-.trainer-small-pic-container img {
-    width: 168px;
-    height: auto;
-}
-
-@media only screen and (min-width: 1200px) {
-    .trainer-small-pic-container {
-        display: none;
-    }
-
-}
-/* ───────────────────────── */
-
-
-
-
-
-/* ─── TRAINER BIG PIC ─── */
 /* ───────────────────────── */

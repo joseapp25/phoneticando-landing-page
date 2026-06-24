@@ -1,19 +1,14 @@
 .header-poster-section {
     margin-top: 48px;
-    height: 400px;
+    height: 320px;
     background-image: linear-gradient(to right, var(--cerulean900), var(--cerulean1000));
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    text-align: center;
 }
 
 .header-poster-section-container {
-    padding-left: 24px;
-}
-
-@media only screen and (min-width: 600px) {
-    .header-poster-section {
-        justify-content: center;
-        text-align: center;
-    }
-
+    padding-top: 24px;
 }
