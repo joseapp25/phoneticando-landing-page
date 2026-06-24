@@ -39,6 +39,8 @@ class ComponentBenefitsCard extends HTMLElement{
                     font-size: 16px;
                     font-weight: 300;
                     line-height: 24px;
+                    text-align: justify;
+                    hyphens: auto;
                 }
             
             </style>
