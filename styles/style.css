@@ -15,7 +15,7 @@
 
 :root {
 
-    --graycool0: #F1F1FF;
+    --graycool0: #FAFAFD;
     --graycool50: #EEEEF1;
     --graycool100: #E2E4E9;
     --graycool200: #C7C8D1;
@@ -60,7 +60,7 @@
 }
 
 html, body {
-    background-color: var(--graycool0);
+    background-color: white;
     color: var(--graycool800);
     font-family: var(--font-dm-sans);
     scroll-behavior: smooth;

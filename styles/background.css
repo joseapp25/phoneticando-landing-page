@@ -3,15 +3,6 @@
     color: var(--graycool0);
 }
 
-.cerulean-background {
-    background-color: var(--cerulean100);
-}
-
-.dark-cerulean-background {
-    background-color: var(--cerulean1000);
-    color: var(--graycool0);
-}
-
-.sunset-background {
-    background-color: var(--sunset100);
+.light-graycool-background {
+    background-color: var(--graycool0);
 }

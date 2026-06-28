@@ -11,7 +11,7 @@ class ComponentPayButton extends HTMLElement{
                 .button-anchor {
                     max-width: 320px;
                     margin-top: 32px;
-                    font-size: 24px;
+                    font-size: 16px;
                     font-family: var(--font-inter-tight);
                     display: flex;
                     justify-content: center;
