@@ -151,7 +151,7 @@ class ComponentGlobalMenu extends HTMLElement{
                 }
 
                 .hamburger-menu-nav a:active {
-                    background-color: var(--cerulean800);
+                    background-color: var(--cerulean400);
                     transition-duration: 0.2s;
                 }
 
@@ -170,7 +170,6 @@ class ComponentGlobalMenu extends HTMLElement{
                     height: 48px;
                     padding-left: 16px;
                     padding-right: 16px;
-                    background-color: var(--cerulean1000);
                     
                 }
 
@@ -179,7 +178,7 @@ class ComponentGlobalMenu extends HTMLElement{
                     background: none;
                     border: none;
                     cursor: pointer;
-                    fill: var(--cerulean600);
+                    fill: var(--graycool0);
                     transition-duration: 0.2s;
                 }
 
@@ -196,6 +195,11 @@ class ComponentGlobalMenu extends HTMLElement{
                 .hamburger-menu-close-button-icon {
                     width: 24px;
                     height: 24px;
+                }
+
+                .menu-title {
+                    color: var(--sunset600);
+                    font-weight: 600;
                 }
 
             </style>
@@ -225,7 +229,7 @@ class ComponentGlobalMenu extends HTMLElement{
 
                     <nav class="hamburger-menu-nav">
                     <div class="hamburger-menu-nav-container-title">
-                        <div>Menu</div>
+                        <div class="menu-title">Menu</div>
                         <button class="hamburger-menu-close-button" aria-label="Close menu">
                             <svg class="hamburger-menu-close-button-icon" viewBox="0 0 1024 1024">
                                 <path d="M243.507 840.837L512.007 572.337L780.507 840.837L840.846 780.497L572.346 511.997L840.84 243.504L780.5 183.164L512.007 451.658L243.513 183.164L183.173 243.504L451.667 511.997L183.167 780.497L243.507 840.837Z" />

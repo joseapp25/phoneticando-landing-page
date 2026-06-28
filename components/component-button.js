@@ -11,7 +11,7 @@ class ComponentButton extends HTMLElement{
                 .button-anchor {
                     max-width: 320px;
                     margin-top: 32px;
-                    font-size: 24px;
+                    font-size: 16px;
                     font-family: var(--font-inter-tight);
                     display: flex;
                     gap: 8px;
@@ -24,8 +24,8 @@ class ComponentButton extends HTMLElement{
                     font-weight: 600;
                     color: var(--graycool0);
                     fill: var(--graycool0);
-                    padding-top: 24px;
-                    padding-bottom: 24px;
+                    padding-top: 16px;
+                    padding-bottom: 16px;
                     border-radius: 8px;
                     transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
 
@@ -62,8 +62,8 @@ class ComponentButton extends HTMLElement{
                 }
 
                 .button-icon {
-                    width: 32px;
-                    height: 32px;
+                    width: 24px;
+                    height: 24px;
                     display: flex;
                     justify-content: center;
                 }

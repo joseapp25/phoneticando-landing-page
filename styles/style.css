@@ -60,7 +60,6 @@
 }
 
 html, body {
-    background-color: white;
     color: var(--graycool800);
     font-family: var(--font-dm-sans);
     scroll-behavior: smooth;

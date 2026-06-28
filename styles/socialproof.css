@@ -4,13 +4,10 @@
 }
 
 .social-quote-container {
-    border-left: 8px solid var(--sunset600);
-    padding: 16px;
-    margin: 8px;
-    border-radius: 4px;
-    background-color: var(--graycool0);
-    color: var(--graycool800);
-    box-shadow: 0px 0px 8px var(--graycool1000);
+    border-left: 4px solid var(--sunset600);
+    padding-left: 16px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .social-paragraph {
@@ -23,7 +20,7 @@
 }
 
 .social-paragraph-name {
-    color: var(--cerulean600);
+    color: var(--sunset600);
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;

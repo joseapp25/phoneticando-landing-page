@@ -9,32 +9,25 @@ class ComponentSectionTitle extends HTMLElement{
             <style>
 
                 .title-container {
-                    text-align: left;
                     margin-top: 16px;
                     margin-bottom: 16px;
                 }
 
                 .simple-text {
                     max-width: 600px;
-                    font-size: 24px;
-                    line-height: 32px;
-                    font-weight: 400;
+                    font-size: 32px;
+                    line-height: 40px;
+                    font-weight: 300;
                     font-family: var(--font-inter-tight);
-                    scroll-margin-top: 80px;
-                    margin-left: auto;
-                    margin-right: auto;
                     text-align: center;
                 }
 
                 .highlight-text {
                     max-width: 600px;
-                    font-size: 40px;
-                    line-height: 48px;
+                    font-size: 64px;
+                    line-height: 72px;
                     font-weight: 600;
                     font-family: var(--font-inter-tight);
-                    scroll-margin-top: 80px;
-                    margin-left: auto;
-                    margin-right: auto;
                     text-align: center;
                 }
 
