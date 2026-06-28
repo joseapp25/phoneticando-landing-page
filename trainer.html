@@ -35,6 +35,7 @@
     <script src="components/component-tutorial-card.js" defer></script>
     <script src="components/component-inline-anchor.js" defer></script>
     <script src="components/component-self-anchor.js" defer></script>
+    <script src="components/component-section-title.js" defer></script>
     <script src="components/component-swiper.js" defer></script>
     <script src="components/component-pay-button.js" defer></script>
     <script src="components/component-footer.js" defer></script>
@@ -59,17 +60,33 @@
 
         <section class="section-container-padding dark-graycool-background">
             <div class="section-content">
-                <h1 class="section-title-style">
+                <component-section-title>
+                    <div slot="simple">
+                        Treine seu
+                    </div>
+                    <div class="sunset-highlight" slot="highlight">
+                        Cérebro
+                    </div>
+                </component-section-title>
+                <component-section-title>
+                    <div slot="simple">
+                        Transforme sua
+                    </div>
+                    <div class="sunset-highlight" slot="highlight">
+                        Pronúncia
+                    </div>
+                </component-section-title>
+                <!--<h1 class="section-title-style">
                     Treine seu <span class="cerulean-highlight">Cérebro</span>
                     <br>
                     Transforme sua <span class="sunset-highlight">Pronúncia</span>
-                </h1>
+                </h1>-->
                 <p class="paragraph-style">
                     <span class="graycool-highlight">Phoneticando Trainer</span> é um treinador de pronúncia que ensina o seu cérebro a <span class="graycool-highlight underline-highlight">reconhecer padrões de sons</span>.
                 </p>
                 
                 <component-pay-button>
-                    QUERO TREINAR<br>MEU CÉREBRO
+                    QUERO TREINAR MEU CÉREBRO
                 </component-pay-button>
             </div>
         </section>
@@ -272,7 +289,7 @@
                 <h1 class="section-title-style">Pricing</h1>
             </div>
             <component-pay-button>
-                QUERO MELHORAR<br>MINHA PRONÚNCIA
+                QUERO MELHORAR MINHA PRONÚNCIA
             </component-pay-button>
         </section>
 
