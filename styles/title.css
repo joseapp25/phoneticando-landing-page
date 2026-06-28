@@ -1,0 +1,27 @@
+.section-title-style {
+    max-width: 600px;
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-family: var(--font-inter-tight);
+    scroll-margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-title-style-noclip {
+    max-width: 600px;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-family: var(--font-inter-tight);
+    scroll-margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

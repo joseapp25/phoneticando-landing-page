@@ -13,6 +13,9 @@ class ComponentTutorialCard extends HTMLElement {
                     margin-right: auto;
                     padding-left: 24px;
                     padding-right: 24px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .tutorial-item {
@@ -27,6 +30,7 @@ class ComponentTutorialCard extends HTMLElement {
                     cursor: pointer;
                     display: flex;
                     align-items: center;
+                    justify-content: center;
                     gap: 4px;
                     transition-duration: 0.2s;
                     fill: var(--sunset600);

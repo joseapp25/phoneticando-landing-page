@@ -11,7 +11,7 @@ class ComponentGlobalMenu extends HTMLElement{
                 .global-menu {
                     position: fixed;
                     display: flex;
-                    width: 100vw;
+                    width: 100%;
                     height: 48px;
                     top: 0;
                     background-color: var(--graycool1000);
@@ -25,8 +25,8 @@ class ComponentGlobalMenu extends HTMLElement{
                     align-items: center;
                     gap: 4px;
                     width: 100vw;
-                    padding-left: 24px;
-                    padding-right: 24px;
+                    padding-left: 16px;
+                    padding-right: 16px;
                     margin-left: auto;
                     margin-right: auto;
                 }
@@ -49,7 +49,7 @@ class ComponentGlobalMenu extends HTMLElement{
                 .global-menu-logo-anchor {
                     display: flex;
                     gap: 4px;
-                    fill: var(--cerulean600);
+                    fill: var(--graycool0);
                     justify-content: center;
                     align-items: center;
                     text-decoration: none;
@@ -73,8 +73,8 @@ class ComponentGlobalMenu extends HTMLElement{
             
                 .phoneticando-text {
                     font-size: 16px;
-                    font-weight: 500;
-                    color: var(--cerulean600);
+                    font-weight: 300;
+                    color: var(--graycool0);
                 }
 
             </style>
@@ -95,7 +95,7 @@ class ComponentGlobalMenu extends HTMLElement{
                     align-items: center;
                     justify-content: center;
                     transition-duration: 0.2s;
-                    fill: var(--cerulean600);
+                    fill: var(--graycool0);
                 }
 
                 .hamburger-menu-button:hover {
@@ -137,7 +137,7 @@ class ComponentGlobalMenu extends HTMLElement{
 
                 .hamburger-menu-nav a {
                     text-decoration: none;
-                    color: var(--cerulean600);
+                    color: var(--graycool0);
                     transition-duration: 0.2s;
                     padding: 4px 8px 4px 8px;
                     font-weight: 500;
@@ -147,7 +147,6 @@ class ComponentGlobalMenu extends HTMLElement{
 
                 .hamburger-menu-nav a:hover {
                     background-color: var(--cerulean600);
-                    color: var(--graycool0);
                     transition-duration: 0.2s;
                 }
 
@@ -172,7 +171,7 @@ class ComponentGlobalMenu extends HTMLElement{
                     padding-left: 16px;
                     padding-right: 16px;
                     background-color: var(--cerulean1000);
-                    color: var(--cerulean0);
+                    
                 }
 
                 .hamburger-menu-close-button {
