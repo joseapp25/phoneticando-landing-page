@@ -12,9 +12,7 @@ class ComponentFaqCard extends HTMLElement {
                     margin-bottom: 16px;
                     padding: 8px;
                     border-radius: 8px;
-                    box-shadow: 0px 0px 8px var(--graycool200);
-                    background-color: white;
-                    color: var(--graycool800);
+                    box-shadow: 0px 0px 4px var(--graycool800);
                 }
 
                 .faq-q {
@@ -28,14 +26,14 @@ class ComponentFaqCard extends HTMLElement {
                 }
 
                 .faq-q:hover {
-                    color: var(--cerulean600);
-                    fill: var(--cerulean600);
+                    color: var(--sunset600);
+                    fill: var(--sunset600);
                     transition-duration: 0.2s;
                 }
 
                 .faq-q:active {
-                    color: var(--cerulean400);
-                    fill: var(--cerulean400);
+                    color: var(--sunset400);
+                    fill: var(--sunset400);
                     transition-duration: 0.2s;
                 }
 
@@ -70,7 +68,7 @@ class ComponentFaqCard extends HTMLElement {
                     width: 24px;
                     height: 24px;
                     transform: rotate(270deg);
-                    fill: var(--cerulean600);
+                    fill: var(--sunset600);
                 }
             </style>
 

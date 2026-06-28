@@ -8,37 +8,62 @@ class ComponentPageTitle extends HTMLElement{
 
             <style>
 
+                .page-title-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                }
+
                 .page-title {
                     font-family: var(--font-inter-tight);
                     font-weight: 600;
                     font-size: 32px;
                     line-height: 40px;
                     color: var(--graycool0);
-                    text-shadow: 2px 2px 0px var(--graycool1000);
-                    
+                    text-align: center;
                 }
 
                 .page-subtitle {
+                    font-family: var(--font-inter-tight);
+                    font-weight: 200;
                     font-size: 16px;
                     line-height: 24px;
                     letter-spacing: 8px;
                     text-transform: uppercase;
-                    font-weight: 200;
                     color: var(--graycool0);
+                    text-align: center;
+                }
+
+                .logo-style {
+                    fill: var(--graycool0);
+                    width: 40px;
+                    height: 40px;
                 }
 
             </style>
 
-            <h1>
+            <div class="page-title-container">
+
+                <svg class="logo-style" viewBox="0 0 1024 1024">
+                    <path d="M899.471 169.143V32L124.531 169.143H899.471Z"/>
+                    <path d="M757.135 717.714L899.471 224H124.531V498.286H266.867L124.531 992H899.471V717.714H757.135Z"/>
+                </svg>
+
+                <h1>
+                
+                    <div class="page-title">
+                        phoneticando
+                    </div>
+
+                    <div class="page-subtitle">
+                        <slot></slot>
+                    </div>
             
-                <div class="page-title">
-                    phoneticando
-                </div>
-                <div class="page-subtitle">
-                    <slot></slot>
-                </div>
-           
-            </h1>
+                </h1>
+
+            </div>
 
         `
     }

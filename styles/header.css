@@ -1,14 +1,8 @@
 .header-poster-section {
     margin-top: 48px;
-    height: 320px;
-    background-image: linear-gradient(to right, var(--cerulean900), var(--cerulean1000));
-    text-align: center;
+    padding-top: 64px;
+    padding-bottom: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
-}
-
-.header-poster-section-container {
-   background: none;
 }

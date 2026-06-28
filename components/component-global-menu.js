@@ -14,8 +14,8 @@ class ComponentGlobalMenu extends HTMLElement{
                     width: 100vw;
                     height: 48px;
                     top: 0;
-                    background-color: white;
-                    box-shadow: 0px 0px 4px var(--graycool200);
+                    background-color: var(--graycool1000);
+                    box-shadow: 0px 0px 4px var(--graycool800);
                     z-index: 1;
                 }
 
@@ -59,7 +59,7 @@ class ComponentGlobalMenu extends HTMLElement{
 
                 .global-menu-logo-anchor:hover {
                     transition-duration: 0.2s;
-                    fill: var(--sunset600);
+                    fill: var(--sunset400);
                 }
 
                 .global-menu-logo-anchor:active {
@@ -73,8 +73,8 @@ class ComponentGlobalMenu extends HTMLElement{
             
                 .phoneticando-text {
                     font-size: 16px;
-                    font-weight: 300;
-                    color: var(--cerulean700);
+                    font-weight: 500;
+                    color: var(--cerulean600);
                 }
 
             </style>
@@ -101,7 +101,7 @@ class ComponentGlobalMenu extends HTMLElement{
                 .hamburger-menu-button:hover {
                     transition-duration: 0.2s;
                     cursor: pointer;
-                    fill: var(--sunset600);
+                    fill: var(--sunset400);
                 }
 
                 .hamburger-menu-button:active {
@@ -113,9 +113,9 @@ class ComponentGlobalMenu extends HTMLElement{
                     overflow-y: auto;
                     transition: transform 0.3s ease;
                     height: 100vh;
-                    width: 264px;
-                    background-color: white;
-                    box-shadow: 0px 0px 8px var(--graycool200);
+                    width: 180px;
+                    background-color: var(--graycool1000);
+                    box-shadow: 0px 0px 8px var(--graycool800);
                     position: fixed;
                     top: 0;
                     right: 0;
@@ -171,7 +171,8 @@ class ComponentGlobalMenu extends HTMLElement{
                     height: 48px;
                     padding-left: 16px;
                     padding-right: 16px;
-                    background-color: var(--cerulean50);
+                    background-color: var(--cerulean1000);
+                    color: var(--cerulean0);
                 }
 
                 .hamburger-menu-close-button {
@@ -184,7 +185,7 @@ class ComponentGlobalMenu extends HTMLElement{
                 }
 
                 .hamburger-menu-close-button:hover {
-                    fill: var(--sunset600);
+                    fill: var(--sunset400);
                     transition-duration: 0.2s;
                 }
 
@@ -225,7 +226,7 @@ class ComponentGlobalMenu extends HTMLElement{
 
                     <nav class="hamburger-menu-nav">
                     <div class="hamburger-menu-nav-container-title">
-                        <div>Phoneticando</div>
+                        <div>Menu</div>
                         <button class="hamburger-menu-close-button" aria-label="Close menu">
                             <svg class="hamburger-menu-close-button-icon" viewBox="0 0 1024 1024">
                                 <path d="M243.507 840.837L512.007 572.337L780.507 840.837L840.846 780.497L572.346 511.997L840.84 243.504L780.5 183.164L512.007 451.658L243.513 183.164L183.173 243.504L451.667 511.997L183.167 780.497L243.507 840.837Z" />
