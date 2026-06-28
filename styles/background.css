@@ -5,4 +5,5 @@
 
 .light-graycool-background {
     background-color: var(--graycool0);
+    color: var(--graycool800);
 }

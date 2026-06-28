@@ -7,8 +7,8 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 24px;
-    box-shadow: 0px 0px 8px var(--graycool800);
-    border-radius: 999px;
+    box-shadow: 0px 0px 8px var(--graycool500);
+    border-radius: 50%;
     width: 188px;
     height: 188px;
 }
@@ -27,17 +27,19 @@
     font-weight: 500;
     font-size: 32px;
     font-family: var(--font-inter-tight);
+    color: var(--graycool0);
 }
 
 .social-name h2 {
     font-weight: 400;
     font-size: 16px;
-    color: var(--cerulean600);
+    color: var(--sunset600);
     
 }
 
 .social-name p {
     font-style: italic;
+    color: var(--graycool0);
 }
 
 .section-anchor {
@@ -65,12 +67,12 @@
     margin-right: 24px;
     border-radius: 8px;
     text-decoration: none;
-    background-color: white;
+    background-color: var(--graycool900);
     font-weight: 500;
     font-size: 16px;
-    color: var(--graycool800);
+    color: var(--graycool0);
     fill: var(--cerulean600);
-    box-shadow: 0px 0px 4px var(--graycool200);
+
     transition-duration: 0.2s;
 }
 
