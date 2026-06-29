@@ -34,6 +34,13 @@
 .picture-content {
     position: relative; /* lifts it above the img */
     z-index: 1;
+    padding-top: 6rem;
+}
+
+@media only screen and (min-width: 600px) {
+    .picture-content {
+        padding-top: 1rem;
+    }
 }
 
 .picture-background {
@@ -50,7 +57,6 @@
 @media only screen and (min-width: 600px) {
     .picture-background {
         width: auto;
-
         left: auto;
         right: 0;
     }
