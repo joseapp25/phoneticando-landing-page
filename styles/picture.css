@@ -34,12 +34,12 @@
 .picture-content {
     position: relative; /* lifts it above the img */
     z-index: 1;
-    padding-top: 6rem;
+    padding-top: 8rem;
 }
 
 @media only screen and (min-width: 600px) {
     .picture-content {
-        padding-top: 1rem;
+        padding-top: 2rem;
     }
 }
 
