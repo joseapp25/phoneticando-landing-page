@@ -1,8 +1,8 @@
 .header-poster-section {
     margin-top: 48px;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }

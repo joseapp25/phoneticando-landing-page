@@ -6,6 +6,7 @@
     padding-left: 80px;
     padding-right: 80px;
     text-align: center;
+    text-shadow: 1px 1px 0px var(--graycool1000);
 }
 
 @media only screen and (min-width: 600px) {
