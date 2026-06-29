@@ -46,4 +46,13 @@
     object-position: top center;
     z-index: 0;
 }
+
+@media only screen and (min-width: 600px) {
+    .picture-background {
+        width: auto;
+
+        left: auto;
+        right: 0;
+    }
+}
 /* ───────────────────────── */

@@ -30,7 +30,7 @@ class ComponentSectionTitle extends HTMLElement{
                     font-weight: 600;
                     font-family: var(--font-inter-tight);
                     text-align: center;
-                    text-shadow: 2px 2px 0px var(--graycool1000);
+                    text-shadow: 1px 1px 0px var(--graycool1000);
                 }
 
             </style>
