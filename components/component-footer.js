@@ -14,8 +14,8 @@ class ComponentFooter extends HTMLElement{
                     align-items: flex-start;
                     justify-content: center;
                     gap: 8px;
-                    background-color: var(--graycool1000);
-                    color: var(--graycool0);
+                    background-color: var(--graycool0);
+                    color: var(--graycool900);
                     padding-top: 24px;
                     padding-bottom: 24px;
                     padding-left: 24px;
@@ -37,20 +37,20 @@ class ComponentFooter extends HTMLElement{
                     color: var(--sunset600);
                     text-decoration: none;
                     transition-duration: 0.2s;
-                    font-weight: 900;
+                    font-weight: 800;
                     font-size: 16px;
                     padding: 4px;
                 }
 
                 .website-anchor:hover {
-                    color: var(--sunset300);
+                    color: var(--cerulean600);
                     text-decoration: underline;
                     transition-duration: 0.2s;
                     border-radius: 4px;
                 }
 
                 .website-anchor:active {
-                    color: var(--sunset100);
+                    color: var(--cerulean400);
                     transition-duration: 0.2s;
                 }
 
@@ -76,13 +76,13 @@ class ComponentFooter extends HTMLElement{
 
                 .social-link:hover {
                     background-color: var(--cerulean600);
-                    transition-duration: 0.2s;
                     box-shadow: 0px 0px 4px var(--cerulean600);
-                    fill: var(--graycool50);
+                    transition-duration: 0.2s;
+                    fill: var(--graycool0);
                 }
 
                 .social-link:active {
-                    fill: var(--sunset300);
+                    fill: var(--sunset400);
                     transition-duration: 0.2s;
                 }
 
@@ -100,7 +100,7 @@ class ComponentFooter extends HTMLElement{
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    color: var(--cerulean100);
+                    color: var(--graycool900);
                     fill: var(--cerulean600);
                     transition-duration: 0.2s;
                     gap: 4px;
@@ -115,8 +115,8 @@ class ComponentFooter extends HTMLElement{
                 }
 
                 .contacts-link:active {
-                    color: var(--sunset300);
-                    fill: var(--sunset300);
+                    color: var(--sunset400);
+                    fill: var(--sunset400);
                     transition-duration: 0.2s;
                 }
 
@@ -139,7 +139,7 @@ class ComponentFooter extends HTMLElement{
                     display: flex;
                     gap: 4px;
                     font-size: 12px;
-                    font-weight: 300;
+                    font-weight: 500;
                 }
 
                 .footer-logo {
