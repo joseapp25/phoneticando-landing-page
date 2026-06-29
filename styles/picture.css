@@ -14,7 +14,6 @@
 /* ─── TRAINER PIC ─── */
 .picture-container {
     position: relative;
-
     background-color: var(--graycool1000); /* fallback */
     overflow: hidden;
 }
