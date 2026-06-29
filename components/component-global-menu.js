@@ -16,7 +16,7 @@ class ComponentGlobalMenu extends HTMLElement{
                     top: 0;
                     background-color: var(--graycool1000);
                     box-shadow: 0px 0px 4px var(--graycool800);
-                    z-index: 1;
+                    z-index: 2;
                 }
 
                 .global-menu-container {
