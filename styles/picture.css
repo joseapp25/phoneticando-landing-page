@@ -12,5 +12,8 @@
 
 
 /* ─── TRAINER PIC ─── */
-
+.trainer-pic {
+    position: absolute;
+    bottom: 0;
+}
 /* ───────────────────────── */
