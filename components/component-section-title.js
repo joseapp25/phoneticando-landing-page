@@ -11,6 +11,15 @@ class ComponentSectionTitle extends HTMLElement{
                 .title-container {
                     margin-top: 16px;
                     margin-bottom: 16px;
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+
+                @media only screen and (min-width: 600px) {
+                    .title-container {
+                        padding-left: 80px;
+                        padding-right: 80px;
+                    }
                 }
 
                 .simple-text {
@@ -19,7 +28,7 @@ class ComponentSectionTitle extends HTMLElement{
                     line-height: 40px;
                     font-weight: 300;
                     font-family: var(--font-inter-tight);
-                    text-align: center;
+                    text-align: left;
                     text-shadow: 1px 1px 0px var(--graycool1000);
                 }
 
@@ -29,7 +38,7 @@ class ComponentSectionTitle extends HTMLElement{
                     line-height: 72px;
                     font-weight: 600;
                     font-family: var(--font-inter-tight);
-                    text-align: center;
+                    text-align: left;
                     text-shadow: 1px 1px 0px var(--graycool1000);
                 }
 

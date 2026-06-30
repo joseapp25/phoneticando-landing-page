@@ -9,18 +9,21 @@ class ComponentBenefitsCard extends HTMLElement{
             <style>
 
                 .benefits-cards {
-                    padding: 16px;
+                    padding: 32px 24px 32px 24px;
                     margin-top: 24px;
                     margin-bottom: 24px;
                     border-radius: 8px;
                     box-shadow: 0px 0px 4px var(--graycool800);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
                 }
 
                 .benefits-img-title-container {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    margin-bottom: 8px;
+                    gap: 8px;
                 }
 
                 .benefits-cards-img {
@@ -28,7 +31,7 @@ class ComponentBenefitsCard extends HTMLElement{
                 }
 
                 .benefits-title {
-                    font-size: 16px;
+                    font-size: 1.2rem;
                     font-weight: 500;
                     line-height: 24px;
                 }

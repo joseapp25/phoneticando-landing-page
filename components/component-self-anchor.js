@@ -38,7 +38,7 @@ class SelfAnchor extends HTMLElement {
                     fill: var(--sunset600);
                     transition-duration: 0.2s;
                     font-weight: 600;
-                    font-size: 16px;
+                    font-size: 0.9rem;
                     display: inline-flex;
                     align-items: baseline;
                     gap: 4px;
