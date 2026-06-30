@@ -8,8 +8,19 @@ class ComponentPayButton extends HTMLElement{
 
             <style>
 
+                .button-container {
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+
+                @media only screen and (min-width: 600px) {
+                    .button-container {
+                        padding-left: 80px;
+                        padding-right: 80px;
+                    }
+                }
+
                 .button-anchor {
-                    max-width: 320px;
                     margin-top: 32px;
                     font-size: 16px;
                     font-family: var(--font-inter-tight);
@@ -53,12 +64,6 @@ class ComponentPayButton extends HTMLElement{
                     transform: scale(1.2);
                 }
 
-                @media only screen and (min-width: 600px) {
-                    .button-anchor {
-                        max-width: 384px;
-                    }
-                }
-
                 .button-icon {
                     width: 32px;
                     height: 32px;
@@ -68,11 +73,15 @@ class ComponentPayButton extends HTMLElement{
             
             </style>
 
-            <a href="#" /*target="_blank"*/ class="button-anchor">
+            <div class="button-container">
 
-                <slot></slot>
+                <a href="#" /*target="_blank"*/ class="button-anchor">
 
-            </a>
+                    <slot></slot>
+
+                </a>
+
+            </di>
 
         `
     }

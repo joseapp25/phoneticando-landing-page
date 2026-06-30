@@ -33,6 +33,12 @@ class ComponentButton extends HTMLElement{
                     animation: glow-pulse 2.5s ease-in-out infinite;
                 }
 
+                @media only screen and (min-width: 600px) {
+                    .button-anchor {
+                        max-width: 384px;
+                    }
+                }
+
                 @keyframes glow-pulse {
                     0%, 100% {
                         box-shadow: 0px 0px 16px var(--sunset600);
@@ -53,12 +59,6 @@ class ComponentButton extends HTMLElement{
                 .button-anchor:active {
                     transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
                     transform: scale(1.2);
-                }
-
-                @media only screen and (min-width: 600px) {
-                    .button-anchor {
-                        max-width: 384px;
-                    }
                 }
 
                 .button-icon {
