@@ -4,4 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
+}
+
+.header-poster-section-container {
+    z-index: 3;
 }

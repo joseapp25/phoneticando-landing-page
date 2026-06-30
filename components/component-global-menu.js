@@ -15,8 +15,8 @@ class ComponentGlobalMenu extends HTMLElement{
                     height: 48px;
                     top: 0;
                     background-color: var(--graycool1000);
-                    box-shadow: 0px 0px 4px var(--graycool800);
-                    z-index: 2;
+                    /*box-shadow: 0px 0px 4px var(--graycool800);*/
+                    z-index: 4;
                 }
 
                 .global-menu-container {
@@ -141,7 +141,7 @@ class ComponentGlobalMenu extends HTMLElement{
                     transition-duration: 0.2s;
                     padding: 4px 8px 4px 8px;
                     font-weight: 500;
-                    padding: 16px;
+                    padding: 8px;
                     transition-duration: 0.2s;
                 }
 

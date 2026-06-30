@@ -14,7 +14,7 @@
 /* ─── TRAINER PIC ─── */
 .picture-container {
     position: relative;
-    min-height: 100vh;
+    min-height: 64vh;
     background-color: var(--graycool1000); /* fallback */
     overflow: hidden;
 }
