@@ -1,25 +1,12 @@
 /* ─── AULA PIC ─── */
-
-
-/* ───────────────────────── */
-
-
-
-
-
-
-
-
-
-/* ─── TRAINER PIC ─── */
-.picture-container {
+.aulas-picture-container {
     position: relative;
-    min-height: 80vh;
+    min-height: 72vh;
     background-color: var(--graycool1000); /* fallback */
     overflow: hidden;
 }
 
-.picture-container::after {
+.aulas-picture-container::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -31,18 +18,18 @@
     pointer-events: none;
 }
 
-.picture-content {
+.aulas-picture-content {
     position: relative; /* lifts it above the img */
     z-index: 1;
 }
 
 @media only screen and (min-width: 600px) {
-    .picture-content {
+    .aulas-picture-content {
         padding-top: 2rem;
     }
 }
 
-.picture-background {
+.aulas-picture-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,7 +41,66 @@
 }
 
 @media only screen and (min-width: 600px) {
-    .picture-background {
+    .aulas-picture-background {
+        width: auto;
+        left: auto;
+        right: 0;
+    }
+}
+/* ───────────────────────── */
+
+
+
+
+
+
+
+
+
+/* ─── TRAINER PIC ─── */
+.trainer-picture-container {
+    position: relative;
+    min-height: 72vh;
+    background-color: var(--graycool1000); /* fallback */
+    overflow: hidden;
+}
+
+.trainer-picture-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 64%; /* adjust how tall the fade is */
+    background: linear-gradient(to bottom, transparent, var(--graycool1000) 90%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.trainer-picture-content {
+    position: relative; /* lifts it above the img */
+    z-index: 1;
+}
+
+@media only screen and (min-width: 600px) {
+    .trainer-picture-content {
+        padding-top: 2rem;
+    }
+}
+
+.trainer-picture-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    z-index: 0;
+}
+
+@media only screen and (min-width: 600px) {
+    .trainer-picture-background {
         width: auto;
         left: auto;
         right: 0;

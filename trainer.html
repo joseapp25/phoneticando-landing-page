@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/background.css">
     <link rel="stylesheet" href="styles/elevenlabs.css">
-    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/poster.css">
     <link rel="stylesheet" href="styles/highlight.css">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/ipa.css">
@@ -42,304 +42,301 @@
 </head>
 <body>
 
-    <header>
-        <component-global-menu>
-            Trainer
-        </component-global-menu>
-    </header>
-    
-    <main>
+<header>
+    <component-global-menu>
+        Trainer
+    </component-global-menu>
+</header>
 
-        <section class="section-container-padding dark-graycool-background picture-container">
-            <div class="header-poster-section dark-graycool-background">
-                <div class="header-poster-section-container">
-                    <component-page-title>trainer</component-page-title>
+<main>
+    <section class="section-container-padding dark-graycool-background trainer-picture-container">
+        <div class="poster-container">
+            <div class="poster-content">
+                <component-page-title>trainer</component-page-title>
+            </div>
+        </div>
+        <img src="images/pictures/trainer-pic.png" alt="" class="trainer-picture-background">
+        <div class="section-content trainer-picture-content">
+            <component-section-title>
+                <div slot="simple">
+                    Treine seu
                 </div>
-            </div>
-            <img src="images/pictures/trainer-pic.png" alt="" class="picture-background">
-            <div class="section-content picture-content">
-                <component-section-title>
-                    <div slot="simple">
-                        Treine seu
-                    </div>
-                    <div class="sunset-highlight" slot="highlight">
-                        Cérebro
-                    </div>
-                </component-section-title>
-                <component-section-title>
-                    <div slot="simple">
-                        Transforme sua
-                    </div>
-                    <div class="cerulean-highlight" slot="highlight">
-                        Pronúncia
-                    </div>
-                </component-section-title>
-                <p class="paragraph-style">
-                    <span class="weight-highlight">Phoneticando Trainer</span> é um treinador de pronúncia que ensina o seu cérebro a <span class="weight-highlight underline-highlight">reconhecer padrões de sons</span>.
-                </p>
-                
-                <component-pay-button>
-                    QUERO TREINAR MEU CÉREBRO
-                </component-pay-button>
-            </div>
-        </section>
-
-        <!--<section class="section-container-padding dark-graycool-background">
-            <div class="section-content">
-                <component-section-title>
-                    <div slot="simple">
-                        Nem tudo é
-                    </div>
-                    <div class="sunset-highlight" slot="highlight">
-                        Gramática
-                    </div>
-                </component-section-title>
-                <component-section-title>
-                    <div slot="simple">
-                        Talvez lhe falte
-                    </div>
-                    <div class="cerulean-highlight" slot="highlight">
-                        Percepção
-                    </div>
-                </component-section-title>
-                <p class="paragraph-style">
-                    Por meio da repetição, <span class="weight-highlight underline-highlight">o cérebro desenvolve novas categorias auditivas</span> para distinguir os sons do inglês.
-                </p>
-                <p class="paragraph-style">
-                    Com o tempo, a sua <span class="weight-highlight underline-highlight">percepção dos sons se torna natural</span> como consequência sua pronúncia também.
-                </p>
-                <p class="paragraph-style">
-                    Se você não consegue <span class="italic-highlight">perceber</span> os sons, dificilmente irá <span class="italic-highlight">pronunciá-los</span> com clareza.
-                </p>
-            </div>
-        </section>-->
-
-        <section class="section-container-padding dark-graycool-background">
-            <div class="section-content">
-                <h1 class="section-title-style">Phoneticando Trainer<br>é baseado em:</h1>
-                <component-benefits-card>
-                    <img slot="img" src="images/icons/srs-icon.svg" alt="SRS Icon">
-                    <div slot="title">Repetição Espaçada</div>
-                    <div slot="text">
-                        <p>
-                            O Sistema de Repetição Espaçada é uma técnica de aprendizado que consiste em espaçar as revisões de uma forma que o estudo seja mais produtivo. Revisando menos conteúdos que o estudante já domina, e revisando mais o que o estudante ainda não domina tão bem.
-                        </p>
-                        <self-anchor href="#srs">Clique para saber mais</self-anchor>
-                    </div>
-                </component-benefits-card>
-                <component-benefits-card>
-                    <img slot="img" src="images/icons/flashcard-icon.svg" alt="Flashcard Icon">
-                    <div slot="title">Flashcards</div>
-                    <div slot="text">
-                        <p>
-                            Um Flashcard é uma carta que possui informação na frente e no verso. O conteúdo da frente da carta é algo que a ser memorizado. O verso é a resposta/confirmação desse conteúdo.
-                        </p>
-                        <self-anchor href="#flashcard">Clique para saber mais</self-anchor>
-                    </div>
-                </component-benefits-card>
-                <component-benefits-card>
-                    <img slot="img" src="images/icons/check-icon.svg" alt="IPA Icon">
-                    <div slot="title">Alfabeto Fonético Internacional</div>
-                    <div slot="text">
-                        <p>
-                            Do inglês, International Phonetic Alphabet (IPA), é composto por símbolos que representam sons. Um dos intuitos do IPA é facilitar o aprendizado de idiomas.
-                        </p>
-                        <self-anchor href="#ipa">Clique para saber mais</self-anchor>
-                    </div>
-                </component-benefits-card>
-            </div>
-        </section>
-
-        <section class="section-container-padding dark-graycool-background">
-            <div class="section-content-noclip">
-                <h1 class="section-title-style-noclip" id="srs">Repetição Espaçada</h1>
-                <component-tutorial-card>
-                    <div slot="tutorial-title">
-                        Tutorial
-                    </div>
-                    <div slot="tutorial-content">
-                        <ol class="section-list">
-                            <li>-</li>
-                            <li>-</li>
-                            <li>-</li>
-                            <li>-</li>
-                            <li>-</li>
-                            <li>-</li>
-                        </ol>
-                    </div>
-                </component-tutorial-card>
-                <iframe src="demos/srs.html" height="272px" width="100%" frameborder="0"></iframe>
-            </div>
-        </section>
-
-        <section class="section-container-padding light-graycool-background">
-            <div class="section-content-noclip">
-                <h1 class="section-title-style-noclip" id="flashcard">Flashcards</h1>
-                <div class="elevenlabs-container">
-                    <cite>
-                    Audios Generated by <inline-anchor href="https://elevenlabs.io/">elevenlabs.io</inline-anchor>
-                    </cite>     
+                <div class="sunset-highlight" slot="highlight">
+                    Cérebro
                 </div>
-                <component-tutorial-card>
-                    <div slot="tutorial-title">
-                        Tutorial
-                    </div>
-                    <div slot="tutorial-content">
-                        <ol class="section-list">
-                            <li>Clique no botão Tocar Áudio</li>
-                            <li>Ouça com atenção</li>
-                            <li>Ouça mais de uma vez caso necessário</li>
-                            <li>Na frente da carta, haverá duas palavras</li>
-                            <li>Uma delas é a resposta</li>
-                            <li>Clique em Mostrar Resposta</li>
-                            <li>No verso da carta, haverá a resposta</li>
-                            <li>E também, a transcrição fonética</li>
-                        </ol>
-                    </div>
-                </component-tutorial-card>
-                <iframe src="demos/flashcard.html" height="560px" width="100%" frameborder="0"></iframe>
-            </div>
-        </section>
-
-        <section class="section-container-padding dark-graycool-background">
-            <div class="section-content-noclip">
-                <h1 class="section-title-style-noclip" id="ipa">Alfabeto Fonético Internacional</h1>
-                <component-tutorial-card>
-                    <div slot="tutorial-title">
-                        Tutorial
-                    </div>
-                    <div slot="tutorial-content">
-                        <ol class="section-list">
-                        <li>Letra <span class="cerulean-highlight">sem</span> Trascrição Fonética</li>
-                        <li>Símbolo Fonético</li>
-                        <li>Letra <span class="sunset-highlight">com</span> Transcrição Fonética</li>
-                    </ol>
-                    </div>
-                </component-tutorial-card>
-                <component-swiper>
-                    <swiper-slide>
-                        <div class="sounds-container">
-                            <div class="alphabet-letter" data-audio="midia/alphabet-sounds/a-alphabet.mp3">
-                                <div class="alphabet-main-letter">A a</div>
-                            </div>
-                            <div class="alphabet-letter" data-audio="midia/alphabet-sounds/e-alphabet.mp3">
-                                <div class="alphabet-main-letter">E e</div>
-                            </div>
-                            <div class="alphabet-letter" data-audio="midia/alphabet-sounds/i-alphabet.mp3">
-                                <div class="alphabet-main-letter">I i</div>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="sounds-container">
-                            <div class="voiced" data-audio="midia/ipa-sounds/ipa-eɪ.mp3">/eɪ/</div>
-                            <div class="voiced" data-audio="midia/ipa-sounds/ipa-iː.mp3">/iː/</div>
-                            <div class="voiced" data-audio="midia/ipa-sounds/ipa-aɪ.mp3">/aɪ/</div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="sounds-container">
-                            <div class="alphabet-letter" data-audio="midia/alphabet-sounds/a-alphabet.mp3">
-                                <div class="alphabet-main-letter">A a</div>
-                                <div class="alphabet-transcription">/eɪ/</div>
-                            </div>
-                            <div class="alphabet-letter" data-audio="midia/alphabet-sounds/e-alphabet.mp3">
-                                <div class="alphabet-main-letter">E e</div>
-                                <div class="alphabet-transcription">/iː/</div>
-                            </div>
-                            <div class="alphabet-letter" data-audio="midia/alphabet-sounds/i-alphabet.mp3">
-                                <div class="alphabet-main-letter">I i</div>
-                                <div class="alphabet-transcription">/aɪ/</div>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                </component-swiper>
-                <component-swiper>
-                    <swiper-slide>
-                        <div class="sounds-container">
-                            <div class="alphabet-letter" data-audio="midia/alphabet-sounds/g-alphabet.mp3">
-                                <div class="alphabet-main-letter">G g</div>
-                            </div>
-                            <div class="alphabet-letter" data-audio="midia/alphabet-sounds/j-alphabet.mp3">
-                                <div class="alphabet-main-letter">J j</div>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="sounds-container">
-                            <div class="voiced" data-audio="midia/ipa-sounds/ipa-dʒ.mp3">/dʒ/</div>
-                            <div class="voiced" data-audio="midia/ipa-sounds/ipa-iː.mp3">/iː/</div>
-                            <div class="voiced" data-audio="midia/ipa-sounds/ipa-eɪ.mp3">/eɪ/</div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="sounds-container">                   
-                            <div class="alphabet-letter" data-audio="midia/alphabet-sounds/g-alphabet.mp3">
-                                <div class="alphabet-main-letter">G g</div>
-                                <div class="alphabet-transcription">/dʒiː/</div>
-                            </div>
-                            <div class="alphabet-letter" data-audio="midia/alphabet-sounds/j-alphabet.mp3">
-                                <div class="alphabet-main-letter">J J</div>
-                                <div class="alphabet-transcription">/dʒeɪ/</div>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                </component-swiper>
-            </div>
-        </section>
-
-        <section class="section-container-padding dark-graycool-background">
-            <div class="section-content">
-                <h1 class="section-title-style">Pricing</h1>
-            </div>
+            </component-section-title>
+            <component-section-title>
+                <div slot="simple">
+                    Transforme sua
+                </div>
+                <div class="cerulean-highlight" slot="highlight">
+                    Pronúncia
+                </div>
+            </component-section-title>
+            <p class="paragraph-style">
+                <span class="weight-highlight">Phoneticando Trainer</span> é um treinador de pronúncia que ensina o seu cérebro a <span class="weight-highlight underline-highlight">reconhecer padrões de sons</span>.
+            </p>
             <component-pay-button>
-                QUERO MELHORAR MINHA PRONÚNCIA
+                QUERO TREINAR MEU CÉREBRO
             </component-pay-button>
-        </section>
+        </div>
+    </section>
 
-        <section class="section-container-padding dark-graycool-background">
-            <div class="section-content">
-                <h1 class="section-title-style">Perguntas Frequentes</h1>
-                <component-faq-card>
-                    <div slot="question">
-                        Para quem é o Phoneticando Trainer?
-                    </div>
-                    <div slot="answer">
-                        <p class="faq-paragraph-style">a</p>
-                    </div>
-                </component-faq-card>
-                <component-faq-card>
-                    <div slot="question">
-                        Aprender o IPA é obrigatório?
-                    </div>
-                    <div slot="answer">
-                        <p class="faq-paragraph-style">a</p>
-                    </div>
-                </component-faq-card>
-                <component-faq-card>
-                    <div slot="question">
-                        Quanto tempo leva para ver os resultados?
-                    </div>
-                    <div slot="answer">
-                        <p class="faq-paragraph-style">a</p>
-                    </div>
-                </component-faq-card>
-                <component-faq-card>
-                    <div slot="question">
-                        Existe um limite de idade para aprender?
-                    </div>
-                    <div slot="answer">
-                        <p class="faq-paragraph-style">a</p>
-                    </div>
-                </component-faq-card>
+    <!--<section class="section-container-padding dark-graycool-background">
+        <div class="section-content">
+            <component-section-title>
+                <div slot="simple">
+                    Nem tudo é
+                </div>
+                <div class="sunset-highlight" slot="highlight">
+                    Gramática
+                </div>
+            </component-section-title>
+            <component-section-title>
+                <div slot="simple">
+                    Talvez lhe falte
+                </div>
+                <div class="cerulean-highlight" slot="highlight">
+                    Percepção
+                </div>
+            </component-section-title>
+            <p class="paragraph-style">
+                Por meio da repetição, <span class="weight-highlight underline-highlight">o cérebro desenvolve novas categorias auditivas</span> para distinguir os sons do inglês.
+            </p>
+            <p class="paragraph-style">
+                Com o tempo, a sua <span class="weight-highlight underline-highlight">percepção dos sons se torna natural</span> como consequência sua pronúncia também.
+            </p>
+            <p class="paragraph-style">
+                Se você não consegue <span class="italic-highlight">perceber</span> os sons, dificilmente irá <span class="italic-highlight">pronunciá-los</span> com clareza.
+            </p>
+        </div>
+    </section>-->
+
+    <section class="section-container-padding dark-graycool-background">
+        <div class="section-content">
+            <h1 class="section-title-style">Phoneticando Trainer<br>é baseado em:</h1>
+            <component-benefits-card>
+                <img slot="img" src="images/icons/srs-icon.svg" alt="SRS Icon">
+                <div slot="title">Repetição Espaçada</div>
+                <div slot="text">
+                    <p>
+                        O Sistema de Repetição Espaçada é uma técnica de aprendizado que consiste em espaçar as revisões de uma forma que o estudo seja mais produtivo. Revisando menos conteúdos que o estudante já domina, e revisando mais o que o estudante ainda não domina tão bem.
+                    </p>
+                    <self-anchor href="#srs">Clique para saber mais</self-anchor>
+                </div>
+            </component-benefits-card>
+            <component-benefits-card>
+                <img slot="img" src="images/icons/flashcard-icon.svg" alt="Flashcard Icon">
+                <div slot="title">Flashcards</div>
+                <div slot="text">
+                    <p>
+                        Um Flashcard é uma carta que possui informação na frente e no verso. O conteúdo da frente da carta é algo que a ser memorizado. O verso é a resposta/confirmação desse conteúdo.
+                    </p>
+                    <self-anchor href="#flashcard">Clique para saber mais</self-anchor>
+                </div>
+            </component-benefits-card>
+            <component-benefits-card>
+                <img slot="img" src="images/icons/check-icon.svg" alt="IPA Icon">
+                <div slot="title">Alfabeto Fonético Internacional</div>
+                <div slot="text">
+                    <p>
+                        Do inglês, International Phonetic Alphabet (IPA), é composto por símbolos que representam sons. Um dos intuitos do IPA é facilitar o aprendizado de idiomas.
+                    </p>
+                    <self-anchor href="#ipa">Clique para saber mais</self-anchor>
+                </div>
+            </component-benefits-card>
+        </div>
+    </section>
+
+    <section class="section-container-padding dark-graycool-background">
+        <div class="section-content-noclip">
+            <h1 class="section-title-style-noclip" id="srs">Repetição Espaçada</h1>
+            <component-tutorial-card>
+                <div slot="tutorial-title">
+                    Tutorial
+                </div>
+                <div slot="tutorial-content">
+                    <ol class="section-list">
+                        <li>-</li>
+                        <li>-</li>
+                        <li>-</li>
+                        <li>-</li>
+                        <li>-</li>
+                        <li>-</li>
+                    </ol>
+                </div>
+            </component-tutorial-card>
+            <iframe src="demos/srs.html" height="272px" width="100%" frameborder="0"></iframe>
+        </div>
+    </section>
+
+    <section class="section-container-padding light-graycool-background">
+        <div class="section-content-noclip">
+            <h1 class="section-title-style-noclip" id="flashcard">Flashcards</h1>
+            <div class="elevenlabs-container">
+                <cite>
+                Audios Generated by <inline-anchor href="https://elevenlabs.io/">elevenlabs.io</inline-anchor>
+                </cite>     
             </div>
-        </section>
+            <component-tutorial-card>
+                <div slot="tutorial-title">
+                    Tutorial
+                </div>
+                <div slot="tutorial-content">
+                    <ol class="section-list">
+                        <li>Clique no botão Tocar Áudio</li>
+                        <li>Ouça com atenção</li>
+                        <li>Ouça mais de uma vez caso necessário</li>
+                        <li>Na frente da carta, haverá duas palavras</li>
+                        <li>Uma delas é a resposta</li>
+                        <li>Clique em Mostrar Resposta</li>
+                        <li>No verso da carta, haverá a resposta</li>
+                        <li>E também, a transcrição fonética</li>
+                    </ol>
+                </div>
+            </component-tutorial-card>
+            <iframe src="demos/flashcard.html" height="560px" width="100%" frameborder="0"></iframe>
+        </div>
+    </section>
 
-    </main>
+    <section class="section-container-padding dark-graycool-background">
+        <div class="section-content-noclip">
+            <h1 class="section-title-style-noclip" id="ipa">Alfabeto Fonético Internacional</h1>
+            <component-tutorial-card>
+                <div slot="tutorial-title">
+                    Tutorial
+                </div>
+                <div slot="tutorial-content">
+                    <ol class="section-list">
+                    <li>Letra <span class="cerulean-highlight">sem</span> Trascrição Fonética</li>
+                    <li>Símbolo Fonético</li>
+                    <li>Letra <span class="sunset-highlight">com</span> Transcrição Fonética</li>
+                </ol>
+                </div>
+            </component-tutorial-card>
+            <component-swiper>
+                <swiper-slide>
+                    <div class="sounds-container">
+                        <div class="alphabet-letter" data-audio="midia/alphabet-sounds/a-alphabet.mp3">
+                            <div class="alphabet-main-letter">A a</div>
+                        </div>
+                        <div class="alphabet-letter" data-audio="midia/alphabet-sounds/e-alphabet.mp3">
+                            <div class="alphabet-main-letter">E e</div>
+                        </div>
+                        <div class="alphabet-letter" data-audio="midia/alphabet-sounds/i-alphabet.mp3">
+                            <div class="alphabet-main-letter">I i</div>
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="sounds-container">
+                        <div class="voiced" data-audio="midia/ipa-sounds/ipa-eɪ.mp3">/eɪ/</div>
+                        <div class="voiced" data-audio="midia/ipa-sounds/ipa-iː.mp3">/iː/</div>
+                        <div class="voiced" data-audio="midia/ipa-sounds/ipa-aɪ.mp3">/aɪ/</div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="sounds-container">
+                        <div class="alphabet-letter" data-audio="midia/alphabet-sounds/a-alphabet.mp3">
+                            <div class="alphabet-main-letter">A a</div>
+                            <div class="alphabet-transcription">/eɪ/</div>
+                        </div>
+                        <div class="alphabet-letter" data-audio="midia/alphabet-sounds/e-alphabet.mp3">
+                            <div class="alphabet-main-letter">E e</div>
+                            <div class="alphabet-transcription">/iː/</div>
+                        </div>
+                        <div class="alphabet-letter" data-audio="midia/alphabet-sounds/i-alphabet.mp3">
+                            <div class="alphabet-main-letter">I i</div>
+                            <div class="alphabet-transcription">/aɪ/</div>
+                        </div>
+                    </div>
+                </swiper-slide>
+            </component-swiper>
+            <component-swiper>
+                <swiper-slide>
+                    <div class="sounds-container">
+                        <div class="alphabet-letter" data-audio="midia/alphabet-sounds/g-alphabet.mp3">
+                            <div class="alphabet-main-letter">G g</div>
+                        </div>
+                        <div class="alphabet-letter" data-audio="midia/alphabet-sounds/j-alphabet.mp3">
+                            <div class="alphabet-main-letter">J j</div>
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="sounds-container">
+                        <div class="voiced" data-audio="midia/ipa-sounds/ipa-dʒ.mp3">/dʒ/</div>
+                        <div class="voiced" data-audio="midia/ipa-sounds/ipa-iː.mp3">/iː/</div>
+                        <div class="voiced" data-audio="midia/ipa-sounds/ipa-eɪ.mp3">/eɪ/</div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="sounds-container">                   
+                        <div class="alphabet-letter" data-audio="midia/alphabet-sounds/g-alphabet.mp3">
+                            <div class="alphabet-main-letter">G g</div>
+                            <div class="alphabet-transcription">/dʒiː/</div>
+                        </div>
+                        <div class="alphabet-letter" data-audio="midia/alphabet-sounds/j-alphabet.mp3">
+                            <div class="alphabet-main-letter">J J</div>
+                            <div class="alphabet-transcription">/dʒeɪ/</div>
+                        </div>
+                    </div>
+                </swiper-slide>
+            </component-swiper>
+        </div>
+    </section>
 
-    <footer>
-        <component-footer></component-footer>
-    </footer>
+    <section class="section-container-padding dark-graycool-background">
+        <div class="section-content">
+            <h1 class="section-title-style">Pricing</h1>
+        </div>
+        <component-pay-button>
+            QUERO MELHORAR MINHA PRONÚNCIA
+        </component-pay-button>
+    </section>
+
+    <section class="section-container-padding dark-graycool-background">
+        <div class="section-content">
+            <h1 class="section-title-style">Perguntas Frequentes</h1>
+            <component-faq-card>
+                <div slot="question">
+                    Para quem é o Phoneticando Trainer?
+                </div>
+                <div slot="answer">
+                    <p class="faq-paragraph-style">a</p>
+                </div>
+            </component-faq-card>
+            <component-faq-card>
+                <div slot="question">
+                    Aprender o IPA é obrigatório?
+                </div>
+                <div slot="answer">
+                    <p class="faq-paragraph-style">a</p>
+                </div>
+            </component-faq-card>
+            <component-faq-card>
+                <div slot="question">
+                    Quanto tempo leva para ver os resultados?
+                </div>
+                <div slot="answer">
+                    <p class="faq-paragraph-style">a</p>
+                </div>
+            </component-faq-card>
+            <component-faq-card>
+                <div slot="question">
+                    Existe um limite de idade para aprender?
+                </div>
+                <div slot="answer">
+                    <p class="faq-paragraph-style">a</p>
+                </div>
+            </component-faq-card>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <component-footer></component-footer>
+</footer>
 
 </body>
 </html>

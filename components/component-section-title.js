@@ -25,7 +25,6 @@ class ComponentSectionTitle extends HTMLElement{
                 .simple-text {
                     max-width: 600px;
                     font-size: 32px;
-                    line-height: 40px;
                     font-weight: 300;
                     font-family: var(--font-inter-tight);
                     text-align: left;
@@ -35,7 +34,6 @@ class ComponentSectionTitle extends HTMLElement{
                 .highlight-text {
                     max-width: 600px;
                     font-size: 64px;
-                    line-height: 72px;
                     font-weight: 600;
                     font-family: var(--font-inter-tight);
                     text-align: left;

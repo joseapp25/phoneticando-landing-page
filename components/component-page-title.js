@@ -21,7 +21,6 @@ class ComponentPageTitle extends HTMLElement{
                     font-weight: 600;
                     font-size: 32px;
                     line-height: 40px;
-                    color: var(--graycool0);
                     text-align: center;
                     text-shadow: 2px 2px 0px var(--graycool1000);
                 }
@@ -33,7 +32,6 @@ class ComponentPageTitle extends HTMLElement{
                     line-height: 24px;
                     letter-spacing: 8px;
                     text-transform: uppercase;
-                    color: var(--graycool0);
                     text-align: center;
                     text-shadow: 1px 1px 0px var(--graycool1000);
                 }
@@ -42,6 +40,17 @@ class ComponentPageTitle extends HTMLElement{
                     fill: var(--graycool0);
                     width: 40px;
                     height: 40px;
+                    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+                    animation: glow-pulse 2.5s ease-in-out infinite;
+                }
+
+                @keyframes glow-pulse {
+                    0%, 100% {
+                        fill: var(--sunset600);
+                    }
+                    50% {
+                        fill: var(--cerulean600);
+                    }
                 }
 
             </style>
