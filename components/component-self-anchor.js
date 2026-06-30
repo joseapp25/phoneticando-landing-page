@@ -28,7 +28,7 @@ class SelfAnchor extends HTMLElement {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    margin-top: 8px;
+                    margin-top: 16px;
                     text-align: left;
                 }
 

@@ -9,14 +9,17 @@ class ComponentPayButton extends HTMLElement{
             <style>
 
                 .button-container {
-                    padding-left: 40px;
-                    padding-right: 40px;
+                    padding-left: 24px;
+                    padding-right: 24px;
+                    margin-left: auto;
+                    margin-right: auto;
                 }
 
                 @media only screen and (min-width: 600px) {
                     .button-container {
-                        padding-left: 80px;
-                        padding-right: 80px;
+                        padding-left: 128px;
+                        padding-right: 128px;
+                        max-width: 384px;
                     }
                 }
 
@@ -62,13 +65,6 @@ class ComponentPayButton extends HTMLElement{
                 .button-anchor:active {
                     transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
                     transform: scale(1.2);
-                }
-
-                .button-icon {
-                    width: 32px;
-                    height: 32px;
-                    display: flex;
-                    justify-content: center;
                 }
             
             </style>

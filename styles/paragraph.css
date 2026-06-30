@@ -4,15 +4,15 @@
     line-height: 24px;
     margin-bottom: 8px;
     text-align: left;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
     text-shadow: 1px 1px 0px var(--graycool1000);
 }
 
 @media only screen and (min-width: 600px) {
     .paragraph-style {
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-left: 128px;
+        padding-right: 128px;
     }
 }
 

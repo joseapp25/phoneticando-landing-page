@@ -23,6 +23,7 @@ class ComponentPageTitle extends HTMLElement{
                     line-height: 40px;
                     color: var(--graycool0);
                     text-align: center;
+                    text-shadow: 2px 2px 0px var(--graycool1000);
                 }
 
                 .page-subtitle {
@@ -34,6 +35,7 @@ class ComponentPageTitle extends HTMLElement{
                     text-transform: uppercase;
                     color: var(--graycool0);
                     text-align: center;
+                    text-shadow: 1px 1px 0px var(--graycool1000);
                 }
 
                 .logo-style {
