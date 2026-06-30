@@ -8,8 +8,22 @@ class ComponentButton extends HTMLElement{
 
             <style>
 
+                .button-container {
+                    padding-left: 24px;
+                    padding-right: 24px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                @media only screen and (min-width: 600px) {
+                    .button-container {
+                        padding-left: 128px;
+                        padding-right: 128px;
+                        max-width: 384px;
+                    }
+                }
+
                 .button-anchor {
-                    max-width: 320px;
                     margin-top: 32px;
                     font-size: 16px;
                     font-family: var(--font-inter-tight);
@@ -31,12 +45,6 @@ class ComponentButton extends HTMLElement{
 
                     /* Pulsing glow animation */
                     animation: glow-pulse 2.5s ease-in-out infinite;
-                }
-
-                @media only screen and (min-width: 600px) {
-                    .button-anchor {
-                        max-width: 384px;
-                    }
                 }
 
                 @keyframes glow-pulse {
@@ -70,7 +78,9 @@ class ComponentButton extends HTMLElement{
             
             </style>
 
-            <a href="https://wa.me/5521999828080" target="_blank" class="button-anchor">
+            <div class="button-container">
+
+                <a href="https://wa.me/5521999828080" target="_blank" class="button-anchor">
 
                     CONVERSAR COM ZÉ
 
@@ -83,7 +93,9 @@ class ComponentButton extends HTMLElement{
 
                     </svg>
 
-            </a>
+                </a>
+
+            </div>
 
         `
     }
