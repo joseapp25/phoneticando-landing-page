@@ -11,33 +11,30 @@ class ComponentSectionTitle extends HTMLElement{
                 .title-container {
                     margin-top: 16px;
                     margin-bottom: 16px;
-                    padding-left: 24px;
-                    padding-right: 24px;
-                }
-
-                @media only screen and (min-width: 600px) {
-                    .title-container {
-                        padding-left: 128px;
-                        padding-right: 128px;
-                    }
                 }
 
                 .simple-text {
                     max-width: 600px;
+                    display: flex;
                     font-size: 32px;
                     font-weight: 300;
                     font-family: var(--font-inter-tight);
-                    text-align: left;
                     text-shadow: 1px 1px 0px var(--graycool1000);
                 }
 
                 .highlight-text {
                     max-width: 600px;
+                    display: flex;
                     font-size: 64px;
                     font-weight: 600;
                     font-family: var(--font-inter-tight);
-                    text-align: left;
                     text-shadow: 2px 2px 0px var(--graycool1000);
+                }
+
+                @media only screen and (min-width: 600px) {
+                    .highlight-text {
+                        font-size: 80px;
+                    }
                 }
 
             </style>

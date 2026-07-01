@@ -8,6 +8,22 @@
     font-weight: 600;
 }
 
+.cerulean-highlight-background {
+    color: var(--graycool0);
+    font-weight: 600;
+    background-color: var(--cerulean600);
+    padding: 4px 8px 4px 8px;
+    border-radius: 4px;
+}
+
+.sunset-highlight-background {
+    color: var(--graycool0);
+    font-weight: 600;
+    background-color: var(--sunset600);
+    padding: 4px 8px 4px 8px;
+    border-radius: 4px;
+}
+
 .weight-highlight {
     font-weight: 600;
 }
@@ -15,7 +31,6 @@
 .underline-highlight {
     text-decoration: underline;
 }
-
 
 .italic-highlight {
     font-style: italic;
