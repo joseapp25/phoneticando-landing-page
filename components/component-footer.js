@@ -62,28 +62,6 @@ class ComponentFooter extends HTMLElement{
                     align-items: center;
                 }
 
-                .social-container a {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    text-decoration: none;
-                    fill: var(--cerulean600);
-                    color: var(--graycool800);
-                    font-weight: 400;
-                    transition-duration: 0.2s;
-                    border-radius: 4px;
-                    padding: 4px;
-                    cursor: pointer;
-                }
-
-                .social-container a:hover {
-                    background-color: var(--cerulean600);
-                    box-shadow: 0px 0px 4px var(--cerulean600);
-                    transition-duration: 0.2s;
-                    fill: var(--graycool0);
-                    color: var(--graycool0);
-                }
-
                 .social-link {
                     height: 24px;
                     width: 24px;
@@ -103,7 +81,7 @@ class ComponentFooter extends HTMLElement{
                     align-items: center;
                     justify-content: center;
                     font-weight: 600;
-                    gap: 4px;
+                    gap: 8px;
                 }
 
                 .contacts-link {
