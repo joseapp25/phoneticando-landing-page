@@ -25,7 +25,7 @@ class ComponentSectionTitle extends HTMLElement{
                 .highlight-text {
                     max-width: 600px;
                     display: flex;
-                    font-size: 80px;
+                    font-size: 64px;
                     font-weight: 600;
                     font-family: var(--font-inter-tight);
                     text-shadow: 2px 2px 0px var(--graycool1000);
@@ -33,7 +33,7 @@ class ComponentSectionTitle extends HTMLElement{
 
                 @media only screen and (min-width: 600px) {
                     .highlight-text {
-                        font-size: 96px;
+                        font-size: 80px;
                     }
                 }
 
