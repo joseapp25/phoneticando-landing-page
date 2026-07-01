@@ -65,7 +65,7 @@ class ComponentTutorialCard extends HTMLElement {
                 }
 
                 .tutorial-item.open .tutorial-body {
-                    max-height: 400px;
+                    max-height: 1920px;
                 }
 
                 .tutorial-icon-svg {

@@ -42,34 +42,39 @@
 </head>
 <body>
 
-    <header>
-        <component-global-menu>
-            Sobre
-        </component-global-menu>
-        <div class="header-poster-section">
-            <div class="header-poster-section-container">
+<header>
+    <component-global-menu>
+        Sobre
+    </component-global-menu>
+</header>
+
+<main>
+    <section class="section-container-padding dark-graycool-background sobre-picture-container">
+        <div class="poster-container">
+            <div class="poster-content">
                 <component-page-title>sobre</component-page-title>
             </div>
         </div>
-    </header>
+        <img src="images/pictures/sobre-pic.png" alt="" class="sobre-picture-background">
+        <div class="section-content sobre-picture-content">
 
-    <main>
+            <svg class="lock-logo" viewBox="0 0 1024 1024">
 
-        <svg class="lock-logo" viewBox="0 0 1024 1024">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M256.001 384C256.001 242.615 370.616 128 512.001 128C653.386 128 768.001 242.615 768.001 384H853.335V938.667H170.668V384H256.001ZM341.335 384C341.335 289.743 417.745 213.333 512.001 213.333C606.258 213.333 682.668 289.743 682.668 384H341.335ZM256.001 853.333V469.333H768.001V853.333H256.001Z"/>
 
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M256.001 384C256.001 242.615 370.616 128 512.001 128C653.386 128 768.001 242.615 768.001 384H853.335V938.667H170.668V384H256.001ZM341.335 384C341.335 289.743 417.745 213.333 512.001 213.333C606.258 213.333 682.668 289.743 682.668 384H341.335ZM256.001 853.333V469.333H768.001V853.333H256.001Z"/>
+            </svg>
 
-        </svg>
+            <p class="warning-paragraph">
+                Em Construção.<br>Novidades em Breve.
+            </p>
+            
+        </div>
+    </section>
+</main>
 
-        <p class="warning-paragraph">
-            Em Construção.<br>Novidades em Breve.
-        </p>
-        
-    </main>
-
-    <footer>
-        <component-footer></component-footer>
-    </footer>
+<footer>
+    <component-footer></component-footer>
+</footer>
 
 </body>
 </html>

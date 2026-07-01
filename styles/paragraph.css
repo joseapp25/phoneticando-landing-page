@@ -17,7 +17,8 @@
 
 .tutorial-paragraph-style {
     font-size: 16px;
-    font-weight: 400;
+    color: var(--graycoo300);
+    font-weight: 300;
     line-height: 24px;
     margin-bottom: 8px;
     text-align: justify;
