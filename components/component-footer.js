@@ -10,12 +10,18 @@ class ComponentFooter extends HTMLElement{
 
                 .footer-style {
                     display: flex;
-                    justify-content: center;
+                    justify-content: left;
                     background-color: var(--graycool0);
                     color: var(--graycool900);
                     padding-top: 24px;
                     padding-bottom: 24px;
                     padding-left: 24px;
+                }
+
+                @media only screen and (min-width: 600px) {
+                    .footer-style {
+                        justify-content: center;
+                    }
                 }
 
                 .footer-style-container {
