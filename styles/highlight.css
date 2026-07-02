@@ -45,3 +45,16 @@
 .italic-highlight {
     font-style: italic;
 }
+
+.phonetic-highlight {
+    font-family: var(--font-noto);
+    font-weight: 400;
+}
+
+.letter-highlight {
+    font-family: var(--font-grotesk);
+    background-color: var(--graycool800);
+    padding: 2px 4px 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+}

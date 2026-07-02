@@ -3,6 +3,6 @@
     list-style-type: decimal;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
     font-weight: 600;
 }

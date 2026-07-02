@@ -8,6 +8,7 @@
 .voiced {
     font-family: var(--font-noto);
     font-size: 1.5em;
+    font-weight: 300;
     display: flex;
     width: 64px;
     height: 64px;
@@ -23,6 +24,7 @@
 .voiceless {
     font-family: var(--font-noto);
     font-size: 1.5rem;
+    font-weight: 300;
     display: flex;
     width: 64px;
     height: 64px;
@@ -37,6 +39,7 @@
 
 .alphabet-letter {
     font-family: var(--font-grotesk);
+    font-weight: 600;
     display: grid;
     align-content: space-evenly;
     width: 80px;
@@ -57,6 +60,7 @@
 .alphabet-transcription {
     font-family: var(--font-noto);
     font-size: 1.2rem;
+    font-weight: 300;
 }
 
 .hovered-alphabet {
