@@ -27,7 +27,7 @@ class ComponentPageTitle extends HTMLElement{
 
                 .page-subtitle {
                     font-family: var(--font-inter-tight);
-                    font-weight: 200;
+                    font-weight: 300;
                     font-size: 16px;
                     line-height: 24px;
                     letter-spacing: 8px;
