@@ -25,16 +25,16 @@
 }
 
 .social-name h1 {
-    font-weight: 700;
-    font-size: 32px;
+    font-weight: 500;
+    font-size: 24px;
     font-family: var(--font-inter-tight);
     color: var(--graycool0);
 }
 
 .social-name h2 {
     font-family: var(--font-inter-tight);
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 32px;
     color: var(--sunset600);
     
 }
