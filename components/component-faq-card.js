@@ -54,7 +54,7 @@ class ComponentFaqCard extends HTMLElement {
                 }
 
                 .faq-item.open .faq-body {
-                    max-height: 400px;
+                    max-height: 1920px;
                 }
 
                 .faq-item.open .faq-icon {

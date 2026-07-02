@@ -32,6 +32,7 @@
 }
 
 .social-name h2 {
+    font-family: var(--font-inter-tight);
     font-weight: 500;
     font-size: 16px;
     color: var(--sunset600);
