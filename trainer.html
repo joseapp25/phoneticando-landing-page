@@ -358,20 +358,37 @@
     <section class="section-container-padding dark-graycool-background">
         <div class="section-content">
             <h1 class="section-title-style">Precificação</h1>
-            <component-pricing-card href="https://elevenlabs.io/">
-                <div slot="plan">
-                    Plano Mensal
-                </div>
-                <div slot="price">
-                    R$ 29,99
-                </div>
-                <div slot="description">
-                    Teste, caso goste, mude para o plano anual!
-                </div>
-                <div slot="button">
-                    COMPRAR AGORA
-                </div>
-            </component-pricing-card>
+            <div class="pricing-section">
+                <component-pricing-card href="#">
+                    <div slot="plan">
+                        Plano Mensal
+                    </div>
+                    <div slot="price">
+                        R$ 29,99
+                    </div>
+                    <div slot="description">
+                        Mude para o <span class="weight-highlight italic-highlight">Plano Anual</span> quando quiser!
+                    </div>
+                    <div slot="button">
+                        COMPRAR AGORA
+                    </div>
+                </component-pricing-card>
+                <component-pricing-card href="#">
+                    <div slot="plan">
+                        Plano Anual
+                    </div>
+                    <div slot="price">
+                        R$ 199,99
+                    </div>
+                    <div slot="description">
+                        Economize <span class="weight-highlight italic-highlight">R$ 159,89</span>!
+                    </div>
+                    <div slot="button">
+                        COMPRAR AGORA
+                    </div>
+                </component-pricing-card>
+            </div>
+            
         </div>
     </section>
 

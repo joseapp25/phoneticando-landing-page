@@ -28,7 +28,10 @@ class ComponentPayButton extends HTMLElement{
                     color: var(--graycool0);
                     padding-top: 16px;
                     padding-bottom: 16px;
+                    padding-left: 8px;
+                    padding-right: 8px;
                     border-radius: 8px;
+                    text-shadow: 2px 2px 0px var(--graycool1000);
                     transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
 
                     /* Pulsing glow animation */
@@ -61,7 +64,7 @@ class ComponentPayButton extends HTMLElement{
 
             <div class="button-container">
 
-                <a href="#" /*target="_blank"*/ class="button-anchor">
+                <a href="#" target="_blank" class="button-anchor">
 
                     <slot></slot>
 

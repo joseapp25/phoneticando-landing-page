@@ -27,22 +27,21 @@ class ComponentPricingCard extends HTMLElement {
 
             <style>
 
-                .pricing-cotainer {
+                .pricing-container {
                     text-align: center;
                     color: var(--graycool0);
                     border-radius: 8px;
-                    background-color: var(--graycool800);
-                    padding-top: 24px;
-                    padding-bottom: 24px;
-                    box-shadow: 4px 4px 0px var(--graycool400);
+                    padding: 24px;
+                    border: 4px solid var(--cerulean600);
                 }
 
                 .plan-container {
-                    margin-bottom: 16px;
+                    margin-bottom: 24px;
                     font-size: 24px;
                 }
 
                 .price-container {
+                    color: var(--sunset600);
                     font-family: var(--font-inter-tight);
                     font-size: 40px;
                     font-weight: 800;
@@ -50,24 +49,64 @@ class ComponentPricingCard extends HTMLElement {
                 }
 
                 .description-container {
-
+                    margin-top: 16px;
                 }
 
                 .button-container {
-                    margin-top: 16px
+                    margin-top: 32px;
+                    margin-left: 16px;
+                    margin-right: 16px;
+                    display: flex;
+                    justify-content: center;
+
                 }
 
                 .button-container a {
                     color: var(--graycool0);
                     text-decoration: none;
-                    font-size: 32px;
-                    font-weight: 600;
+                    font-size: 16px;
                     text-shadow: 2px 2px 0px var(--graycool1000);
+                    font-family: var(--font-inter-tight);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    margin-left: auto;
+                    margin-right: auto;
+                    font-weight: 600;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                    padding-left: 8px;
+                    padding-right: 8px;
+                    border-radius: 8px;
+                    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+
+                    /* Pulsing glow animation */
+                    animation: glow-pulse 2.5s ease-in-out infinite;
+                }
+
+                .button-container a:hover {
+                    transform: scale(1.1);
+                }
+
+                .button-container a:active {
+                    transform: scale(1.2);
+                }
+
+                @keyframes glow-pulse {
+                    0%, 100% {
+                        box-shadow: 0px 0px 16px var(--sunset600);
+                        background-color: var(--sunset600);
+                    }
+                    50% {
+                        box-shadow: 0px 0px 16px var(--cerulean600);
+                        background-color: var(--cerulean600);
+                    }
                 }
                 
             </style>
 
-            <div class="pricing-cotainer">
+            <div class="pricing-container">
                 <div class="plan-container">
                     <div>
                         <slot name="plan"></slot>

@@ -11,6 +11,14 @@ class ComponentButton extends HTMLElement{
                 .button-container {
                     margin-left: auto;
                     margin-right: auto;
+                    padding-left: 24px;
+                    padding-right: 24px;
+                }
+
+                @media only screen and (min-width: 600px) {
+                    .button-container {
+                        max-width: 600px;
+                    }
                 }
 
                 .button-anchor {
@@ -30,6 +38,7 @@ class ComponentButton extends HTMLElement{
                     fill: var(--graycool0);
                     padding-top: 16px;
                     padding-bottom: 16px;
+                    
                     border-radius: 8px;
                     transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
 
@@ -72,7 +81,7 @@ class ComponentButton extends HTMLElement{
 
                 <a href="https://wa.me/5521999828080" target="_blank" class="button-anchor">
 
-                    CONVERSAR COM ZÉ
+                    <slot></slot>
 
                     <svg class="button-icon" viewBox="0 0 1024 1024">
 
