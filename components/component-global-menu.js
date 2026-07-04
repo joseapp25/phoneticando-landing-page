@@ -18,6 +18,7 @@ class ComponentGlobalMenu extends HTMLElement{
                     /*box-shadow: 0px 0px 4px var(--graycool800);*/
                     z-index: 4;
                 }
+                
 
                 .global-menu-container {
                     display: flex;
@@ -25,15 +26,16 @@ class ComponentGlobalMenu extends HTMLElement{
                     align-items: center;
                     gap: 4px;
                     width: 100vw;
-                    padding-left: 16px;
-                    padding-right: 16px;
+                    padding-left: 24px;
+                    padding-right: 24px;
                     margin-left: auto;
                     margin-right: auto;
                 }
 
                 @media only screen and (min-width: 600px) {
                     .global-menu-container {
-                        
+                        padding-left: 16px;
+                        padding-right: 16px;
                     }
                 }
                     
