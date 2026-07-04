@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="styles/paragraph.css">
     <link rel="stylesheet" href="styles/poster.css">
     <link rel="stylesheet" href="styles/picture.css">
-    <link rel="stylesheet" href="styles/pricing.css">
     <link rel="stylesheet" href="styles/section.css">
     <link rel="stylesheet" href="styles/socialproof.css">
     <link rel="stylesheet" href="styles/title.css">
@@ -39,6 +38,7 @@
     <script src="components/component-section-title.js" defer></script>
     <script src="components/component-swiper.js" defer></script>
     <script src="components/component-pay-button.js" defer></script>
+    <script src="components/component-pricing-card.js" defer></script>
     <script src="components/component-footer.js" defer></script>
 </head>
 <body>
@@ -358,29 +358,20 @@
     <section class="section-container-padding dark-graycool-background">
         <div class="section-content">
             <h1 class="section-title-style">Pricing</h1>
-            <div class="pricing-container">
-                <div class="pricing-content">
-                    <div class="pricing-monthly">
-                        <div class="price-title">
-                            Plano Mensal
-                        </div>
-                        <div class="price-number">
-                            R$ 29,99
-                        </div>
-                    </div>
-                    <div class="pricing-yearly">
-                        <div class="price-title">
-                            Plano Anual
-                        </div>
-                        <div class="price-number">
-                            R$ 199,99
-                        </div>
-                    </div>
+            <component-pricing-card href="https://elevenlabs.io/">
+                <div slot="plan">
+                    Plano Mensal
                 </div>
-            </div>
-            <component-pay-button>
-                QUERO MELHORAR MINHA PRONÚNCIA
-            </component-pay-button>
+                <div slot="price">
+                    R$ 29,99
+                </div>
+                <div slot="description">
+                    Teste, caso goste, mude para o plano anual!
+                </div>
+                <div slot="button">
+                    QUERO ESTE PLANO
+                </div>
+            </component-pricing-card>
         </div>
     </section>
 
