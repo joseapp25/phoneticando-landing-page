@@ -21,3 +21,18 @@
     margin-bottom: 8px;
 }
 
+.sobre-paragraph-style-container {
+    padding: 16px 24px 16px 24px;
+    background-color: var(--graycool0);
+    color: var(--graycool1000);
+    border-radius: 24px;
+}
+
+.sobre-paragraph-style {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
