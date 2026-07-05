@@ -29,10 +29,18 @@ class ComponentPricingCard extends HTMLElement {
 
                 .pricing-container {
                     text-align: center;
-                    color: var(--graycool0);
-                    border-radius: 8px;
+                    color: var(--graycool1000);
+                    background-color: var(--graycool0);
+                    box-shadow: 0px 0px 16px var(--graycool0);
+                    border-radius: 32px;
                     padding: 24px;
-                    border: 4px solid var(--cerulean600);
+                }
+
+                @media only screen and (min-width: 600px) {
+                    .pricing-container {
+                        width: 384px;
+                        height: auto;
+                    }
                 }
 
                 .plan-container {
@@ -41,11 +49,21 @@ class ComponentPricingCard extends HTMLElement {
                 }
 
                 .price-container {
-                    color: var(--sunset600);
                     font-family: var(--font-inter-tight);
                     font-size: 40px;
                     font-weight: 800;
                     text-shadow: 2px 2px 0px var(--graycool1000);
+                    transition: color 0.2s, box-shadow 0.2s, transform 0.2s;
+                    animation: text-pulse 2.5s ease-in-out infinite;
+                }
+
+                @keyframes text-pulse {
+                    0%, 100% {
+                        color: var(--sunset600);
+                    }
+                    50% {
+                        color: var(--cerulean600);
+                    }
                 }
 
                 .description-container {
@@ -58,7 +76,6 @@ class ComponentPricingCard extends HTMLElement {
                     margin-right: 16px;
                     display: flex;
                     justify-content: center;
-
                 }
 
                 .button-container a {
