@@ -11,6 +11,20 @@
     text-align: center;
 }
 
+.section-subtitle-style {
+    max-width: 600px;
+    font-size: 1.2rem;
+    line-height: 24px;
+    margin-top: 32px;
+    font-weight: 500;
+    color: var(--graycool400);
+    font-family: var(--font-inter-tight);
+    scroll-margin-top: 64px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 .section-title-style-noclip {
     max-width: 600px;
     padding-left: 24px;

@@ -38,13 +38,13 @@ class ComponentPricingCard extends HTMLElement {
 
                 @media only screen and (min-width: 600px) {
                     .pricing-container {
-                        width: 384px;
+                        width: 320px;
                         height: auto;
                     }
                 }
 
                 .plan-container {
-                    margin-bottom: 24px;
+                    margin-bottom: 40px;
                     font-size: 24px;
                 }
 
@@ -71,7 +71,7 @@ class ComponentPricingCard extends HTMLElement {
                 }
 
                 .button-container {
-                    margin-top: 32px;
+                    margin-top: 40px;
                     margin-left: 16px;
                     margin-right: 16px;
                     display: flex;
@@ -82,7 +82,7 @@ class ComponentPricingCard extends HTMLElement {
                     color: var(--graycool0);
                     text-decoration: none;
                     font-size: 16px;
-                    text-shadow: 2px 2px 0px var(--graycool1000);
+                    text-shadow: 1px 1px 0px var(--graycool1000);
                     font-family: var(--font-inter-tight);
                     display: flex;
                     justify-content: center;

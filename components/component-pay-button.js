@@ -31,7 +31,7 @@ class ComponentPayButton extends HTMLElement{
                     padding-left: 8px;
                     padding-right: 8px;
                     border-radius: 8px;
-                    text-shadow: 2px 2px 0px var(--graycool1000);
+                    text-shadow: 1px 1px 0px var(--graycool1000);
                     transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
 
                     /* Pulsing glow animation */
