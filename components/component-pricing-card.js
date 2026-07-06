@@ -31,7 +31,6 @@ class ComponentPricingCard extends HTMLElement {
                     text-align: center;
                     color: var(--graycool1000);
                     background-color: var(--graycool0);
-                    box-shadow: 0px 0px 16px var(--graycool0);
                     border-radius: 32px;
                     padding: 24px;
                 }
@@ -52,18 +51,6 @@ class ComponentPricingCard extends HTMLElement {
                     font-family: var(--font-inter-tight);
                     font-size: 40px;
                     font-weight: 800;
-                    text-shadow: 2px 2px 0px var(--graycool1000);
-                    transition: color 0.2s, box-shadow 0.2s, transform 0.2s;
-                    animation: text-pulse 2.5s ease-in-out infinite;
-                }
-
-                @keyframes text-pulse {
-                    0%, 100% {
-                        color: var(--sunset600);
-                    }
-                    50% {
-                        color: var(--cerulean600);
-                    }
                 }
 
                 .description-container {
@@ -80,9 +67,9 @@ class ComponentPricingCard extends HTMLElement {
 
                 .button-container a {
                     color: var(--graycool0);
+                    background-color: var(--sunset600);
                     text-decoration: none;
                     font-size: 16px;
-                    text-shadow: 1px 1px 0px var(--graycool1000);
                     font-family: var(--font-inter-tight);
                     display: flex;
                     justify-content: center;
@@ -91,36 +78,24 @@ class ComponentPricingCard extends HTMLElement {
                     margin-left: auto;
                     margin-right: auto;
                     font-weight: 600;
-                    padding-top: 8px;
-                    padding-bottom: 8px;
-                    padding-left: 8px;
-                    padding-right: 8px;
+                    padding-top: 16px;
+                    padding-bottom: 16px;
+                    padding-left: 16px;
+                    padding-right: 16px;
                     border-radius: 8px;
-                    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
-
-                    /* Pulsing glow animation */
-                    animation: glow-pulse 2.5s ease-in-out infinite;
+                    transition-duration: 0.2s;
                 }
 
                 .button-container a:hover {
                     transform: scale(1.1);
+                    transition-duration: 0.2s;
                 }
 
                 .button-container a:active {
                     transform: scale(1.2);
+                    transition-duration: 0.2s;
                 }
 
-                @keyframes glow-pulse {
-                    0%, 100% {
-                        box-shadow: 0px 0px 16px var(--sunset600);
-                        background-color: var(--sunset600);
-                    }
-                    50% {
-                        box-shadow: 0px 0px 16px var(--cerulean600);
-                        background-color: var(--cerulean600);
-                    }
-                }
-                
             </style>
 
             <div class="pricing-container">
