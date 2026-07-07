@@ -1,5 +1,5 @@
 .section-pic {
-    margin-top: 80px;
+    margin-top: 64px;
 }
 
 .section-pic img {
@@ -7,11 +7,9 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 24px;
-   
-    /*border: 2px solid var(--sunset800);*/
     border-radius: 50%;
-    width: 188px;
-    height: 188px;
+    width: 200px;
+    height: 200px;
 }
 
 .section-title-text {
@@ -24,14 +22,14 @@
     text-align: center;
 }
 
-.social-name h1 {
+.social-title {
     font-weight: 500;
     font-size: 24px;
     font-family: var(--font-inter-tight);
     color: var(--graycool0);
 }
 
-.social-name h2 {
+.social-subtitle {
     font-family: var(--font-inter-tight);
     font-weight: 600;
     font-size: 32px;
@@ -52,7 +50,7 @@
 }
 
 .section-anchor {
-    padding-bottom: 64px;
+    margin-bottom: 64px;
 }
 
 .section-anchor-container {
