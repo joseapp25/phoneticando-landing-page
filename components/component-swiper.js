@@ -53,12 +53,12 @@ class ComponentSwiper extends HTMLElement {
       }
 
       .chevron-svg-icons:hover {
-          fill: var(--sunset600);
+          fill: var(--graycool0);
           transition-duration: 0.2s;
       }
 
       .chevron-svg-icons:active {
-          fill: var(--cerulean600);
+          fill: var(--graycool200);
           transition-duration: 0.2s;
       }
 
@@ -76,7 +76,7 @@ class ComponentSwiper extends HTMLElement {
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background: var(--cerulean300);
+          background: var(--sunset900);
           border: none;
           cursor: pointer;
           padding: 0;
@@ -84,7 +84,7 @@ class ComponentSwiper extends HTMLElement {
       }
 
       .dot.active {
-          background: var(--cerulean600);
+          background: var(--sunset600);
           transform: scale(1.5);
       }
 
@@ -105,8 +105,6 @@ class ComponentSwiper extends HTMLElement {
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 8px;
-    text-align: justify;
-    hyphens: auto;
 }
 
 .social-paragraph-name {
@@ -130,7 +128,6 @@ class ComponentSwiper extends HTMLElement {
     align-items: center;
     justify-content: center;
     gap: 1em;
-    animation: spin 60s infinite linear;
     padding-right: 1em;
 }
 
