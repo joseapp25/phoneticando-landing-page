@@ -1,13 +1,13 @@
 .profile-picture-container {
-    margin-bottom: 16px;
-    background-image: linear-gradient(to top, var(--sunset600) -80%, var(--graycool1000));
+    margin-bottom: 40px;
+    background-image: linear-gradient(to top, var(--sunset600), var(--graycool1000));
 }
 
 .profile-picture-container img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 216px;
+    width: 264px;
     height: auto;
 }
 

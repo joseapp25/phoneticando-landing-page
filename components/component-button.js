@@ -43,16 +43,14 @@ class ComponentButton extends HTMLElement{
                     transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
 
                     /* Pulsing glow animation */
-                    animation: glow-pulse 2.5s ease-in-out infinite;
+                    animation: glow-pulse 4s ease-in-out infinite;
                 }
 
                 @keyframes glow-pulse {
                     0%, 100% {
-                        box-shadow: 0px 0px 16px var(--sunset600);
                         background-color: var(--sunset600);
                     }
                     50% {
-                        box-shadow: 0px 0px 16px var(--cerulean600);
                         background-color: var(--cerulean600);
                     }
                 }
