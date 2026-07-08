@@ -87,6 +87,56 @@ class ComponentSwiper extends HTMLElement {
           background: var(--cerulean600);
           transform: scale(1.5);
       }
+
+.social-section-content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.social-quote-container {
+    border-left: 4px solid var(--sunset600);
+    padding-left: 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.social-paragraph {
+    font-style: italic;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 8px;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.social-paragraph-name {
+    color: var(--sunset600);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.social-carousel-outer {
+    overflow-x: auto;
+    display: flex;
+}
+
+.social-carousel-outer::-webkit-scrollbar {
+    display: none;
+}
+
+.social-carousel-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    animation: spin 60s infinite linear;
+    padding-right: 1em;
+}
+
+.social-carousel-card {
+    flex: 0 0 24em;
+}
     `;
 
     // Stylesheets
