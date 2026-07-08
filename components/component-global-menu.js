@@ -61,11 +61,11 @@ class ComponentGlobalMenu extends HTMLElement{
 
                 .global-menu-logo-anchor:hover {
                     transition-duration: 0.2s;
-                    fill: var(--sunset400);
+                    fill: var(--sunset600);
                 }
 
                 .global-menu-logo-anchor:active {
-                    fill: var(--sunset300);
+                    fill: var(--cerulean600);
                     transition-duration: 0.2s;
                 }
                     
@@ -103,11 +103,11 @@ class ComponentGlobalMenu extends HTMLElement{
                 .hamburger-menu-button:hover {
                     transition-duration: 0.2s;
                     cursor: pointer;
-                    fill: var(--sunset400);
+                    fill: var(--sunset600);
                 }
 
                 .hamburger-menu-button:active {
-                    fill: var(--sunset300);
+                    fill: var(--cerulean600);
                     transition-duration: 0.2s;
                 }
 
@@ -148,12 +148,12 @@ class ComponentGlobalMenu extends HTMLElement{
                 }
 
                 .hamburger-menu-nav a:hover {
-                    background-color: var(--cerulean600);
+                    background-color: var(--sunset600);
                     transition-duration: 0.2s;
                 }
 
                 .hamburger-menu-nav a:active {
-                    background-color: var(--cerulean400);
+                    background-color: var(--cerulean600);
                     transition-duration: 0.2s;
                 }
 
@@ -185,12 +185,12 @@ class ComponentGlobalMenu extends HTMLElement{
                 }
 
                 .hamburger-menu-close-button:hover {
-                    fill: var(--sunset400);
+                    fill: var(--sunset600);
                     transition-duration: 0.2s;
                 }
 
                 .hamburger-menu-close-button:active {
-                    fill: var(--sunset300);
+                    fill: var(--cerulean600);
                     transition-duration: 0.2s;
                 }
                 
