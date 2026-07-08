@@ -37,21 +37,12 @@ class ComponentPageTitle extends HTMLElement{
                 }
 
                 .logo-style {
-                    fill: var(--graycool0);
+                    fill: var(--sunset600);
                     width: 40px;
                     height: 40px;
-                    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
-                    animation: glow-pulse 2.5s ease-in-out infinite;
+                    filter: drop-shadow(1px 1px 0px var(--graycool1000));
                 }
 
-                @keyframes glow-pulse {
-                    0%, 100% {
-                        fill: var(--sunset600);
-                    }
-                    50% {
-                        fill: var(--cerulean600);
-                    }
-                }
 
             </style>
 
