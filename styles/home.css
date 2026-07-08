@@ -14,35 +14,44 @@
 .info-container {
     display: flex;
     flex-direction: column;
-    gap: 8px;
     margin-top: 64px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
-.info-name {
-    font-weight: 600;
-    font-size: 16px;
-    font-family: var(--font-inter-tight);
-    color: var(--sunset600);
-}
-
 .info-logo {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     fill: var(--sunset600);
 }
 
 .info-phoneticando {
+    margin-top: 8px;
     font-family: var(--font-inter-tight);
     font-weight: 700;
-    font-size: 32px;
+    font-size: 40px;
     color: var(--graycool0);
     
 }
 
+.info-name {
+    font-weight: 300;
+    font-size: 16px;
+    font-family: var(--font-inter-tight);
+    color: var(--graycool500);
+}
+
+.info-name-highlight {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: var(--font-inter-tight);
+    color: var(--sunset600);
+    font-style: italic;
+}
+
 .info-text {
+    margin-top: 16px;
     font-family: var(--font-inter-tight);
     font-weight: 300;
     font-size: 12px;
