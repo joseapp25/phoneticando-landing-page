@@ -25,7 +25,7 @@ class SelfAnchor extends HTMLElement {
             <style>
 
                 .self-anchor-container {
-                    display: flex;
+                    display: inline;
                 }
 
                 .self-anchor {
