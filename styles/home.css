@@ -92,23 +92,20 @@
     font-weight: 500;
     font-size: 16px;
     color: var(--graycool0);
-    fill: var(--cerulean600);
-
+    fill: var(--sunset600);
     transition-duration: 0.2s;
 }
 
 .main-anchor:hover {
-    box-shadow: 0px 0px 8px var(--cerulean600);
-    background-color: var(--cerulean600);
-    color: var(--graycool0);
-    fill: var(--sunset500);
+    background-color: var(--graycool0);
+    color: var(--graycool1000);
+    fill: var(--cerulean600);
     transition-duration: 0.2s;
 }
 
 .main-anchor:active {
-    box-shadow: 0px 0px 8px var(--sunset600);
     background-color: var(--sunset600);
-    fill: var(--cerulean600);
+    color: var(--graycool0);
     transition-duration: 0.2s;
 }
 

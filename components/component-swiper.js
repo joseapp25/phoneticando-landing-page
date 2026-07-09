@@ -134,6 +134,12 @@ class ComponentSwiper extends HTMLElement {
 .social-carousel-card {
     flex: 0 0 16em;
 }
+
+@media only screen and (min-width: 600px) {
+    .social-carousel-card {
+        flex: 0 0 32em;
+    }
+}
     `;
 
     // Stylesheets
