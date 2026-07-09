@@ -5,4 +5,15 @@
     flex-direction: column;
     gap: 8px;
     font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.section-list-unordered {
+    list-style: inside;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
