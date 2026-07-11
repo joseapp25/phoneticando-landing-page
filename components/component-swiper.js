@@ -127,17 +127,15 @@ class ComponentSwiper extends HTMLElement {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1em;
-    padding-right: 1em;
 }
 
 .social-carousel-card {
-    flex: 0 0 24em;
+    flex: 0 0 20em;
 }
 
 @media only screen and (min-width: 600px) {
     .social-carousel-card {
-        flex: 0 0 40em;
+        flex: 0 0 30em;
     }
 }
     `;
