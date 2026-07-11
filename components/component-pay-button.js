@@ -61,7 +61,7 @@ class ComponentPayButton extends HTMLElement{
 
             <div class="button-container">
 
-                <a href="#" target="_blank" class="button-anchor">
+                <a href="#pricing" target="_self" class="button-anchor">
 
                     <slot></slot>
 
