@@ -9,16 +9,10 @@ class ComponentButton extends HTMLElement{
             <style>
 
                 .button-container {
+                    max-width: 320px;
                     margin-left: auto;
                     margin-right: auto;
-                    padding-left: 24px;
-                    padding-right: 24px;
-                }
 
-                @media only screen and (min-width: 600px) {
-                    .button-container {
-                        max-width: 600px;
-                    }
                 }
 
                 .button-anchor {
