@@ -1,6 +1,6 @@
 .profile-picture-container {
     margin-bottom: 32px;
-    background-image: linear-gradient(to top, var(--cerulean800), var(--graycool1000));
+    background-image: linear-gradient(to top, var(--sunset600), var(--graycool1000));
 }
 
 .profile-picture-container img {
