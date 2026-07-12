@@ -98,7 +98,6 @@
 
 .main-anchor:hover {
     background-color: var(--graycool0);
-    box-shadow: 0px 0px 8px var(--graycool0);
     color: var(--graycool1000);
     fill: var(--cerulean600);
     transition-duration: 0.2s;
@@ -106,7 +105,6 @@
 
 .main-anchor:active {
     background-color: var(--sunset600);
-    box-shadow: 0px 0px 8px var(--sunset600);
     color: var(--graycool0);
     fill: var(--cerulean600);
     transition-duration: 0.2s;
