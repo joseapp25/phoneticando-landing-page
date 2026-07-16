@@ -120,7 +120,7 @@
     left: 0;
     width: 100%;
     height: 64%; /* adjust how tall the fade is */
-    background: linear-gradient(to bottom, transparent, var(--graycool1000) 90%);
+    background: linear-gradient(to bottom, transparent, var(--sunset800) 90%);
     z-index: 0;
     pointer-events: none;
 }
