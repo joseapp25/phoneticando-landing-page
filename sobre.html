@@ -37,6 +37,7 @@
     <script src="components/component-inline-anchor.js" defer></script>
     <script src="components/component-self-anchor.js" defer></script>
     <script src="components/component-section-title.js" defer></script>
+    <script src="components/component-quote-card.js" defer></script>
     <script src="components/component-swiper.js" defer></script>
     <script src="components/component-pay-button.js" defer></script>
     <script src="components/component-pricing-card.js" defer></script>
@@ -211,13 +212,23 @@
 
     <section class="section-container-padding dark-graycool-background">
         <div class="section-content">
-            <h1 class="section-title-style">Sempre que pensar em desistir:</h1>
-            <p class="sobre-paragraph-style">
-                <span class="sunset-highlight weight-highlight">"A direção é mais importante do que a velocidade."</span>
-            </p>
-            <p class="sobre-paragraph-style">
-                <span class="italic-highlight">—Edson Marques</span>
-            </p>
+            <h1 class="section-title-style">Para se Inspirar</h1>
+            <component-quote-card>
+                <span slot="quote">
+                    A direção é mais importante do que a velocidade.
+                </span>
+                <div slot="author">
+                    — Edson Marques
+                </div>
+            </component-quote-card>
+            <component-quote-card>
+                <span slot="quote">
+                    Não permita que o que você não pode fazer interfira no que você pode fazer.
+                </span>
+                <div slot="author">
+                    — Jonhn Wooden
+                </div>
+            </component-quote-card>
         </div>
     </section>
 </main>
