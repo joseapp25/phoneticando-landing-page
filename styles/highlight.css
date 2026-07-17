@@ -51,9 +51,37 @@
     font-weight: 400;
 }
 
+.phonetic-highlight-background {
+    font-family: var(--font-noto);
+    background-color: var(--graycool800);
+    color: var(--graycool0);
+    padding: 2px 4px 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
 .letter-highlight {
     font-family: var(--font-grotesk);
     background-color: var(--graycool800);
+    color: var(--graycool0);
+    padding: 2px 4px 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.voiced-highlight {
+    font-family: var(--font-noto);
+    background-color: var(--cerulean600);
+    color: var(--graycool0);
+    padding: 2px 4px 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.voiceless-highlight {
+    font-family: var(--font-noto);
+    background-color: var(--sunset600);
+    color: var(--graycool0);
     padding: 2px 4px 2px 4px;
     border-radius: 4px;
     font-weight: 600;
