@@ -23,7 +23,7 @@ class ComponentQuoteCard extends HTMLElement{
             }
 
             .quote-style {
-                font-weight: 700;
+                font-weight: 800;
                 font-size: 1.2rem;
             }
 
@@ -35,6 +35,7 @@ class ComponentQuoteCard extends HTMLElement{
                 color: var(--cerulean600);
                 font-style: italic;
                 font-weight: 600;
+                font-family: var(--font-noto);
             }
 
 
