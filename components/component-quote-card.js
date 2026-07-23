@@ -35,7 +35,6 @@ class ComponentQuoteCard extends HTMLElement{
                 color: var(--cerulean600);
                 font-style: italic;
                 font-weight: 600;
-                font-family: var(--font-noto);
             }
 
 
