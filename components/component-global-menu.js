@@ -76,7 +76,22 @@ class ComponentGlobalMenu extends HTMLElement{
                 .phoneticando-text {
                     font-size: 16px;
                     font-weight: 300;
+                }
+
+                .phoneticando-text-anchor {
+                    text-decoration: none;
+                    transition-duration: 0.2s;
                     color: var(--graycool0);
+                }
+
+                .phoneticando-text-anchor:hover {
+                    color: var(--sunset600);
+                    transition-duration: 0.2s;
+                }
+
+                .phoneticando-text-anchor:active {
+                    color: var(--cerulean600);
+                    transition-duration: 0.2s;
                 }
 
             </style>
@@ -217,9 +232,11 @@ class ComponentGlobalMenu extends HTMLElement{
                         </svg>
                     </a>
 
+                    <a href="#" class="phoneticando-text-anchor">
                     <div>
                         <span class="phoneticando-text">Phoneticando | <slot></slot></span>
                     </div>
+                    </a>
 
                     <button class="hamburger-menu-button" aria-label="Open menu" aria-expanded="false">
                         <svg class="hamburger-menu-icon" viewBox="0 0 1024 1024">
