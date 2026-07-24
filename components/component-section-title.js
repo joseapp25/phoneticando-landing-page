@@ -9,8 +9,8 @@ class ComponentSectionTitle extends HTMLElement{
             <style>
 
                 .title-container {
-                    margin-top: 16px;
-                    margin-bottom: 16px;
+                    margin-top: 8px;
+                    margin-bottom: 8px;
                 }
 
                 .simple-text {

@@ -55,11 +55,6 @@ class ComponentButton extends HTMLElement{
                     transform: scale(1.1);
                 }
 
-                .button-anchor:active {
-                    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
-                    transform: scale(1.2);
-                }
-
                 .button-icon {
                     width: 24px;
                     height: 24px;
