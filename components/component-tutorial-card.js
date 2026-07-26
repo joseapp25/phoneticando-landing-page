@@ -16,13 +16,13 @@ class ComponentTutorialCard extends HTMLElement {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    
                 }
 
                 .tutorial-item {
                     margin-top: 16px;
                     margin-bottom: 16px;
-                    box-shadow: 0px 0px 4px var(--graycool400);
+                    /*box-shadow: 0px 0px 4px var(--graycool400);*/
+                    border: 2px solid var(--graycool500);
                     border-radius: 8px;
                     padding: 16px;
                 }
