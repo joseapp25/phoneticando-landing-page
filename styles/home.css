@@ -2,6 +2,7 @@
     margin-bottom: 32px;
     position: relative;
     overflow: hidden;
+   /*background: linear-gradient(to bottom, var(--cerulean1000), var(--cerulean800));*/
 }
 
 .profile-picture-container::after {
@@ -10,7 +11,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 64%; /* adjust how tall the fade is */
+    height: 32%;
     background: linear-gradient(to bottom, transparent, var(--graycool1000));
     z-index: 0;
     pointer-events: none;
@@ -59,7 +60,7 @@
     font-weight: 600;
     font-size: 16px;
     font-family: var(--font-inter-tight);
-    color: var(--sunset600);
+    color: var(--cerulean600);
     font-style: italic;
 }
 

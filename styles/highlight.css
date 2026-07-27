@@ -1,3 +1,10 @@
+.ze-highlight {
+    color: var(--cerulean600);
+    font-weight: 900;
+    font-family: var(--font-inter-tight);
+    letter-spacing: 4px;
+}
+
 .cerulean-highlight {
     color: var(--cerulean600);
     font-weight: 600;
