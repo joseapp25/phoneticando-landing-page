@@ -1,10 +1,16 @@
 .ze-highlight {
+    font-weight: 200;
+    font-size: 16px;
+    font-family: var(--font-inter-tight);
     background-color: var(--cerulean600);
-    font-weight: 800;
-    padding-left: 8px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    color: var(--graycool0);
+    text-shadow: 0.5px 0.5px var(--graycool1000);
+    font-style: italic;
     border-radius: 4px;
+    padding: 2px 4px 2px 4px;
+    text-transform: capitalize;
+    letter-spacing: normal;
+    box-shadow: 1px 1px 0px var(--graycool1000);
 }
 
 .cerulean-highlight {

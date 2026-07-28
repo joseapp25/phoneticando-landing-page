@@ -57,11 +57,15 @@
 }
 
 .info-name-highlight {
-    font-weight: 600;
+    font-weight: 200;
     font-size: 16px;
     font-family: var(--font-inter-tight);
-    color: var(--cerulean600);
+    background-color: var(--cerulean600);
+    color: var(--graycool0);
+    text-shadow: 0.5px 0.5px var(--graycool1000);
     font-style: italic;
+    border-radius: 4px;
+    padding: 2px 4px 2px 4px;
 }
 
 .info-text {
