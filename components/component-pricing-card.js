@@ -31,7 +31,7 @@ class ComponentPricingCard extends HTMLElement {
                     text-align: center;
                     color: var(--graycool1000);
                     background-color: var(--graycool0);
-                    border-radius: 32px;
+                    border-radius: 16px;
                     padding: 24px;
                 }
 
