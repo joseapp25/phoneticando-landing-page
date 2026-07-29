@@ -57,7 +57,7 @@
 }
 
 .info-name-highlight {
-    font-weight: 200;
+    font-weight: 400;
     font-size: 16px;
     font-family: var(--font-inter-tight);
     background-color: var(--cerulean600);
