@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="styles/paragraph.css">
     <link rel="stylesheet" href="styles/poster.css">
     <link rel="stylesheet" href="styles/picture.css">
+    <link rel="stylesheet" href="styles/promise.css">
     <link rel="stylesheet" href="styles/section.css">
     <link rel="stylesheet" href="styles/socialproof.css">
     <link rel="stylesheet" href="styles/title.css">
@@ -33,6 +34,7 @@
     <script src="components/component-button.js" defer></script>
     <script src="components/component-faq-card.js" defer></script>
     <script src="components/component-tutorial-card.js" defer></script>
+    <script src="components/component-infinite-carousel.js"></script>
     <script src="components/component-inline-anchor.js" defer></script>
     <script src="components/component-self-anchor.js" defer></script>
     <script src="components/component-section-title.js" defer></script>
@@ -59,7 +61,25 @@
         </div>
         <img src="images/pictures/trainer-pic.png" alt="" class="trainer-picture-background">
         <div class="section-content trainer-picture-content">
-            <div class="section-align">
+            <div class="trainer-promise-text">
+                <div class="promise-margin">
+                    <div>
+                        Pronunciar bem o inglês,
+                    </div>
+                    <div>
+                        requer uma boa percepção auditiva
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="trainer-promise-paragraph">
+                    O Phoneticando Trainer te ajuda a perceber os sons do inglês para pronunciar e compreender naturalmente.
+                </p>
+            </div>
+            <component-pay-button>
+                QUERO TREINAR MINHA PERCEPÇÃO
+            </component-pay-button>
+            <!--<div class="section-align">
                 <div>
                     <component-section-title>
                         <div slot="simple">
@@ -92,7 +112,7 @@
                         QUERO TREINAR MEU CÉREBRO
                     </component-pay-button>
                 </div>
-            </div>
+            </div>-->
         </div>
     </section>
 
@@ -100,16 +120,23 @@
         <div class="section-content">
             <!--<h1 class="section-title-style">Phoneticando Trainer</h1>-->
             <p class="paragraph-style">
-                <span class="weight-highlight" style="font-size: 24px;">Phoneticando Trainer</span> é um <span class="italic-highlight">treinador de pronúncia</span> que ensina o seu <span class="sunset-highlight">cérebro</span> a reconhecer padrões de sons do <span class="cerulean-highlight">inglês</span>. Por meio da repetição, <span class="underline-highlight">o cérebro desenvolve novas categorias auditivas</span> para distinguir os sons.
+                <span class="weight-highlight">Phoneticando Trainer</span> é um <span class="italic-highlight">treinador de pronúncia</span> que ensina a <span class="sunset-highlight">perceber</span> os sons do <span class="sunset-highlight">inglês</span>. 
             </p>
 
             <p class="paragraph-style">
-                Com o tempo, <span class="underline-highlight">a sua percepção dos sons se torna natural</span> como consequência sua pronúncia também. Se você <span class="weight-highlight">não</span> consegue <span class="italic-highlight">perceber</span> os sons, dificilmente irá <span class="weight-highlight">pronunciá-los</span> com precisão e clareza.
+                Por meio da repetição, você desenvolve novas categorias auditivas para distinguir os sons. Com o tempo, a sua percepção dos sons se torna natural como consequência sua pronúncia também.
             </p>
-            <component-pay-button>
-                QUERO PERCEBER OS SONS DO INGLÊS
-            </component-pay-button>
+            <p class="paragraph-style">
+                 Se você não consegue perceber os sons, dificilmente irá pronunciá-los com precisão e clareza.
+            </p>
         </div>
+    </section>
+
+    <section>
+        <infinite-carousel
+        *   speed="64"
+        *   items='["Treine sua percepção, Transforme sua pronúncia.", "Perceba Antes — Pronuncie Depois", "Antes de treinar pronúncia… treine sua percepção auditiva."]'>
+        * </infinite-carousel>
     </section>
 
     <section class="section-container-padding dark-graycool-background">
@@ -398,8 +425,14 @@
                     </div>
                 </component-pricing-card>
             </div>
-            
         </div>
+    </section>
+
+    <section>
+        <infinite-carousel
+        *   speed="64"
+        *   items='["Compra Segura", "Suporte", "Online", "Garantia", "Compra Segura", "Suporte", "Online", "Garantia"]'>
+        * </infinite-carousel>
     </section>
 
     <section class="section-container-padding dark-graycool-background">

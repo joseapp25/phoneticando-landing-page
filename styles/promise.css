@@ -1,0 +1,20 @@
+.trainer-promise-text {
+    font-size: 32px;
+    font-weight: 300;
+    text-shadow: 1px 1px 0px var(--graycool1000);
+    font-family: var(--font-inter-tight);
+}
+
+.trainer-promise-paragraph {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+    text-shadow: 1px 1px 0px var(--graycool1000);
+}
+
+.promise-margin {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
