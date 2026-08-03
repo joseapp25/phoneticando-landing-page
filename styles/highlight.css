@@ -15,12 +15,12 @@
 
 .cerulean-highlight {
     color: var(--cerulean600);
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .sunset-highlight {
     color: var(--sunset600);
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .correct-highlight {
@@ -35,7 +35,7 @@
 
 .cerulean-highlight-background {
     color: var(--graycool0);
-    font-weight: 600;
+    font-weight: 800;
     background-color: var(--cerulean600);
     padding: 2px 4px 2px 4px;
     border-radius: 4px;
@@ -43,14 +43,14 @@
 
 .sunset-highlight-background {
     color: var(--graycool0);
-    font-weight: 600;
+    font-weight: 800;
     background-color: var(--sunset600);
     padding: 2px 4px 2px 4px;
     border-radius: 4px;
 }
 
 .weight-highlight {
-    font-weight: 800;
+    font-weight: 900;
 }
 
 .underline-highlight {
