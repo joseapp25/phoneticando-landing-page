@@ -43,8 +43,8 @@
 .info-phoneticando {
     margin-top: 8px;
     font-family: var(--font-inter-tight);
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 600;
+    font-size: 32px;
     color: var(--graycool0);
     
 }
@@ -74,9 +74,8 @@
     font-weight: 300;
     font-size: 12px;
     line-height: 24px;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    text-align: center;
     color: var(--graycool0);
     text-shadow: 1px 1px 0px var(--graycool1000);
 }

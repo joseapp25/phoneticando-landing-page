@@ -19,17 +19,15 @@ class ComponentPageTitle extends HTMLElement{
                 .page-title {
                     font-family: var(--font-inter-tight);
                     font-weight: 600;
-                    font-size: 24px;
-                    line-height: 40px;
+                    font-size: 32px;
                     text-align: center;
-                    text-shadow: 2px 2px 0px var(--graycool1000);
+                    text-shadow: 1px 1px 0px var(--graycool1000);
                 }
 
                 .page-subtitle {
                     font-family: var(--font-inter-tight);
                     font-weight: 200;
                     font-size: 16px;
-                    line-height: 24px;
                     letter-spacing: 8px;
                     text-transform: uppercase;
                     text-align: center;
@@ -56,7 +54,7 @@ class ComponentPageTitle extends HTMLElement{
                 <h1>
                 
                     <div class="page-title">
-                        phoneticando
+                        Phoneticando
                     </div>
 
                     <div class="page-subtitle">
