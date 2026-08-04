@@ -1,6 +1,6 @@
 .trainer-promise-text {
     font-size: 40px;
-    font-weight: 300;
+    font-weight: 600;
     text-shadow: 1px 1px 0px var(--graycool1000);
     font-family: var(--font-inter-tight);
 }
@@ -22,7 +22,7 @@
 
 .trainer-promise-highlight {
     color: var(--sunset600);
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .promise-margin {
