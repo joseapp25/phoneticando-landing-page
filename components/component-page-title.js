@@ -19,7 +19,7 @@ class ComponentPageTitle extends HTMLElement{
                 .page-title {
                     font-family: var(--font-inter-tight);
                     font-weight: 600;
-                    font-size: 32px;
+                    font-size: 24px;
                     text-align: center;
                     text-shadow: 1px 1px 0px var(--graycool1000);
                 }
@@ -27,7 +27,7 @@ class ComponentPageTitle extends HTMLElement{
                 .page-subtitle {
                     font-family: var(--font-inter-tight);
                     font-weight: 200;
-                    font-size: 16px;
+                    font-size: 12px;
                     letter-spacing: 8px;
                     text-transform: uppercase;
                     text-align: center;
@@ -39,6 +39,15 @@ class ComponentPageTitle extends HTMLElement{
                     width: 40px;
                     height: 40px;
                     filter: drop-shadow(1px 1px 0px var(--graycool1000));
+                }
+
+                @media only screen and (min-width: 600px) {
+                    .page-title {
+                        font-size: 32px;
+                    }
+                    .page-subtitle {
+                        font-size: 16px;
+                    }
                 }
 
 
