@@ -1,3 +1,42 @@
+/* ─── AULAS PROMISE ─── */
+.aulas-promise-text {
+    font-size: 32px;
+    font-weight: 600;
+    text-shadow: 1px 1px 0px var(--graycool1000);
+    font-family: var(--font-inter-tight);
+}
+
+@media only screen and (min-width: 600px) {
+    .aulas-promise-text{
+        font-size: 64px;
+    }
+}
+
+.aulas-promise-paragraph {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+    text-shadow: 1px 1px 0px var(--graycool1000);
+}
+
+.aulas-promise-highlight {
+    color: var(--sunset600);
+    font-weight: 800;
+}
+/* ───────────────────────── */
+
+
+
+
+
+
+
+
+
+
+/* ─── TRAINER PROMISE ─── */
 .trainer-promise-text {
     font-size: 32px;
     font-weight: 600;
@@ -24,3 +63,4 @@
     color: var(--sunset600);
     font-weight: 800;
 }
+/* ───────────────────────── */

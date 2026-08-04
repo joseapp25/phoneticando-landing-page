@@ -9,10 +9,8 @@ class ComponentButton extends HTMLElement{
             <style>
 
                 .button-container {
-                    max-width: 320px;
                     margin-left: auto;
                     margin-right: auto;
-
                 }
 
                 .button-anchor {
