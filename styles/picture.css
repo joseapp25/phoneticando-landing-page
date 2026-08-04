@@ -79,7 +79,7 @@
 .trainer-picture-background {
     position: absolute;
     top: 0;
-    left: 8rem;
+    left: 4rem;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -91,7 +91,7 @@
     .trainer-picture-background {
         width: auto;
         left: auto;
-        right: 8rem;
+        right: 4rem;
     }
 }
 /* ───────────────────────── */
