@@ -36,6 +36,7 @@
     <script src="components/component-tutorial-card.js" defer></script>
     <script src="components/component-infinite-carousel.js"></script>
     <script src="components/component-inline-anchor.js" defer></script>
+    <script src="components/component-inspirational-card.js" defer></script>
     <script src="components/component-self-anchor.js" defer></script>
     <script src="components/component-section-title.js" defer></script>
     <script src="components/component-quote-card.js" defer></script>
@@ -105,13 +106,32 @@
         </div>
     </section>
 
-    <section>
-        <infinite-carousel
-        *   separator="✦"
-        *   speed="100"
-        *   items='["Treine sua percepção, Transforme sua pronúncia.", "Perceba Antes — Pronuncie Depois", "Antes de treinar pronúncia… treine sua percepção auditiva.", "Treine sua percepção, Transforme sua pronúncia.", "Perceba Antes — Pronuncie Depois", "Antes de treinar pronúncia… treine sua percepção auditiva."]'>
-        * </infinite-carousel>
-    </section>
+    <component-inspirational-card>
+        <div>
+            Treine sua percepção, 
+        </div>
+        <div>  
+            Transforme sua pronúncia.
+        </div>
+    </component-inspirational-card>
+
+    <component-inspirational-card>
+        <div>
+            Perceba Antes,
+        </div>
+        <div>  
+            Pronuncie Depois.
+        </div>
+    </component-inspirational-card>
+
+    <component-inspirational-card>
+        <div>
+            Antes de treinar pronúncia…
+        </div>
+        <div>  
+            treine sua percepção auditiva.
+        </div>
+    </component-inspirational-card>
 
     <section class="section-container-padding dark-graycool-background">
         <div class="section-content">
