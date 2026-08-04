@@ -36,7 +36,6 @@
     <script src="components/component-tutorial-card.js" defer></script>
     <script src="components/component-infinite-carousel.js"></script>
     <script src="components/component-inline-anchor.js" defer></script>
-    <script src="components/component-inspirational-card.js" defer></script>
     <script src="components/component-self-anchor.js" defer></script>
     <script src="components/component-section-title.js" defer></script>
     <script src="components/component-quote-card.js" defer></script>
@@ -81,7 +80,7 @@
             </div>
             <div>
                 <p class="trainer-promise-paragraph">
-                    O <span class="weight-highlight">Phoneticando Trainer</span> te ajuda a perceber os sons do inglês para pronunciar e compreender <span class="weight-highlight">naturalmente</span>.
+                    O <span class="weight-highlight">Phoneticando Trainer</span> é um <span class="italic-highlight">treinador de pronúncia</span> que te ajuda a perceber os sons do inglês para pronunciar e compreender <span class="weight-highlight">naturalmente</span>.
                 </p>
             </div>
             <component-pay-button>
@@ -94,44 +93,24 @@
         <div class="section-content">
             <h1 class="section-title-style">Perceba, Pronuncie</h1>
             <p class="paragraph-style">
-                <span class="weight-highlight">Phoneticando Trainer</span> é um <span class="italic-highlight">treinador de pronúncia</span> que ensina a perceber os sons do inglês. 
-            </p>
-
-            <p class="paragraph-style">
-                Por meio da repetição, você desenvolve novas categorias auditivas para distinguir os sons. Com o tempo, a sua percepção dos sons se torna natural como consequência sua pronúncia também.
+                Quando ouvimos um som de uma língua estrangeira que nosso cérebro ainda não consegue distinguir, ele tenta encaixá-lo na categoria de um som que já conhecemos. É justamente isso que cria muitos dos vícios de pronúncia.
             </p>
             <p class="paragraph-style">
-                 Se você não consegue perceber os sons, dificilmente irá pronunciá-los com precisão e clareza.
+                A boa notícia é que isso pode ser treinado. Utilizando um conjunto de conceitos e técnicas, é possível desenvolver novas categorias auditivas para distinguir esses sons. Com o tempo, sua percepção se torna natural e, como consequência, sua pronúncia também.
+            </p>
+            <p class="paragraph-style">
+                 Afinal, se você não consegue perceber um som com clareza, dificilmente conseguirá reproduzi-lo com precisão.
             </p>
         </div>
     </section>
 
-    <component-inspirational-card>
-        <div>
-            Treine sua percepção, 
-        </div>
-        <div>  
-            Transforme sua pronúncia.
-        </div>
-    </component-inspirational-card>
-
-    <component-inspirational-card>
-        <div>
-            Perceba Antes,
-        </div>
-        <div>  
-            Pronuncie Depois.
-        </div>
-    </component-inspirational-card>
-
-    <component-inspirational-card>
-        <div>
-            Antes de treinar pronúncia…
-        </div>
-        <div>  
-            treine sua percepção auditiva.
-        </div>
-    </component-inspirational-card>
+    <section>
+        <infinite-carousel
+        *   separator="✦"
+        *   speed="128"
+        *   items='["Treine sua Percepção — Transforme sua Pronúncia", "Perceba Antes — Pronuncie Depois", "Treine sua Percepção — Transforme sua Pronúncia", "Perceba Antes — Pronuncie Depois"]'>
+        * </infinite-carousel>
+    </section>
 
     <section class="section-container-padding dark-graycool-background">
         <div class="section-content">
