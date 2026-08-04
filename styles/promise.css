@@ -1,8 +1,14 @@
 .trainer-promise-text {
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 300;
     text-shadow: 1px 1px 0px var(--graycool1000);
     font-family: var(--font-inter-tight);
+}
+
+@media only screen and (min-width: 600px) {
+    .trainer-promise-text{
+        font-size: 64px;
+    }
 }
 
 .trainer-promise-paragraph {
