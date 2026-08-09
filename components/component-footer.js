@@ -12,7 +12,7 @@ class ComponentFooter extends HTMLElement{
                     display: flex;
                     justify-content: left;
                     background-color: var(--graycool0);
-                    color: var(--graycool900);
+                    color: var(--graycool1000);
                     padding-top: 24px;
                     padding-bottom: 24px;
                     padding-left: 24px;
@@ -92,7 +92,7 @@ class ComponentFooter extends HTMLElement{
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    color: var(--graycool900);
+                    color: var(--graycool1000);
                     fill: var(--cerulean600);
                     transition-duration: 0.2s;
                     gap: 4px;
