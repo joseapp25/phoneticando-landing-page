@@ -1,9 +1,3 @@
-/* ==========================================================================
-   PIX Page — design tokens (scoped, so they never leak into the rest of the site)
-   Ink:     #14201D  Paper: #F3F5F2  Line: #DDE4DF
-   Accent:  #00A99B  Accent deep: #017168  Muted: #5C6A64
-   ========================================================================== */
-
 .pix-page {
     --pix-ink: var(--graycool1000);
     --pix-paper: var(--graycool0);
@@ -13,10 +7,7 @@
     --pix-accent: var(--sunset600);
     --pix-accent-deep:  var(--sunset600);
     --pix-accent-soft: var(--sunset100);
-    --pix-radius: 12px;
-    --pix-font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
-    --pix-font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --pix-font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+    --pix-radius: 8px;
 
     display: block;
     background: var(--graycool1000);
@@ -41,30 +32,14 @@
     margin-bottom: 40px;
 }
 
-.pix-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--pix-accent-deep);
-    background: var(--pix-accent-soft);
-    padding: 6px 12px;
-    border-radius: 999px;
-    margin-bottom: 16px;
-    margin-top: 8px;
-}
-
 .pix-eyebrow-icon {
-    width: 16px;
-    height: 16px;
+    width: 64px;
+    height: 64px;
+    fill: var(--sunset600);
 }
 
 .pix-title {
-
+    font-family: var(--font-inter-tight);
     font-size: clamp(32px, 6vw, 44px);
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -96,6 +71,7 @@
     margin: 0 0 16px;
     padding-bottom: 16px;
     border-bottom: 1px solid var(--graycool500);
+    font-family: var(--font-inter-tight);
 }
 
 .pix-account-grid {
@@ -164,9 +140,8 @@
 }
 
 .pix-key-value {
-
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 400;
     color: var(--graycool1000);
     overflow-wrap: anywhere;
 }
@@ -178,8 +153,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--pix-accent-deep);
     background: var(--pix-accent-soft);
@@ -206,13 +180,13 @@
 
 .pix-copy-icon {
     display: inline-flex;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
 }
 
 .pix-copy-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
 }
 
 .pix-icon-check {
@@ -220,7 +194,7 @@
 }
 
 .pix-copy-btn.is-copied {
-    background: var(--graycool1000);
+    background: var(--cerulean600);
     color: #ffffff;
 }
 
@@ -259,7 +233,7 @@
     }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 600px) {
     .pix-page {
         padding: 48px 16px 64px;
     }
