@@ -1,0 +1,284 @@
+/* ==========================================================================
+   PIX Page — design tokens (scoped, so they never leak into the rest of the site)
+   Ink:     #14201D  Paper: #F3F5F2  Line: #DDE4DF
+   Accent:  #00A99B  Accent deep: #017168  Muted: #5C6A64
+   ========================================================================== */
+
+.pix-page {
+    --pix-ink: var(--graycool1000);
+    --pix-paper: var(--graycool0);
+    --pix-card: #ffffff;
+    --pix-line: var(--graycool0);
+    --pix-muted: var(--graycool1000);
+    --pix-accent: var(--sunset600);
+    --pix-accent-deep:  var(--sunset600);
+    --pix-accent-soft: var(--sunset100);
+    --pix-radius: 12px;
+    --pix-font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+    --pix-font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --pix-font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+
+    display: block;
+    background: var(--pix-paper);
+    color: var(--pix-ink);
+    font-family: var(--pix-font-body);
+    padding: 64px 24px 88px;
+}
+
+.pix-page * {
+    box-sizing: border-box;
+}
+
+.pix-container {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* ---------- Hero ---------- */
+
+.pix-hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.pix-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--pix-font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pix-accent-deep);
+    background: var(--pix-accent-soft);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+}
+
+.pix-eyebrow-icon {
+    width: 13px;
+    height: 13px;
+}
+
+.pix-title {
+    font-family: var(--pix-font-display);
+    font-size: clamp(32px, 6vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+    color: var(--pix-ink);
+}
+
+.pix-subtitle {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--pix-muted);
+    margin: 0;
+}
+
+/* ---------- Account card ---------- */
+
+.pix-account-card {
+    background: var(--pix-card);
+    border: 1px solid var(--pix-line);
+    border-radius: var(--pix-radius);
+    padding: 24px 28px;
+    margin-bottom: 28px;
+}
+
+.pix-account-name {
+    font-family: var(--pix-font-display);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--pix-line);
+}
+
+.pix-account-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
+    margin: 0;
+}
+
+.pix-account-item--wide {
+    grid-column: 1 / -1;
+}
+
+.pix-account-item dt {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pix-muted);
+    margin-bottom: 4px;
+}
+
+.pix-account-item dd {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--pix-ink);
+}
+
+/* ---------- Key list ---------- */
+
+.pix-key-list {
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pix-key-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--pix-card);
+    border: 1px solid var(--pix-line);
+    border-radius: var(--pix-radius);
+    padding: 18px 20px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pix-key-row:hover {
+    border-color: var(--pix-accent);
+    box-shadow: 0 4px 16px rgba(0, 169, 155, 0.08);
+}
+
+.pix-key-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.pix-key-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pix-muted);
+}
+
+.pix-key-value {
+    font-family: var(--pix-font-mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--pix-ink);
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Copy button ---------- */
+
+.pix-copy-btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--pix-font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--pix-accent-deep);
+    background: var(--pix-accent-soft);
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.pix-copy-btn:hover {
+    background: var(--pix-accent);
+    color: #ffffff;
+}
+
+.pix-copy-btn:active {
+    transform: scale(0.96);
+}
+
+.pix-copy-btn:focus-visible {
+    outline: 2px solid var(--pix-accent-deep);
+    outline-offset: 2px;
+}
+
+.pix-copy-icon {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+}
+
+.pix-copy-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.pix-icon-check {
+    display: none;
+}
+
+.pix-copy-btn.is-copied {
+    background: var(--graycool1000);
+    color: #ffffff;
+}
+
+.pix-copy-btn.is-copied .pix-icon-copy {
+    display: none;
+}
+
+.pix-copy-btn.is-copied .pix-icon-check {
+    display: block;
+}
+
+/* ---------- Note & live region ---------- */
+
+.pix-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--pix-muted);
+    margin: 0;
+}
+
+.pix-live-region {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ---------- Motion & responsiveness ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .pix-key-row,
+    .pix-copy-btn {
+        transition: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .pix-page {
+        padding: 48px 16px 64px;
+    }
+
+    .pix-account-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pix-key-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .pix-copy-btn {
+        justify-content: center;
+    }
+}
