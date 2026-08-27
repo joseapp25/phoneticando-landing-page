@@ -29,7 +29,6 @@
 
 .pix-hero {
     text-align: center;
-    margin-bottom: 40px;
 }
 
 .pix-eyebrow-icon {
@@ -40,11 +39,16 @@
 
 .pix-title {
     font-family: var(--font-inter-tight);
-    font-size: clamp(32px, 6vw, 44px);
+    font-size: 32px;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    margin: 0 0 8px;
     color: var(--graycool0);
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+strong {
+    font-family: var(--font-inter-tight);
+    color: var(--sunset600);
 }
 
 .pix-subtitle {
@@ -117,8 +121,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    background: var(--pix-card);
-    border: 1px solid var(--pix-line);
+    background: var(--graycool0);
+    border: 1px solid var(--graycool0);
     border-radius: var(--pix-radius);
     padding: 16px 24px;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -136,7 +140,7 @@
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--pix-muted);
+    color: var(--graycool1000);
 }
 
 .pix-key-value {
@@ -155,9 +159,10 @@
     gap: 8px;
     font-size: 16px;
     font-weight: 600;
-    color: var(--pix-accent-deep);
-    background: var(--pix-accent-soft);
-    border: 1px solid transparent;
+    background-color: var(--graycool0);
+    color: var(--sunset600);
+    fill: var(--sunset600);
+    border: 1px solid var(--sunset600);
     border-radius: 999px;
     padding: 8px 16px;
     cursor: pointer;
@@ -165,8 +170,8 @@
 }
 
 .pix-copy-btn:hover {
-    background: var(--pix-accent);
-    color: #ffffff;
+    background: var(--sunset600);
+    color: var(--graycool0);
 }
 
 .pix-copy-btn:active {
@@ -196,6 +201,7 @@
 .pix-copy-btn.is-copied {
     background: var(--cerulean600);
     color: #ffffff;
+    border: 1px solid var(--cerulean600);
 }
 
 .pix-copy-btn.is-copied .pix-icon-copy {
@@ -203,6 +209,13 @@
 }
 
 .pix-copy-btn.is-copied .pix-icon-check {
+    display: block;
+}
+
+.qr-code {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
     display: block;
 }
 
