@@ -363,7 +363,7 @@
         <div class="section-content">
             <h1 class="section-title-style" id="pricing">Precificação</h1>
             <div class="pricing-section">
-                <component-pricing-card href="https://payment-link-v3-sdx.pagar.me/pl_2Z60YW3jB975JoHQdUowgeDOR4VdkMbG">
+                <component-pricing-card data-plan="mensal" href="https://payment-link-v3-sdx.pagar.me/pl_2Z60YW3jB975JoHQdUowgeDOR4VdkMbG">
                     <div slot="plan">
                         Plano Mensal
                     </div>
@@ -377,7 +377,7 @@
                         ESCOLHER PLANO
                     </div>
                 </component-pricing-card>
-                <component-pricing-card href="https://payment-link-v3-sdx.pagar.me/pl_5Lkjqzvae7w2OvRztaf5OAmoXBDdNJEl">
+                <component-pricing-card data-plan="anual" href="https://payment-link-v3-sdx.pagar.me/pl_5Lkjqzvae7w2OvRztaf5OAmoXBDdNJEl">
                     <div slot="plan">
                         Plano Anual
                     </div>
@@ -391,7 +391,7 @@
                         ESCOLHER PLANO
                     </div>
                 </component-pricing-card>
-                <component-pricing-card href="https://payment-link-v3-sdx.pagar.me/pl_dn1OzgkRw4DpZ4riLCDmXK5yQ7jovW9m">
+                <component-pricing-card data-plan="bienal" href="https://payment-link-v3-sdx.pagar.me/pl_dn1OzgkRw4DpZ4riLCDmXK5yQ7jovW9m">
                     <div slot="plan">
                         Plano Bienal
                     </div>
@@ -840,6 +840,28 @@
 <footer>
     <component-footer></component-footer>
 </footer>
+
+<script>
+    // Payment links do Pagar.me variam por ambiente: sandbox (hardcoded nos
+    // atributos href acima) em qualquer domínio, produção só em
+    // phoneticando.com.br. Ver phoneticando/api#160 — única diferença de
+    // ambiente nesta landing.
+    (function () {
+        var isProduction = /(^|\.)phoneticando\.com\.br$/.test(window.location.hostname);
+        if (!isProduction) return;
+
+        var PRODUCTION_LINKS = {
+            mensal: 'https://payment-link-v3.pagar.me/pl_2pgnjbdRaPLKLkycpECnMOeV4xNo5wyE',
+            anual: 'https://payment-link-v3.pagar.me/pl_Xo147m5ayZ6qBQqIlIGB3wWnAQxGRPVd',
+            bienal: 'https://payment-link-v3.pagar.me/pl_w05jLe6vMl3zA40FbZUXAVDkYXEqx9Rb'
+        };
+
+        document.querySelectorAll('component-pricing-card[data-plan]').forEach(function (card) {
+            var link = PRODUCTION_LINKS[card.getAttribute('data-plan')];
+            if (link) card.setAttribute('href', link);
+        });
+    })();
+</script>
 
 </body>
 </html>
