@@ -85,6 +85,19 @@
   }
 
   /* ---------- Header ---------- */
+  .phoneticando-logo {
+    width: 40px;
+    height: 40px;
+    fill: var(--sunset600);
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
   header.top{
     padding:24px;
     background-color: var(--graycool0);
@@ -181,7 +194,6 @@
     top:0;
     z-index:20;
     backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
     padding:12px 24px;
     margin:0 -24px 24px;
     display:flex;
@@ -336,7 +348,7 @@
     display:flex;
     justify-content:center;
     gap:24px;
-    margin:16px 0 64px;
+    margin:16px 0 24px;
     font-size:16px;
     color:var(--graycool1000);
     flex-wrap:wrap;
@@ -355,6 +367,13 @@
 <body>
 
 <header class="top">
+  <div class="logo-container">
+    <svg class="phoneticando-logo" viewBox="0 0 1024 1024">
+      <path d="M899.471 169.143V32L124.531 169.143H899.471Z"/>
+      <path d="M757.135 717.714L899.471 224H124.531V498.286H266.867L124.531 992H899.471V717.714H757.135Z"/>
+    </svg>
+  </div>
+  
   <h1>Calendário de Aulas</h1>
   <div class="student-row">
     <label for="studentName">Aluno(a):</label>
@@ -407,15 +426,21 @@
   </div>
 
   <div class="year-tabs" id="yearTabs"></div>
+
+  <div class="legend">
+    <span><span class="sw aula"></span>Aula</span>
+    <span><span class="sw feriado"></span>Feriado/Férias</span>
+    <span><span class="sw today"></span>Hoje</span>
+  </div>
+
   <div class="months" id="monthsContainer"></div>
 
   <div class="legend">
     <span><span class="sw aula"></span>Aula</span>
-    <span><span class="sw feriado"></span>Feriado</span>
+    <span><span class="sw feriado"></span>Feriado/Férias</span>
     <span><span class="sw today"></span>Hoje</span>
   </div>
 
-  
 </div>
 
 <footer>
@@ -427,7 +452,7 @@
   "use strict";
 
   var STORAGE_KEY = "phoneticando-calendario-aulas-v1";
-  var YEARS = [2026, 2027, 2028, 2029, 2030, 2031, 2032];
+  var YEARS = [2026, 2027, 2028, 2029, 2030];
   var MONTH_NAMES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
   var DOW = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
 
