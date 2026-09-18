@@ -1,39 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calendário de Aulas</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="LsXh5djpkxroAi--CTgBYDhoo4s3jt9bD7TBzesp_uo" />
+    <link rel="icon" href="https://phoneticando.com.br/favicon.ico" type="image/x-icon">
+    <title>Phoneticando | Calendário</title>
+    <meta property="og:site_name" content="Phoneticando | Calendário">
+    <meta property="og:image" content="https://phoneticando.com.br/images/thumbnails/phoneticando-thumbnail.png">
+    <meta property="og:title" content="Phoneticando | Calendário" />
+    <meta property="og:description" content="Calendário de Aulas com Zé Antonio." />
+    <meta name="description" content="Calendário de Aulas com Zé Antonio.">
+    <meta property="og:type" content="website" />
+    <meta property="og:updated_time" content="1440432930" />
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/background.css">
+    <link rel="stylesheet" href="styles/elevenlabs.css">
+    <link rel="stylesheet" href="styles/highlight.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/ipa.css">
+    <link rel="stylesheet" href="styles/list.css">
+    <link rel="stylesheet" href="styles/paragraph.css">
+    <link rel="stylesheet" href="styles/poster.css">
+    <link rel="stylesheet" href="styles/picture.css">
+    <link rel="stylesheet" href="styles/promise.css">
+    <link rel="stylesheet" href="styles/section.css">
+    <link rel="stylesheet" href="styles/socialproof.css">
+    <link rel="stylesheet" href="styles/title.css">
+    <link rel="stylesheet" href="styles/transformation.css">
+    <script src="scripts/main.js" defer></script>
+    <script src="components/component-global-menu.js" defer></script>
+    <script src="components/component-page-title.js" defer></script>
+    <script src="components/component-benefits-card.js" defer></script>
+    <script src="components/component-button.js" defer></script>
+    <script src="components/component-faq-card.js" defer></script>
+    <script src="components/component-tutorial-card.js" defer></script>
+    <script src="components/component-infinite-carousel.js"></script>
+    <script src="components/component-inline-anchor.js" defer></script>
+    <script src="components/component-self-anchor.js" defer></script>
+    <script src="components/component-quote-card.js" defer></script>
+    <script src="components/component-swiper.js" defer></script>
+    <script src="components/component-pay-button.js" defer></script>
+    <script src="components/component-pricing-card.js" defer></script>
+    <script src="components/component-footer.js" defer></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SPPCK1W4TJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-SPPCK1W4TJ');
+    </script>
 <style>
   :root{
-    --ink:#20302B;
+    --ink:#1C1C22;
     --ink-soft:#54615C;
-    --paper:#EEF2EF;
-    --card:#FFFFFF;
-    --teal:#2B6E63;
-    --teal-dark:#1B4A42;
-    --gold:#C99A3B;
-    --aula:#E8873A;
+    --paper:#E2E4E9;
+    --card:#FAFAFD;
+    --teal:#1C1C22;
+    --teal-dark:#1C1C22;
+    --gold:#DC7418;
+    --aula:#DC7418;
     --aula-soft:#FCEADA;
-    --feriado:#93A199;
-    --feriado-soft:#E7EBE7;
+    --feriado:#6E7187;
+    --feriado-soft:#9A9CAC;
     --line:#DAE1DC;
     --radius:12px;
     --shadow:0 1px 2px rgba(32,48,43,0.06), 0 6px 20px rgba(32,48,43,0.06);
   }
 
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
+  html, body{
     background:var(--paper);
     color:var(--ink);
-    font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-    padding-bottom:60px;
+    font-family: var(--font-dm-sans);
   }
 
   a{color:var(--teal-dark);}
@@ -50,7 +90,6 @@
     text-align:center;
   }
   header.top h1{
-    font-family:'Newsreader',Georgia,'Times New Roman',serif;
     font-weight:500;
     font-style:italic;
     font-size:clamp(28px,4vw,42px);
@@ -77,7 +116,6 @@
     color:var(--ink-soft);
   }
   .student-row input[type="text"]{
-    font-family:'Newsreader',Georgia,serif;
     font-style:italic;
     font-size:20px;
     color:var(--teal-dark);
@@ -122,7 +160,6 @@
     font-variant-numeric:tabular-nums;
   }
   .field.editable input{
-    font-family:'Inter',sans-serif;
     font-size:20px;
     font-weight:600;
     color:var(--ink);
@@ -146,7 +183,6 @@
     position:sticky;
     top:0;
     z-index:20;
-    background:rgba(238,242,239,0.92);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
     padding:12px 24px;
@@ -173,7 +209,6 @@
     background:transparent;
     padding:8px 16px;
     border-radius:999px;
-    font-family:'Inter',sans-serif;
     font-size:13.5px;
     font-weight:600;
     color:var(--ink-soft);
@@ -207,7 +242,6 @@
     border:1px solid var(--line);
     background:var(--card);
     color:var(--ink-soft);
-    font-family:'Inter',sans-serif;
     font-size:12.5px;
     font-weight:500;
     padding:7px 12px;
@@ -228,7 +262,6 @@
     border:1px solid var(--line);
     background:var(--card);
     color:var(--ink-soft);
-    font-family:'Newsreader',serif;
     font-size:17px;
     padding:8px 20px;
     border-radius:999px;
@@ -257,7 +290,6 @@
   }
   .month-card h3{
     margin:0 0 12px;
-    font-family:'Newsreader',serif;
     font-weight:500;
     font-size:16.5px;
     color:var(--teal-dark);
@@ -317,13 +349,6 @@
   .legend .sw.aula{background:var(--aula);}
   .legend .sw.feriado{background:var(--feriado);}
   .legend .sw.today{border:2px solid var(--gold);background:transparent;}
-
-  footer{
-    text-align:center;
-    margin-top:50px;
-    color:#9AA5A0;
-    font-size:11.5px;
-  }
 
   @media print{
     .toolbar, .year-tabs, .ghost-btn{display:none;}
@@ -393,8 +418,12 @@
     <span><span class="sw today"></span>Hoje</span>
   </div>
 
-  <footer>Calendário de Aulas · Phoneticando</footer>
+  
 </div>
+
+<footer>
+    <component-footer></component-footer>
+</footer>
 
 <script>
 (function(){
