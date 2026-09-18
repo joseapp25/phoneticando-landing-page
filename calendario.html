@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendário de Aulas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20302B;
+    --ink-soft:#54615C;
+    --paper:#EEF2EF;
+    --card:#FFFFFF;
+    --teal:#2B6E63;
+    --teal-dark:#1B4A42;
+    --gold:#C99A3B;
+    --aula:#E8873A;
+    --aula-soft:#FCEADA;
+    --feriado:#93A199;
+    --feriado-soft:#E7EBE7;
+    --line:#DAE1DC;
+    --radius:12px;
+    --shadow:0 1px 2px rgba(32,48,43,0.06), 0 6px 20px rgba(32,48,43,0.06);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:60px;
+  }
+
+  a{color:var(--teal-dark);}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- Header ---------- */
+  header.top{
+    padding:44px 24px 28px;
+    text-align:center;
+  }
+  header.top h1{
+    font-family:'Newsreader',Georgia,'Times New Roman',serif;
+    font-weight:500;
+    font-style:italic;
+    font-size:clamp(28px,4vw,42px);
+    margin:0 0 6px;
+    color:var(--teal-dark);
+    letter-spacing:-0.01em;
+  }
+  header.top p.sub{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:14.5px;
+  }
+
+  .student-row{
+    display:flex;
+    justify-content:center;
+    align-items:baseline;
+    gap:8px;
+    margin-top:18px;
+    flex-wrap:wrap;
+  }
+  .student-row label{
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .student-row input[type="text"]{
+    font-family:'Newsreader',Georgia,serif;
+    font-style:italic;
+    font-size:20px;
+    color:var(--teal-dark);
+    border:none;
+    border-bottom:1.5px solid var(--line);
+    background:transparent;
+    padding:2px 4px;
+    min-width:220px;
+    text-align:center;
+    outline:none;
+  }
+  .student-row input[type="text"]:focus{
+    border-bottom-color:var(--teal);
+  }
+
+  /* ---------- Billing card ---------- */
+  .billing{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    border-top:3px solid var(--teal);
+    padding:26px 28px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:22px;
+    margin-bottom:26px;
+  }
+  .field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .field .label{
+    font-size:12px;
+    color:var(--ink-soft);
+    font-weight:500;
+  }
+  .field .value{
+    font-size:22px;
+    font-weight:600;
+    color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+  .field.editable input{
+    font-family:'Inter',sans-serif;
+    font-size:20px;
+    font-weight:600;
+    color:var(--ink);
+    border:none;
+    border-bottom:1.5px solid var(--line);
+    background:transparent;
+    padding:2px 0;
+    outline:none;
+    width:100%;
+  }
+  .field.editable input:focus{border-bottom-color:var(--teal);}
+  .field.total .value{color:var(--teal-dark);}
+  .field.parcela .value{color:var(--gold);}
+
+  @media (max-width:900px){
+    .billing{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* ---------- Toolbar ---------- */
+  .toolbar{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(238,242,239,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    padding:12px 24px;
+    margin:0 -24px 26px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .modes{
+    display:flex;
+    gap:6px;
+    background:var(--card);
+    border-radius:999px;
+    padding:4px;
+    box-shadow:var(--shadow);
+  }
+  .mode-btn{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    border:none;
+    background:transparent;
+    padding:8px 16px;
+    border-radius:999px;
+    font-family:'Inter',sans-serif;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:background .15s ease, color .15s ease;
+  }
+  .mode-btn .dot{
+    width:10px;height:10px;border-radius:50%;
+    flex:none;
+  }
+  .mode-btn[data-mode="aula"] .dot{background:var(--aula);}
+  .mode-btn[data-mode="feriado"] .dot{background:var(--feriado);}
+  .mode-btn[data-mode="apagar"] .dot{background:transparent;border:1.5px solid var(--ink-soft);}
+  .mode-btn.active[data-mode="aula"]{background:var(--aula-soft);color:#9A4E10;}
+  .mode-btn.active[data-mode="feriado"]{background:var(--feriado-soft);color:#40483F;}
+  .mode-btn.active[data-mode="apagar"]{background:var(--line);color:var(--ink);}
+
+  .quick-stats{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    display:flex;
+    gap:16px;
+  }
+  .quick-stats b{color:var(--ink);font-weight:600;}
+
+  .toolbar-actions{
+    display:flex;
+    gap:8px;
+  }
+  .ghost-btn{
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--ink-soft);
+    font-family:'Inter',sans-serif;
+    font-size:12.5px;
+    font-weight:500;
+    padding:7px 12px;
+    border-radius:8px;
+    cursor:pointer;
+  }
+  .ghost-btn:hover{border-color:var(--teal);color:var(--teal-dark);}
+
+  /* ---------- Year tabs ---------- */
+  .year-tabs{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+  }
+  .year-tab{
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--ink-soft);
+    font-family:'Newsreader',serif;
+    font-size:17px;
+    padding:8px 20px;
+    border-radius:999px;
+    cursor:pointer;
+  }
+  .year-tab.active{
+    background:var(--teal);
+    border-color:var(--teal);
+    color:#fff;
+  }
+
+  /* ---------- Calendar grid ---------- */
+  .months{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+  }
+  @media (max-width:1000px){ .months{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .months{grid-template-columns:1fr;} }
+
+  .month-card{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:16px 16px 18px;
+  }
+  .month-card h3{
+    margin:0 0 12px;
+    font-family:'Newsreader',serif;
+    font-weight:500;
+    font-size:16.5px;
+    color:var(--teal-dark);
+    text-align:center;
+  }
+  .dow-row, .day-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:4px;
+  }
+  .dow-row div{
+    text-align:center;
+    font-size:10.5px;
+    color:var(--ink-soft);
+    font-weight:600;
+    padding-bottom:4px;
+  }
+  .day-grid{margin-top:2px;}
+  .day-cell{
+    position:relative;
+    aspect-ratio:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12.5px;
+    font-weight:500;
+    border-radius:7px;
+    border:1px solid transparent;
+    color:var(--ink);
+    cursor:pointer;
+    user-select:none;
+    transition:transform .08s ease, background .1s ease;
+  }
+  .day-cell.empty{cursor:default;}
+  .day-cell:not(.empty):hover{background:var(--line);}
+  .day-cell:active{transform:scale(0.92);}
+  .day-cell.aula{background:var(--aula);color:#fff;}
+  .day-cell.aula:hover{background:#D9782A;}
+  .day-cell.feriado{background:var(--feriado);color:#fff;}
+  .day-cell.feriado:hover{background:#7F8F85;}
+  .day-cell.today{box-shadow:inset 0 0 0 2px var(--gold);}
+  .day-cell.past{text-decoration:line-through; text-decoration-color:currentColor; filter:opacity(0.55);}
+  .day-cell.past:not(.aula):not(.feriado){color:var(--ink-soft);}
+
+  /* ---------- Legend & footer ---------- */
+  .legend{
+    display:flex;
+    justify-content:center;
+    gap:22px;
+    margin:30px 0 6px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    flex-wrap:wrap;
+  }
+  .legend span{display:flex;align-items:center;gap:6px;}
+  .legend .sw{width:11px;height:11px;border-radius:3px;}
+  .legend .sw.aula{background:var(--aula);}
+  .legend .sw.feriado{background:var(--feriado);}
+  .legend .sw.today{border:2px solid var(--gold);background:transparent;}
+
+  footer{
+    text-align:center;
+    margin-top:50px;
+    color:#9AA5A0;
+    font-size:11.5px;
+  }
+
+  @media print{
+    .toolbar, .year-tabs, .ghost-btn{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>Calendário de Aulas</h1>
+  <p class="sub">Marque as aulas e os feriados, e acompanhe o valor a cobrar em tempo real.</p>
+  <div class="student-row">
+    <label for="studentName">Aluno(a):</label>
+    <input type="text" id="studentName" placeholder="Nome do aluno">
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="billing">
+    <div class="field">
+      <div class="label">Número de aulas</div>
+      <div class="value" id="numAulas">0</div>
+    </div>
+    <div class="field editable">
+      <div class="label">Valor por hora</div>
+      <input type="number" id="valorHora" min="0" step="1" value="50">
+    </div>
+    <div class="field editable">
+      <div class="label">Número de meses</div>
+      <input type="number" id="numMeses" min="1" step="1" value="1">
+    </div>
+    <div class="field total">
+      <div class="label">Valor total</div>
+      <div class="value" id="valorTotal">R$ 0,00</div>
+    </div>
+    <div class="field parcela">
+      <div class="label">Valor da parcela</div>
+      <div class="value" id="valorParcela">R$ 0,00</div>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <div class="modes">
+      <button class="mode-btn active" data-mode="aula"><span class="dot"></span>Marcar aula</button>
+      <button class="mode-btn" data-mode="feriado"><span class="dot"></span>Marcar feriado</button>
+      <button class="mode-btn" data-mode="apagar"><span class="dot"></span>Apagar</button>
+    </div>
+    <div class="quick-stats">
+      <span>Período: <b id="periodo">—</b></span>
+    </div>
+    <div class="toolbar-actions">
+      <button class="ghost-btn" id="exportBtn">Baixar backup</button>
+      <button class="ghost-btn" id="importBtn">Carregar backup</button>
+      <button class="ghost-btn" id="clearLessonsBtn">Limpar apenas aulas</button>
+      <button class="ghost-btn" id="clearBtn">Limpar tudo</button>
+      <input type="file" id="importFile" accept="application/json" style="display:none">
+    </div>
+  </div>
+
+  <div class="year-tabs" id="yearTabs"></div>
+  <div class="months" id="monthsContainer"></div>
+
+  <div class="legend">
+    <span><span class="sw aula"></span>Aula</span>
+    <span><span class="sw feriado"></span>Feriado</span>
+    <span><span class="sw today"></span>Hoje</span>
+  </div>
+
+  <footer>Calendário de Aulas · Phoneticando</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var STORAGE_KEY = "phoneticando-calendario-aulas-v1";
+  var YEARS = [2026, 2027, 2028, 2029, 2030];
+  var MONTH_NAMES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+  var DOW = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+
+  var today = new Date();
+  var todayStr = fmtDate(today);
+  var todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+  var state = {
+    student: "",
+    valorHora: 50,
+    numMeses: 1,
+    marks: {} // "YYYY-MM-DD" -> "aula" | "feriado"
+  };
+
+  var currentMode = "aula";
+  var currentYear = today.getFullYear() >= YEARS[0] && today.getFullYear() <= YEARS[YEARS.length-1] ? today.getFullYear() : YEARS[0];
+
+  load();
+
+  function fmtDate(d){
+    var y = d.getFullYear();
+    var m = String(d.getMonth()+1).padStart(2,"0");
+    var day = String(d.getDate()).padStart(2,"0");
+    return y + "-" + m + "-" + day;
+  }
+
+  function fmtBRL(n){
+    if (isNaN(n)) n = 0;
+    return n.toLocaleString("pt-BR", {style:"currency", currency:"BRL"});
+  }
+
+  function fmtDisplayDate(isoStr){
+    var parts = isoStr.split("-");
+    return parts[2] + "/" + parts[1] + "/" + parts[0];
+  }
+
+  function load(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw){
+        var parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object"){
+          state.student = parsed.student || "";
+          state.valorHora = typeof parsed.valorHora === "number" ? parsed.valorHora : 50;
+          state.numMeses = typeof parsed.numMeses === "number" ? parsed.numMeses : 1;
+          state.marks = parsed.marks || {};
+        }
+      }
+    }catch(e){
+      console.warn("Não foi possível carregar dados salvos:", e);
+    }
+  }
+
+  function save(){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }catch(e){
+      console.warn("Não foi possível salvar os dados:", e);
+    }
+  }
+
+  function buildYearTabs(){
+    var container = document.getElementById("yearTabs");
+    container.innerHTML = "";
+    YEARS.forEach(function(y){
+      var btn = document.createElement("button");
+      btn.className = "year-tab" + (y === currentYear ? " active" : "");
+      btn.textContent = y;
+      btn.addEventListener("click", function(){
+        currentYear = y;
+        buildYearTabs();
+        buildMonths();
+      });
+      container.appendChild(btn);
+    });
+  }
+
+  function buildMonths(){
+    var container = document.getElementById("monthsContainer");
+    container.innerHTML = "";
+
+    for (var m = 0; m < 12; m++){
+      container.appendChild(buildMonthCard(currentYear, m));
+    }
+  }
+
+  function buildMonthCard(year, monthIndex){
+    var card = document.createElement("div");
+    card.className = "month-card";
+
+    var h3 = document.createElement("h3");
+    h3.textContent = MONTH_NAMES[monthIndex] + " " + year;
+    card.appendChild(h3);
+
+    var dowRow = document.createElement("div");
+    dowRow.className = "dow-row";
+    DOW.forEach(function(d){
+      var el = document.createElement("div");
+      el.textContent = d;
+      dowRow.appendChild(el);
+    });
+    card.appendChild(dowRow);
+
+    var dayGrid = document.createElement("div");
+    dayGrid.className = "day-grid";
+
+    var firstDay = new Date(year, monthIndex, 1);
+    var startOffset = firstDay.getDay(); // 0=Sun
+    var daysInMonth = new Date(year, monthIndex+1, 0).getDate();
+
+    for (var i = 0; i < startOffset; i++){
+      var empty = document.createElement("div");
+      empty.className = "day-cell empty";
+      dayGrid.appendChild(empty);
+    }
+
+    for (var day = 1; day <= daysInMonth; day++){
+      var dateObj = new Date(year, monthIndex, day);
+      var iso = fmtDate(dateObj);
+      var cell = document.createElement("div");
+      cell.className = "day-cell";
+      cell.textContent = day;
+      cell.dataset.date = iso;
+      if (state.marks[iso]) cell.classList.add(state.marks[iso]);
+      if (iso === todayStr) cell.classList.add("today");
+      if (dateObj < todayMidnight) cell.classList.add("past");
+      cell.addEventListener("click", onDayClick);
+      dayGrid.appendChild(cell);
+    }
+
+    card.appendChild(dayGrid);
+    return card;
+  }
+
+  function onDayClick(e){
+    var iso = e.currentTarget.dataset.date;
+    if (currentMode === "apagar"){
+      delete state.marks[iso];
+      e.currentTarget.classList.remove("aula","feriado");
+    } else {
+      if (state.marks[iso] === currentMode){
+        delete state.marks[iso];
+        e.currentTarget.classList.remove(currentMode);
+      } else {
+        state.marks[iso] = currentMode;
+        e.currentTarget.classList.remove("aula","feriado");
+        e.currentTarget.classList.add(currentMode);
+      }
+    }
+    save();
+    updateSummary();
+  }
+
+  function updateSummary(){
+    var aulaKeys = Object.keys(state.marks).filter(function(k){ return state.marks[k] === "aula"; });
+    var numAulas = aulaKeys.length;
+    var valorTotal = numAulas * state.valorHora;
+    var meses = state.numMeses > 0 ? state.numMeses : 1;
+    var valorParcela = valorTotal / meses;
+
+    document.getElementById("numAulas").textContent = numAulas;
+    document.getElementById("valorTotal").textContent = fmtBRL(valorTotal);
+    document.getElementById("valorParcela").textContent = fmtBRL(valorParcela);
+
+    if (aulaKeys.length){
+      aulaKeys.sort();
+      var first = aulaKeys[0], last = aulaKeys[aulaKeys.length-1];
+      document.getElementById("periodo").textContent = fmtDisplayDate(first) + " – " + fmtDisplayDate(last);
+    } else {
+      document.getElementById("periodo").textContent = "—";
+    }
+  }
+
+  function initToolbar(){
+    var buttons = document.querySelectorAll(".mode-btn");
+    buttons.forEach(function(btn){
+      btn.addEventListener("click", function(){
+        buttons.forEach(function(b){ b.classList.remove("active"); });
+        btn.classList.add("active");
+        currentMode = btn.dataset.mode;
+      });
+    });
+
+    document.getElementById("clearLessonsBtn").addEventListener("click", function(){
+      if (confirm("Isso vai apagar apenas as aulas marcadas, mantendo os feriados. Continuar?")){
+        Object.keys(state.marks).forEach(function(k){
+          if (state.marks[k] === "aula") delete state.marks[k];
+        });
+        save();
+        buildMonths();
+        updateSummary();
+      }
+    });
+
+    document.getElementById("clearBtn").addEventListener("click", function(){
+      if (confirm("Isso vai apagar todas as aulas e feriados marcados. Continuar?")){
+        state.marks = {};
+        save();
+        buildMonths();
+        updateSummary();
+      }
+    });
+
+    document.getElementById("exportBtn").addEventListener("click", function(){
+      var blob = new Blob([JSON.stringify(state, null, 2)], {type:"application/json"});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      var nameSlug = (state.student || "aluno").trim().toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
+      a.href = url;
+      a.download = "calendario-" + (nameSlug || "aluno") + ".json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById("importBtn").addEventListener("click", function(){
+      document.getElementById("importFile").click();
+    });
+
+    document.getElementById("importFile").addEventListener("change", function(e){
+      var file = e.target.files[0];
+      if (!file) return;
+      var reader = new FileReader();
+      reader.onload = function(evt){
+        try{
+          var parsed = JSON.parse(evt.target.result);
+          state.student = parsed.student || "";
+          state.valorHora = typeof parsed.valorHora === "number" ? parsed.valorHora : 50;
+          state.numMeses = typeof parsed.numMeses === "number" ? parsed.numMeses : 1;
+          state.marks = parsed.marks || {};
+          save();
+          renderAll();
+        }catch(err){
+          alert("Não foi possível ler este arquivo de backup.");
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = "";
+    });
+  }
+
+  function initFields(){
+    var studentInput = document.getElementById("studentName");
+    studentInput.value = state.student;
+    studentInput.addEventListener("input", function(){
+      state.student = studentInput.value;
+      save();
+    });
+
+    var valorHoraInput = document.getElementById("valorHora");
+    valorHoraInput.value = state.valorHora;
+    valorHoraInput.addEventListener("input", function(){
+      var v = parseFloat(valorHoraInput.value);
+      state.valorHora = isNaN(v) ? 0 : v;
+      save();
+      updateSummary();
+    });
+
+    var numMesesInput = document.getElementById("numMeses");
+    numMesesInput.value = state.numMeses;
+    numMesesInput.addEventListener("input", function(){
+      var v = parseInt(numMesesInput.value, 10);
+      state.numMeses = isNaN(v) || v < 1 ? 1 : v;
+      save();
+      updateSummary();
+    });
+  }
+
+  function renderAll(){
+    document.getElementById("studentName").value = state.student;
+    document.getElementById("valorHora").value = state.valorHora;
+    document.getElementById("numMeses").value = state.numMeses;
+    buildYearTabs();
+    buildMonths();
+    updateSummary();
+  }
+
+  initToolbar();
+  initFields();
+  renderAll();
+
+})();
+</script>
+
+</body>
+</html>
