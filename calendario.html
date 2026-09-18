@@ -54,18 +54,18 @@
     </script>
 <style>
   :root{
-    --ink:#1C1C22;
-    --ink-soft:#54615C;
-    --paper:#E2E4E9;
-    --card:#FAFAFD;
-    --teal:#1C1C22;
-    --teal-dark:#1C1C22;
-    --gold:#DC7418;
-    --aula:#DC7418;
-    --aula-soft:#FCEADA;
-    --feriado:#6E7187;
-    --feriado-soft:#9A9CAC;
-    --line:#DAE1DC;
+    --ink:var(--graycool1000);
+    --ink-soft:var(--graycool400);
+    --paper:var(--graycool100);
+    --card:var(--graycool0);
+    --teal:var(--graycool1000);
+    --teal-dark:var(--graycool1000);
+    --gold:var(--sunset600);
+    --aula:var(--sunset600);
+    --aula-soft:var(--graycool200);
+    --feriado:var(--graycool600);
+    --feriado-soft:var(--graycool400);
+    --line:var(--graycool0);
     --radius:12px;
     --shadow:0 1px 2px rgba(32,48,43,0.06), 0 6px 20px rgba(32,48,43,0.06);
   }
@@ -79,28 +79,23 @@
   a{color:var(--teal-dark);}
 
   .wrap{
-    max-width:1180px;
+    max-width:1280px;
     margin:0 auto;
     padding:0 24px;
   }
 
   /* ---------- Header ---------- */
   header.top{
-    padding:44px 24px 28px;
-    text-align:center;
+    padding:24px;
+    background-color: var(--graycool0);
+    margin-bottom: 32px;
   }
   header.top h1{
-    font-weight:500;
-    font-style:italic;
+    font-weight:600;
+    font-family: var(--font-inter-tight);
     font-size:clamp(28px,4vw,42px);
-    margin:0 0 6px;
     color:var(--teal-dark);
-    letter-spacing:-0.01em;
-  }
-  header.top p.sub{
-    margin:0;
-    color:var(--ink-soft);
-    font-size:14.5px;
+    text-align:center;
   }
 
   .student-row{
@@ -108,22 +103,21 @@
     justify-content:center;
     align-items:baseline;
     gap:8px;
-    margin-top:18px;
+    margin-top:16px;
     flex-wrap:wrap;
   }
   .student-row label{
-    font-size:13px;
+    font-size:12px;
     color:var(--ink-soft);
   }
   .student-row input[type="text"]{
-    font-style:italic;
-    font-size:20px;
+    font-size:12px;
     color:var(--teal-dark);
     border:none;
     border-bottom:1.5px solid var(--line);
     background:transparent;
     padding:2px 4px;
-    min-width:220px;
+    min-width:320px;
     text-align:center;
     outline:none;
   }
@@ -136,13 +130,12 @@
     background:var(--card);
     border-radius:var(--radius);
     box-shadow:var(--shadow);
-    border-top:3px solid var(--teal);
-    padding:26px 28px;
+    padding:24px 24px;
     display:flex;
     flex-direction: column;
     grid-template-columns:repeat(5,1fr);
-    gap:22px;
-    margin-bottom:26px;
+    gap:24px;
+    margin-bottom:24px;
     max-width: 320px;
     margin-left: auto;
     margin-right: auto;
@@ -150,7 +143,7 @@
   .field{
     display:flex;
     flex-direction:column;
-    gap:6px;
+    gap:4px;
   }
   .field .label{
     font-size:12px;
@@ -158,13 +151,13 @@
     font-weight:500;
   }
   .field .value{
-    font-size:22px;
+    font-size:24px;
     font-weight:600;
     color:var(--ink);
     font-variant-numeric:tabular-nums;
   }
   .field.editable input{
-    font-size:20px;
+    font-size:24px;
     font-weight:600;
     color:var(--ink);
     border:none;
@@ -190,11 +183,11 @@
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
     padding:12px 24px;
-    margin:0 -24px 26px;
+    margin:0 -24px 24px;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:18px;
+    gap:16px;
     flex-wrap:wrap;
   }
   .modes{
@@ -208,19 +201,19 @@
   .mode-btn{
     display:flex;
     align-items:center;
-    gap:7px;
+    gap:6px;
     border:none;
     background:transparent;
     padding:8px 16px;
     border-radius:999px;
-    font-size:13.5px;
+    font-size:12px;
     font-weight:600;
     color:var(--ink-soft);
     cursor:pointer;
     transition:background .15s ease, color .15s ease;
   }
   .mode-btn .dot{
-    width:10px;height:10px;border-radius:50%;
+    width:12px;height:12px;border-radius:50%;
     flex:none;
   }
   .mode-btn[data-mode="aula"] .dot{background:var(--aula);}
@@ -246,9 +239,9 @@
     border:1px solid var(--line);
     background:var(--card);
     color:var(--ink-soft);
-    font-size:12.5px;
+    font-size:12px;
     font-weight:500;
-    padding:7px 12px;
+    padding:6px 12px;
     border-radius:8px;
     cursor:pointer;
   }
@@ -259,15 +252,15 @@
     display:flex;
     justify-content:center;
     gap:8px;
-    margin-bottom:30px;
+    margin-bottom:32px;
     flex-wrap:wrap;
   }
   .year-tab{
     border:1px solid var(--line);
     background:var(--card);
     color:var(--ink-soft);
-    font-size:17px;
-    padding:8px 20px;
+    font-size:16px;
+    padding:8px 16px;
     border-radius:999px;
     cursor:pointer;
   }
@@ -281,7 +274,7 @@
   .months{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:20px;
+    gap:16px;
   }
   @media (max-width:1000px){ .months{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:560px){ .months{grid-template-columns:1fr;} }
@@ -295,7 +288,7 @@
   .month-card h3{
     margin:0 0 12px;
     font-weight:500;
-    font-size:16.5px;
+    font-size:16px;
     color:var(--teal-dark);
     text-align:center;
   }
@@ -306,7 +299,7 @@
   }
   .dow-row div{
     text-align:center;
-    font-size:10.5px;
+    font-size:12px;
     color:var(--ink-soft);
     font-weight:600;
     padding-bottom:4px;
@@ -318,9 +311,9 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:12.5px;
+    font-size:12px;
     font-weight:500;
-    border-radius:7px;
+    border-radius:6px;
     border:1px solid transparent;
     color:var(--ink);
     cursor:pointer;
@@ -328,13 +321,13 @@
     transition:transform .08s ease, background .1s ease;
   }
   .day-cell.empty{cursor:default;}
-  .day-cell:not(.empty):hover{background:var(--line);}
+  .day-cell:not(.empty):hover{background:var(--graycool100); color:var(--graycool1000);}
   .day-cell:active{transform:scale(0.92);}
   .day-cell.aula{background:var(--aula);color:#fff;}
-  .day-cell.aula:hover{background:#D9782A;}
+  .day-cell.aula:hover{background:var(--sunset600);}
   .day-cell.feriado{background:var(--feriado);color:#fff;}
-  .day-cell.feriado:hover{background:#7F8F85;}
-  .day-cell.today{box-shadow:inset 0 0 0 2px var(--gold);}
+  .day-cell.feriado:hover{background:var(--graycool300);}
+  .day-cell.today{background:var(--cerulean600);color:var(--graycool0);}
   .day-cell.past{text-decoration:line-through; text-decoration-color:currentColor; filter:opacity(0.55);}
   .day-cell.past:not(.aula):not(.feriado){color:var(--ink-soft);}
 
@@ -342,17 +335,17 @@
   .legend{
     display:flex;
     justify-content:center;
-    gap:22px;
-    margin:30px 0 6px;
-    font-size:12.5px;
-    color:var(--ink-soft);
+    gap:24px;
+    margin:16px 0 64px;
+    font-size:16px;
+    color:var(--graycool1000);
     flex-wrap:wrap;
   }
-  .legend span{display:flex;align-items:center;gap:6px;}
-  .legend .sw{width:11px;height:11px;border-radius:3px;}
+  .legend span{display:flex;align-items:center;gap:8px;}
+  .legend .sw{width:16px;height:16px;border-radius:4px;}
   .legend .sw.aula{background:var(--aula);}
   .legend .sw.feriado{background:var(--feriado);}
-  .legend .sw.today{border:2px solid var(--gold);background:transparent;}
+  .legend .sw.today{background:var(--cerulean600);color:var(--graycool0);}
 
   @media print{
     .toolbar, .year-tabs, .ghost-btn{display:none;}
@@ -363,7 +356,6 @@
 
 <header class="top">
   <h1>Calendário de Aulas</h1>
-  <p class="sub">Marque as aulas e os feriados, e acompanhe o valor a cobrar em tempo real.</p>
   <div class="student-row">
     <label for="studentName">Aluno(a):</label>
     <input type="text" id="studentName" placeholder="Nome do aluno">
@@ -378,7 +370,7 @@
       <div class="value" id="numAulas">0</div>
     </div>
     <div class="field editable">
-      <div class="label">Valor por hora</div>
+      <div class="label">Valor por aula</div>
       <input type="number" id="valorHora" min="0" step="1" value="50">
     </div>
     <div class="field editable">
@@ -435,7 +427,7 @@
   "use strict";
 
   var STORAGE_KEY = "phoneticando-calendario-aulas-v1";
-  var YEARS = [2026, 2027, 2028, 2029, 2030];
+  var YEARS = [2026, 2027, 2028, 2029, 2030, 2031, 2032];
   var MONTH_NAMES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
   var DOW = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
 
