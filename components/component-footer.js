@@ -1,3 +1,5 @@
+const ano = new Date().getFullYear()
+
 class ComponentFooter extends HTMLElement{
     constructor() {
         super();
@@ -219,7 +221,7 @@ class ComponentFooter extends HTMLElement{
                             <div class="footer-all-rights-reserved">
                                 <span>Copyright</span>
                                 <span>&#169;</span>
-                                <span>2026</span>
+                                <span>${ano}</span>
                                 <span>|</span>
                                 <p>Todos os Direitos Reservados</p>
                             </div>
