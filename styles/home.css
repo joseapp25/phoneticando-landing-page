@@ -118,6 +118,8 @@
     color: var(--graycool1000);
     fill: var(--cerulean600);
     transition-duration: 0.2s;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 16px var(--graycool800);
 }
 
 .main-anchor:active {
