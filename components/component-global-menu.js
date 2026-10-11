@@ -6,14 +6,14 @@ const ICON_EXTERNAL = `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill-ru
 
 const NAV_LINKS = [
     { href: 'index.html', label: 'Início' },
-    { href: 'trainer.html', label: 'Trainer' },
-    { href: 'aulas.html', label: 'Aulas' },
+    { href: 'trainer.html', label: 'Phoneticando Trainer' },
+    { href: 'aulas.html', label: 'Aulas com Zé' },
     { href: 'sobre.html', label: 'Sobre' }
 ];
 
 const SITE_LINKS = [
-    { href: 'https://trainer.phoneticando.com.br', label: 'Phoneticando Trainer' },
-    { href: 'https://hub.phoneticando.com.br', label: 'Phoneticando Hub' }
+    { href: 'https://trainer.phoneticando.com.br', label: 'trainer.phoneticando.com.br' },
+    { href: 'https://hub.phoneticando.com.br', label: 'hub.phoneticando.com.br' }
 ];
 
 const CONTACTS = [
