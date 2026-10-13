@@ -12,7 +12,7 @@ const NAV_LINKS = [
 ];
 
 const SITE_LINKS = [
-    { href: 'https://phoneticando.com.br', label: 'phoneticando.com.br' },
+    { href: 'index.html', label: 'phoneticando.com.br' },
     { href: 'https://trainer.phoneticando.com.br', label: 'trainer.phoneticando.com.br' },
     { href: 'https://hub.phoneticando.com.br', label: 'hub.phoneticando.com.br' }
 ];
@@ -546,7 +546,7 @@ class ComponentGlobalMenu extends HTMLElement {
             <aside class="sidebar" id="menu-container" aria-label="Menu lateral" aria-hidden="true" inert>
 
                 <header class="sidebar-header">
-                    <h2 class="sidebar-title">Phoneticando</h2>
+                    <h2 class="sidebar-title">phoneticando.com.br</h2>
                     <button type="button" class="sidebar-close" aria-label="Fechar menu">
                         <svg class="sidebar-close-icon" viewBox="0 0 1024 1024" aria-hidden="true">
                             <path d="M256 213.333L810.667 768L768 810.667L213.333 256L256 213.333Z"></path>
