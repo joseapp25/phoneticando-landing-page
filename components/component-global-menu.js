@@ -12,7 +12,6 @@ const NAV_LINKS = [
 ];
 
 const SITE_LINKS = [
-    { href: 'index.html', label: 'phoneticando.com.br' },
     { href: 'https://trainer.phoneticando.com.br', label: 'trainer.phoneticando.com.br' },
     { href: 'https://hub.phoneticando.com.br', label: 'hub.phoneticando.com.br' }
 ];
