@@ -373,11 +373,15 @@ class ComponentGlobalMenu extends HTMLElement {
                 .sidebar-close:hover {
                     color: var(--cerulean600);
                     fill: var(--cerulean600);
+                    transition-duration: 0.2s;
+                    cursor: pointer;
                 }
 
                 .sidebar-close:active {
                     color: var(--graycool0);
                     fill: var(--graycool0);
+                    transition-duration: 0.2s;
+                    cursor: pointer;
                 }
 
                 .sidebar-close-icon {
