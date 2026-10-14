@@ -217,7 +217,7 @@ class ComponentGlobalMenu extends HTMLElement {
                 .global-menu-logo-anchor {
                     display: flex;
                     gap: 4px;
-                    fill: var(--graycool0);
+                    fill: var(--sunset600);
                     justify-content: center;
                     align-items: center;
                     text-decoration: none;
@@ -227,11 +227,11 @@ class ComponentGlobalMenu extends HTMLElement {
 
                 .global-menu-logo-anchor:hover {
                     transition-duration: 0.2s;
-                    fill: var(--sunset600);
+                    fill: var(--cerulean600);
                 }
 
                 .global-menu-logo-anchor:active {
-                    fill: var(--cerulean600);
+                    fill: var(--graycool0);
                     transition-duration: 0.2s;
                 }
 
@@ -278,17 +278,17 @@ class ComponentGlobalMenu extends HTMLElement {
                     align-items: center;
                     justify-content: center;
                     transition-duration: 0.2s;
-                    fill: var(--graycool0);
+                    fill: var(--sunset600);
                 }
 
                 .hamburger-menu-button:hover {
                     transition-duration: 0.2s;
                     cursor: pointer;
-                    fill: var(--sunset600);
+                    fill: var(--cerulean600);
                 }
 
                 .hamburger-menu-button:active {
-                    fill: var(--cerulean600);
+                    fill: var(--graycool0);
                     transition-duration: 0.2s;
                 }
 
@@ -373,6 +373,11 @@ class ComponentGlobalMenu extends HTMLElement {
                 .sidebar-close:hover {
                     color: var(--cerulean600);
                     fill: var(--cerulean600);
+                }
+
+                .sidebar-close:active {
+                    color: var(--graycool0);
+                    fill: var(--graycool0);
                 }
 
                 .sidebar-close-icon {
