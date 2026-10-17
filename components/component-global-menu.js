@@ -241,7 +241,15 @@ class ComponentGlobalMenu extends HTMLElement {
 
                 .phoneticando-text {
                     font-size: 16px;
-                    font-weight: 300;
+                    font-weight: 600;
+                    font-family: var(--font-inter-tight);
+                }
+
+                .phoneticando-text-bar {
+                    font-size: 0.8rem;
+                    margin-left: 2px;
+                    margin-right: 2px;
+                    font-weight: 400;
                 }
 
                 .phoneticando-text-anchor {
@@ -531,7 +539,7 @@ class ComponentGlobalMenu extends HTMLElement {
 
                     <a href="#" class="phoneticando-text-anchor">
                         <div>
-                            <span class="phoneticando-text">Phoneticando | <slot></slot></span>
+                            <span class="phoneticando-text">Phoneticando<span class="phoneticando-text-bar"> |</span><slot></slot></span>
                         </div>
                     </a>
 
