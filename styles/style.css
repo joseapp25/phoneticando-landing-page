@@ -52,10 +52,10 @@
     --sunset900: #5C300A;
     --sunset1000: #371D06;
 
-    --font-inter-tight: "Inter Tight", sans-serif; /* para títulos h1 e também para global menu */
-    --font-dm-sans: "DM Sans", sans-serif; /* fonte principal, pode estar no style do body/html geral */
-    --font-grotesk: "Space Grotesk", sans-serif; /* para palavras que serão estudadas, exemplo: tree - three [ambas estarão em space grotesk] */
-    --font-noto: "Noto Serif", serif; /* para todas as transcrições fonéticas */
+    --font-inter-tight: "Inter Tight", sans-serif; /* Para títulos h1 e também para global menu */
+    --font-dm-sans: "DM Sans", sans-serif; /* Fonte principal, pode estar no style do body/html geral */
+    --font-grotesk: "Space Grotesk", sans-serif; /* Para palavras que serão estudadas, exemplo: tree - three [ambas estarão em space grotesk] */
+    --font-noto: "Noto Serif", serif; /* Para todas as transcrições fonéticas */
     
 }
 
