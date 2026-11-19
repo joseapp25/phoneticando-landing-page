@@ -1,649 +1,729 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flashcard Demonstração</title>
   <link rel="stylesheet" href="../styles/style.css">
+  <!--
+    Demo da nova revisão de flashcards (Proposta E, phoneticando/api#239/#240).
+    Cópia em HTML puro do componente real do trainer-web
+    (src/components/review/FlashcardReviewV2.vue + AudioRingButton.vue):
+    mudou lá, atualizar aqui. Fluxo de um card: opções travadas até o
+    primeiro áudio terminar (pausar também conta) → escolher uma opção vira o
+    card na hora → depois do giro: borda verde/vermelha só na escolhida,
+    veredito, som e "Próxima".
+  -->
   <style>
-    /* ── Design Tokens ───────────────────────────────────────────── */
-    :root {
-
-        --bg: var(--graycool0);
-        --card-radius: 16px;
-    }
-
-    /* ── Reset & Base ────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
+    html, body {
       background-color: var(--graycool0);
     }
 
     body {
-      background-color: var(--graycool0);
+      --ink: var(--graycool1000);
+      --ok: #43a047;
+      --bad: #e53935;
+      color: var(--ink);
       font-family: var(--font-dm-sans);
     }
 
-    /* ── Progress Bar ────────────────────────────────────────────── */
-    .progress-track {
-      width: 304px;
-      background: var(--graycool300);
-      border-radius: 100px;
+    .review {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0 24px;
+    }
+
+    /* ── Progresso ───────────────────────────────────────────────── */
+    .progress {
+      width: 314px;
+      max-width: calc(100% - 32px);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .segments {
+      display: flex;
+      gap: 2px;
+      justify-content: center;
+    }
+
+    .segments span {
+      flex: 0 1 14px;
+      min-width: 2px;
       height: 6px;
-      overflow: hidden;
+      border-radius: 3px;
+      background: var(--cerulean200);
+      transition: background-color 0.3s;
     }
 
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--cerulean600), var(--cerulean300));
-      border-radius: 100px;
-      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    .segments span.on {
+      background: var(--cerulean600);
     }
 
-    .progress-label {
-      font-size: 0.8rem;
-      color: var(--graycool600);
-      text-align: right;
-      width: 304px;
-      margin-top: 4px;
+    .position {
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 24px;
     }
 
-    /* ── User-supplied styles (unchanged) ───────────────────────── */
-    .flashcard-container {
+    /* ── Status: ouvir / veredito ────────────────────────────────── */
+    .status {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 4px;
+      min-height: 68px;
     }
 
-    .next-review-info {
-      margin-top: 1rem;
-      margin-left: 40px;
-      margin-right: 40px;
-      padding: 1rem;
-      padding-top: 16px;
-      background-color: var(--cerulean100);
-      border-radius: 8px;
-      text-align: center;
+    .label {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 24px;
     }
 
-    .next-review-info p {
-      margin-bottom: 1rem;
+    .verdict {
+      width: 40px;
+      height: 40px;
     }
 
-    .action-button {
-      background-color: var(--cerulean500);
-      color: #ffffff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold;
-      transition: background-color 0.2s;
-    }
-
-    .action-button:hover {
-      background-color: var(--cerulean800);
-      box-shadow: 0px 0px 8px var(--cerulean800);
-      transition: all 0.2s;
-    }
-
-    .flashcard-player-main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .flashcard-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 304px;
-      height: 264px;
-      padding: 16px;
-      border-radius: 8px;
-      box-shadow: 0px 0px 8px var(--graycool300);
-      background-color: #ffffff;
-      border: 1px solid var(--graycool300);
-      text-align: center;
-    }
-
-    .flashcard-text-question {
-      font-size: 1.5rem;
-      line-height: 2.5rem;
-      color: var(--graycool900);
-    }
-
-    .flashcard-text-answer {
-      font-family: var(--font-grotesk);
-      font-size: 1.8rem;
-      line-height: 2rem;
-      font-weight: 900;
-    }
-
-    .play-audio-button-top {
-      font-family: var(--font-dm-sans);
-      background-color: #ffffff;
-      border: 2px solid var(--cerulean600);
-      color: var(--cerulean500);
-      fill: var(--cerulean500);
-      cursor: pointer;
-      padding: 8px 16px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: bold;
-      font-size: 0.9rem;
-      transition: all 0.2s;
-    }
-
-    .play-audio-button-top:hover {
-      background-color: var(--cerulean50);
-      transition: all 0.2s;
-    }
-
-    .flashcard-buttons-container p {
-      color: var(--graycool600);
-      font-weight: 500;
-    }
-
-    .flashcard-buttons-container div {
-      gap: 1rem;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .flashcard-buttons-container {
-      text-align: center;
-    }
-
-    .actions-container {
-      display: flex;
-      margin-top: 8px;
-    }
-
-    .flashcard-button-answer,
-    .flashcard-button-reset {
-      background-color: var(--cerulean600);
-      color: #ffffff;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: var(--font-dm-sans);
-      font-size: 1rem;
-      font-weight: bold;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .flashcard-finished-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .flashcard-button-answer:hover,
-    .flashcard-button-reset:hover {
-      background-color: var(--cerulean800);
-      box-shadow: 0px 0px 8px var(--cerulean800);
-      transition: all 0.2s;
-    }
-
-    .flashcard-button-correct,
-    .flashcard-button-wrong {
-      background-color: #ffffff;
-      border: 2px solid var(--graycool300);
+    /* ── Botão de áudio com anel de progresso ────────────────────── */
+    .audio-ring-button {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      flex: none;
       border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      cursor: pointer;
+      background: var(--cerulean100);
+      border: 2px solid var(--cerulean200);
+      color: var(--cerulean600);
       display: flex;
-      justify-content: center;
       align-items: center;
-      transition: all 0.2s;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.2s, filter 0.2s, transform 0.12s;
     }
 
-    .flashcard-button-correct {
-      background-color: #e8f5e9;
-      border-color: #4caf50;
+    .audio-ring-button:hover:not([disabled]) { filter: brightness(0.96); }
+    .audio-ring-button:active:not([disabled]) { transform: scale(0.95); }
+
+    .audio-ring-button[disabled] {
+      opacity: 0.32;
+      cursor: default;
     }
 
-    .flashcard-button-correct:hover {
-      background-color: #C8E6C9;
-      transition: all 0.2s;
+    .audio-ring-button:focus-visible,
+    button.option:focus-visible,
+    .next:focus-visible,
+    .restart:focus-visible {
+      outline: 3px solid var(--cerulean300);
+      outline-offset: 2px;
     }
 
-    .flashcard-button-wrong {
-      background-color: #ffebee;
-      border-color: #f44336;
+    .ring {
+      position: absolute;
+      inset: -2px;
+      width: 40px;
+      height: 40px;
+      transform: rotate(-90deg);
+      pointer-events: none;
     }
 
-    .flashcard-button-wrong:hover {
-      background-color: #FFCDD2;
-      transition: all 0.2s;
+    .ring circle {
+      fill: none;
+      stroke: var(--cerulean600);
+      stroke-width: 2;
+      stroke-dasharray: 119.38;
+      stroke-dashoffset: 119.38;
     }
 
-    /* ── Extra polish ────────────────────────────────────────────── */
-    /* Card flip animation */
-    .flashcard-content {
-      perspective: 800px;
+    .icon { position: relative; display: flex; }
+    .audio-ring-button .pause { display: none; }
+    .audio-ring-button.playing .pause { display: block; }
+    .audio-ring-button.playing .speaker { display: none; }
+
+    /* ── Card ────────────────────────────────────────────────────── */
+    .stage {
+      width: 360px;
+      max-width: calc(100% - 32px);
+      height: 320px;
+      perspective: 1200px;
     }
 
     .card-inner {
-      width: 100%;
       height: 100%;
-      position: relative;
+      display: grid;
       transform-style: preserve-3d;
-      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .card-inner.flipped {
-      transform: rotateY(180deg);
-    }
+    .card-inner.flipped { transform: rotateY(180deg); }
 
     .card-face {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
+      grid-area: 1 / 1;
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 16px;
-      padding: 16px;
+      border: 1px solid var(--graycool100);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow:
+        0 1px 2px rgba(28, 28, 34, 0.06),
+        0 12px 32px rgba(20, 61, 123, 0.12);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      /* backface-visibility falha em alguns navegadores: esconde também a
+         face de trás na metade do giro */
+      transition: visibility 0s 0.25s;
     }
 
-    .card-face.back {
-      transform: rotateY(180deg);
+    .card-inner.flipped .card-face.front,
+    .card-inner:not(.flipped) .card-face.back {
+      visibility: hidden;
     }
 
-    .card-face .hint {
-      font-size: 0.72rem;
-      color: var(--graycool600);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
+    .card-face.back { transform: rotateY(180deg); }
 
-    /* Stage badge */
-    .stage-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      color: var(--graycool600);
-      font-weight: 600;
-    }
-
-    .stage-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--cerulean300);
-      display: inline-block;
-    }
-
-    /* Next-review badge colours by interval */
-    .interval-soon   { color: #e53935; }
-    .interval-medium { color: #fb8c00; }
-    .interval-long   { color: #43a047; }
-
-    /* Finished state */
-    .finished-icon {
-      font-size: 3rem;
-      line-height: 1;
-    }
-
-    .finished-title {
-      font-size: 1.6rem;
-      color: var(--graycool800);
-    }
-
-    .finished-subtitle {
-      font-size: 0.95rem;
-      color: var(--graycool600);
+    .side {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      right: 0;
       text-align: center;
-      max-width: 280px;
-      line-height: 1.5;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 24px;
     }
 
-    .score-chips {
+    .rows {
       display: flex;
-      gap: 12px;
-      margin-top: 4px;
+      flex-direction: column;
+      gap: 16px;
+      width: 320px;
+      max-width: calc(100% - 32px);
     }
 
-    .score-chip {
+    .row {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 100px;
+      gap: 16px;
     }
 
-    .chip-correct {
-       background: #e8f5e9;
-       color: #2e7d32;
-       box-shadow: 0px 0px 4px var(--graycool400);
-      }
+    .option {
+      flex: 1;
+      min-width: 0;
+      height: 80px;
+      padding: 8px;
+      border: 1px solid var(--graycool100);
+      border-radius: 8px;
+      background: #fafafd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font: inherit;
+      color: var(--ink);
+      transition: box-shadow 0.2s, border-color 0.2s, background-color 0.2s, transform 0.12s;
+    }
 
-    .chip-wrong   { 
-      background: #ffebee;
-      color: #c62828;
-      box-shadow: 0px 0px 4px var(--graycool400);
+    button.option { cursor: pointer; }
+
+    button.option:hover:not([disabled]) {
+      border-color: var(--cerulean300);
+      background: var(--cerulean50);
+    }
+
+    button.option:active:not([disabled]) { transform: scale(0.97); }
+    button.option[disabled] { cursor: default; }
+    .option.locked .word { opacity: 0.25; }
+
+    /* borda real de 4px; padding compensa pro conteúdo não mexer */
+    .option.chosen-correct,
+    .option.chosen-wrong {
+      border-width: 4px;
+      padding: 5px;
+    }
+
+    .option.chosen-correct {
+      border-color: var(--ok);
+      box-shadow: 0 0 12px rgba(67, 160, 71, 0.5);
+    }
+
+    .option.chosen-wrong {
+      border-color: var(--bad);
+      box-shadow: 0 0 12px rgba(229, 57, 53, 0.5);
+    }
+
+    .word {
+      font-family: var(--font-grotesk);
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+      overflow-wrap: anywhere;
+      text-align: center;
+    }
+
+    .placeholder {
+      width: 100px;
+      height: 24px;
+      border-radius: 4px;
+      background: var(--graycool50);
     }
 
     .ipa {
-      font-size: 1.1rem;
       font-family: var(--font-noto);
-      color: var(--graycool700);
       font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--graycool600);
     }
 
-    .voiceless {
-      color: var(--sunset600);
-      font-weight: 600;
+    .ipa b { font-weight: 700; }
+    .ipa .vl { color: var(--sunset600); }
+    .ipa .vd { color: var(--cerulean600); }
+
+    /* ── Botões de baixo ─────────────────────────────────────────── */
+    .actions { height: 48px; }
+
+    .next,
+    .restart {
+      width: 190px;
+      height: 48px;
+      border: none;
+      border-radius: 4px;
+      background: var(--cerulean600);
+      color: #fafafd;
+      font-family: var(--font-grotesk);
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: filter 0.2s, transform 0.12s;
     }
 
-    .voiced {
-      color: var(--cerulean600);
-      font-weight: 600;
+    .next:hover, .restart:hover { filter: brightness(0.96); }
+    .next:active, .restart:active { transform: scale(0.97); }
+
+    /* ── Fim da demo ─────────────────────────────────────────────── */
+    .finished {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 64px 16px;
+      text-align: center;
     }
 
+    .finished-title {
+      font-family: var(--font-grotesk);
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .finished-subtitle {
+      max-width: 320px;
+      color: var(--graycool700);
+      line-height: 24px;
+    }
+
+    .score {
+      display: flex;
+      gap: 24px;
+      font-weight: 700;
+    }
+
+    .score .ok { color: var(--ok); }
+    .score .bad { color: var(--bad); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card-inner, .card-face { transition: none; }
+    }
   </style>
 </head>
 <body>
+  <div class="review" id="app"></div>
 
-  <div class="flashcard-container" id="app">
-    <!-- injected by JS -->
-  </div>
+  <template id="audio-button">
+    <button type="button" class="audio-ring-button">
+      <svg class="ring" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" /></svg>
+      <span class="icon">
+        <svg class="pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <rect x="6" y="5" width="4" height="14" rx="1" />
+          <rect x="14" y="5" width="4" height="14" rx="1" />
+        </svg>
+        <svg class="speaker" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <g transform="translate(1 2.234375)">
+            <path fill-rule="evenodd" d="M12 0L5.72302 3.76619L0 3.76619L0 15.7662L5.72302 15.7662L12 19.5324L12 0ZM10 3.53238L10 16L6.27698 13.7662L2 13.7662L2 5.76619L6.27698 5.76619L10 3.53238Z" />
+            <path d="M17.2729 2.90287C18.9645 4.69468 20 7.10845 20 9.76626C20 12.4241 18.9645 14.8378 17.2729 16.6297L18.7271 18.0026C20.7552 15.8544 22 12.9546 22 9.76626C22 6.57792 20.7552 3.67814 18.7271 1.5299L17.2729 2.90287Z" />
+            <path d="M17.0002 9.76619C17.0002 8.10981 16.4262 6.59025 15.4654 5.39166L17.0259 4.14072C18.2609 5.68133 19.0002 7.63878 19.0002 9.76619C19.0002 11.8936 18.2609 13.8511 17.0259 15.3917L15.4654 14.1407C16.4262 12.9421 17.0002 11.4226 17.0002 9.76619Z" />
+            <path d="M13.2009 7.36677C13.703 8.0352 14.0001 8.86456 14.0001 9.76619C14.0001 10.6678 13.703 11.4972 13.2009 12.1656L14.8001 13.3668C15.5534 12.3639 16.0001 11.1158 16.0001 9.76619C16.0001 8.41661 15.5534 7.1685 14.8001 6.16561L13.2009 7.36677Z" />
+          </g>
+        </svg>
+      </span>
+    </button>
+  </template>
 
   <script>
-    // ── Data ──────────────────────────────────────────────────────
-    const CARDS = [
-      { 
-        q: "tree<br>three",
-        a: "tree<br><span class='ipa'>/<span class='voiceless'>t</span>riː/</span>",
-        url: "https://www.dropbox.com/scl/fi/39amm8mhocbtgmm2abc90/tree-elevenlabs.mp3?rlkey=o2qdofxijzcc2un3hmdhishae&st=n6am93c6&raw=1"
-      },
-      { 
-        q: "head<br>red",
-        a: "red<br><span class='ipa'>/<span class='voiced'>r</span>ed/</span>",
-        url: "https://www.dropbox.com/scl/fi/5urpdn4aarigakmhewxnu/red-elevenlabs.mp3?rlkey=8n99imluhdk8pz6tpoxy5zrfs&st=5itmkgvn&raw=1"
-      },
-      { 
-        q: "pig<br>big",
-        a: "pig<br><span class='ipa'>/<span class='voiceless'>p</span>ɪɡ/</span>",
-        url: "https://www.dropbox.com/scl/fi/mwnki043b6ljz11nd3ylm/pig-elevenlabs.mp3?rlkey=k3etvqwf5j9jsefalslrpc0pv&st=pib90dig&raw=1"
-      },
-      { 
-        q: "thigh<br>thy",
-        a: "thy<br><span class='ipa'>/<span class='voiced'>ð</span>aɪ/</span>",
-        url: "https://www.dropbox.com/scl/fi/68zlvl305aqlndo5yehbk/thy-elevenlabs.mp3?rlkey=7otrqksn7qwavcqd9yq4zdxmy&st=rgh428cw&raw=1"
-      },
-      { 
-        q: "free<br>three",
-        a: "three<br><span class='ipa'>/<span class='voiceless'>θ</span>riː/</span>",
-        url: "https://www.dropbox.com/scl/fi/o5wlolfevcrse4ekxg19l/three-elevenlabs.mp3?rlkey=hn290kz31ml2fywdzcivh0emn&st=tsklt23n&raw=1"
-      },
-      { 
-        q: "sue<br>zoo",
-        a: "sue<br><span class='ipa'>/<span class='voiceless'>s</span>uː/</span>",
-        url: "https://www.dropbox.com/scl/fi/8t481yiqfee08etdso9z8/sue-elevenlabs.mp3?rlkey=zl4ewp3m0hfjaga6c4fbrtlcl&st=q4tkjzw0&raw=1"
-      },
-      { 
-        q: "ruche<br>rouge",
-        a: "rouge<br><span class='ipa'>/ruː<span class='voiced'>ʒ</span>/</span>",
-        url: "https://www.dropbox.com/scl/fi/08o7wdik3i2acbukuuhwr/rouge-elevenlabs.mp3?rlkey=gao69fk851uurigz4yvprureo&st=49vqm1to&raw=1"
-      },
-      { 
-        q: "chin<br>gin",
-        a: "gin<br><span class='ipa'>/<span class='voiced'>dʒ</span>ɪn/</span>",
-        url: "https://www.dropbox.com/scl/fi/cfu3oifnvraxxycctx5es/gin-elevenlabs.mp3?rlkey=85e7z7wb9qyzdd93a0b1gfh4d&st=681jk3js&raw=1"
-      },
-      { 
-        q: "pig<br>big",
-        a: "big<br><span class='ipa'>/<span class='voiced'>b</span>ɪɡ/</span>",
-        url: "https://www.dropbox.com/scl/fi/vbvemdkaya3feraqffl7q/big-elevenlabs.mp3?rlkey=cxknh06bctfavnhqtc9kiev7a&st=kght38rf&raw=1"
-      },
-      { 
-        q: "chin<br>gin",       
-        a: "chin<br><span class='ipa'>/<span class='voiceless'>tʃ</span>ɪn/</span>",
-        url: "https://www.dropbox.com/scl/fi/9bvdjhd02mwlbl9mo7cqw/chin-elevenlabs.mp3?rlkey=lrvrrfj6p981151fztwazklxx&st=cwgepywa&raw=1"
-      },
-      { 
-        q: "thigh<br>thy",       
-        a: "thigh<br><span class='ipa'>/<span class='voiceless'>θ</span>aɪ/</span>",
-        url: "https://www.dropbox.com/scl/fi/ysjxdz1g31kp8bbhq1udz/thigh-elevenlabs.mp3?rlkey=zmgdisgufs8bmizdqt8dygs3z&st=vh3kwdug&raw=1"
-      },
-      { 
-        q: "free<br>three",
-        a: "free<br><span class='ipa'>/<span class='voiceless'>f</span>riː/</span>",
-        url: "https://www.dropbox.com/scl/fi/c899ahxu8u0fz5nw10x93/free-elevenlabs.mp3?rlkey=wcuuweccqp3m5aza8pcn1odyc&st=e4maomrp&raw=1"
-      },
-      { 
-        q: "ruche<br>rouge",
-        a: "ruche<br><span class='ipa'>/ruː<span class='voiceless'>ʃ</span>/</span>",
-        url: "https://www.dropbox.com/scl/fi/11zdq01e3aipxkmomydkr/ruche-elevenlabs.mp3?rlkey=3ydimtbdgk25xl6mjp6h2m3oo&st=axhv4hbg&raw=1"
-      },
-      { 
-        q: "sue<br>zoo",
-        a: "zoo<br><span class='ipa'>/<span class='voiced'>z</span>uː/</span>",
-        url: "https://www.dropbox.com/scl/fi/g8unb8b55tn7lsda790re/zoo-elevenlabs.mp3?rlkey=cv6zcdrougtz843yx7vepp7w1&st=1ybuzgth&raw=1"
-      },
-      { 
-        q: "tree<br>three",
-        a: "three<br><span class='ipa'>/<span class='voiceless'>θ</span>riː/</span>",
-        url: "https://www.dropbox.com/scl/fi/pw8447f52eotan5a8a711/three-elevenlabs.mp3?rlkey=ubs0r14egh1429kfxba866bx7&st=bfujzt73&raw=1"
-      },
-      { 
-        q: "head<br>red",
-        a: "head<br><span class='ipa'>/<span class='voiceless'>h</span>ed/</span>",
-        url: "https://www.dropbox.com/scl/fi/lhy2pmeclmu4abutaih1s/head-elevenlabs.mp3?rlkey=sghis2hda45vl8kc28gkrath9&st=omsm9jth&raw=1"
-      },
-    ];
+    // ── Dados ─────────────────────────────────────────────────────
+    // Mesmo formato dos flashcards da api (tipo pares_minimos): palavra,
+    // transcrição (sem barras; <b> no som que muda, .vl surdo, .vd vozeado)
+    // e áudio de cada opção, mais qual opção o áudio principal fala.
+    const MEDIA = '../midia/flashcard-demo/'
+    const WORDS = {
+      tree:  '<b><span class="vl">t</span></b>riː',
+      three: '<b><span class="vl">θ</span></b>riː',
+      head:  '<b><span class="vl">h</span></b>ed',
+      red:   '<b><span class="vd">r</span></b>ed',
+      pig:   '<b><span class="vl">p</span></b>ɪɡ',
+      big:   '<b><span class="vd">b</span></b>ɪɡ',
+      thigh: '<b><span class="vl">θ</span></b>aɪ',
+      thy:   '<b><span class="vd">ð</span></b>aɪ',
+      free:  '<b><span class="vl">f</span></b>riː',
+      sue:   '<b><span class="vl">s</span></b>uː',
+      zoo:   '<b><span class="vd">z</span></b>uː',
+      ruche: 'ruː<b><span class="vl">ʃ</span></b>',
+      rouge: 'ruː<b><span class="vd">ʒ</span></b>',
+      chin:  '<b><span class="vl">tʃ</span></b>ɪn',
+      gin:   '<b><span class="vd">dʒ</span></b>ɪn',
+    }
+    // [opção A, opção B, palavra que o áudio fala]
+    const PAIRS = [
+      ['tree', 'three', 'tree'],
+      ['head', 'red', 'red'],
+      ['pig', 'big', 'pig'],
+      ['thigh', 'thy', 'thy'],
+      ['free', 'three', 'three'],
+      ['sue', 'zoo', 'sue'],
+      ['ruche', 'rouge', 'rouge'],
+      ['chin', 'gin', 'gin'],
+      ['pig', 'big', 'big'],
+      ['chin', 'gin', 'chin'],
+      ['thigh', 'thy', 'thigh'],
+      ['free', 'three', 'free'],
+      ['ruche', 'rouge', 'ruche'],
+      ['sue', 'zoo', 'zoo'],
+      ['tree', 'three', 'three'],
+      ['head', 'red', 'head'],
+    ]
+    const CARDS = PAIRS.map(([a, b, answer], id) => ({
+      id,
+      correctOption: answer === a ? 'A' : 'B',
+      options: [
+        { key: 'A', word: a, transcription: WORDS[a], audioUrl: `${MEDIA}${a}.mp3` },
+        { key: 'B', word: b, transcription: WORDS[b], audioUrl: `${MEDIA}${b}.mp3` },
+      ],
+    }))
 
-    // Minimal SM-2-inspired intervals (days)
-    const INTERVALS = { wrong: 0, correct: [1, 3, 7, 14, 30] };
+    const FLIP_MS = 500
+    const RING = 119.38 // 2π·19: anel sobre a borda de 2px do botão de 40px
 
-    // ── State ─────────────────────────────────────────────────────
-    let deck = CARDS.map((c, i) => ({ ...c, id: i, stage: 0 }));
-    let queue = [...deck];
-    let current = null;
-    let phase = 'question'; // 'question' | 'answer'
-    let stats = { correct: 0, wrong: 0 };
+    // ── Sons de acerto/erro, pré-carregados (tocam sem atraso) ────
+    const SOUND_URLS = {
+      correct: '../assets-vault/midia-vault/correct-answer.mp3',
+      incorrect: '../assets-vault/midia-vault/incorrect-answer.mp3',
+    }
+    let ctx = null
+    const buffers = {}
+    const fallback = {}
 
-    // ── Helpers ───────────────────────────────────────────────────
-    function nextCard() {
-      if (queue.length === 0) return null;
-      return queue[0];
+    async function preloadSounds() {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext
+      if (!AudioContextClass) {
+        for (const [key, url] of Object.entries(SOUND_URLS)) {
+          fallback[key] = new Audio(url)
+          fallback[key].preload = 'auto'
+        }
+        return
+      }
+      ctx = new AudioContextClass()
+      await Promise.all(Object.entries(SOUND_URLS).map(async ([key, url]) => {
+        try {
+          buffers[key] = await ctx.decodeAudioData(await (await fetch(url)).arrayBuffer())
+        } catch {
+          fallback[key] = new Audio(url)
+        }
+      }))
     }
 
-    function intervalLabel(stage) {
-      if (stage === 0) return { text: '< 1 dia', cls: 'interval-soon' };
-      const days = INTERVALS.correct[Math.min(stage, INTERVALS.correct.length - 1)];
-      if (days <= 1)  return { text: `${days} day`,  cls: 'interval-soon'   };
-      if (days <= 7)  return { text: `${days} days`, cls: 'interval-medium' };
-      return            { text: `${days} days`, cls: 'interval-long'   };
+    function playAnswerSound(correct) {
+      const key = correct ? 'correct' : 'incorrect'
+      try {
+        if (ctx && buffers[key]) {
+          if (ctx.state === 'suspended') ctx.resume()
+          const source = ctx.createBufferSource()
+          source.buffer = buffers[key]
+          source.connect(ctx.destination)
+          source.start()
+          return
+        }
+        const el = fallback[key] || (fallback[key] = new Audio(SOUND_URLS[key]))
+        el.currentTime = 0
+        el.play().catch(() => {})
+      } catch {
+        // som é enfeite: nunca atrapalha a demo
+      }
+    }
+
+    function unlockSounds() {
+      if (ctx && ctx.state === 'suspended') ctx.resume().catch(() => {})
+    }
+
+    // Áudios das palavras: baixa o do card atual e o do próximo.
+    const preloaded = new Set()
+    function preloadCard(card) {
+      if (!card) return
+      for (const opt of card.options) {
+        if (preloaded.has(opt.audioUrl)) continue
+        preloaded.add(opt.audioUrl)
+        const el = new Audio()
+        el.preload = 'auto'
+        el.src = opt.audioUrl
+      }
+    }
+
+    // ── Estado ────────────────────────────────────────────────────
+    let index = 0
+    let heard = false
+    let chosen = null
+    let marked = false
+    let markTimer = null
+    const stats = { correct: 0, wrong: 0 }
+
+    const app = document.getElementById('app')
+    const card = () => CARDS[index]
+    const isCorrect = () => chosen === card().correctOption
+
+    // ── Áudio (um por vez; tocar de novo no mesmo botão pausa) ────
+    let audio = null
+    let playingKey = null
+    let raf = 0
+
+    function stopAudio() {
+      if (audio) {
+        audio.pause()
+        audio = null
+      }
+    }
+
+    function setRing(key, progress) {
+      const btn = app.querySelector(`[data-audio="${key}"]`)
+      if (!btn) return
+      btn.classList.toggle('playing', progress !== null)
+      btn.setAttribute('aria-pressed', String(progress !== null))
+      btn.querySelector('circle').style.strokeDashoffset = RING * (1 - (progress || 0))
+    }
+
+    function toggleAudio(key, url) {
+      unlockSounds()
+      if (playingKey === key) {
+        stopAudio()
+        return
+      }
+      stopAudio()
+      if (!url) return
+      const el = new Audio(url)
+      // o evento de pausa chega assíncrono: só destrava o card em que o áudio tocou
+      const cardId = card().id
+      audio = el
+      playingKey = key
+      setRing(key, 0)
+      const tick = () => {
+        if (el.duration && playingKey === key) setRing(key, el.currentTime / el.duration)
+        if (audio === el) raf = requestAnimationFrame(tick)
+      }
+      const finish = () => {
+        cancelAnimationFrame(raf)
+        if (audio === el) audio = null
+        if (playingKey === key) {
+          setRing(key, null)
+          playingKey = null
+        }
+        // as opções destravam quando o primeiro áudio do card termina (ou é pausado)
+        if (key === 'main' && card() && card().id === cardId && !heard) {
+          heard = true
+          renderStatus()
+          renderFront()
+        }
+      }
+      el.addEventListener('ended', finish)
+      el.addEventListener('pause', finish)
+      el.addEventListener('error', finish)
+      el.play().then(() => (raf = requestAnimationFrame(tick))).catch(finish)
     }
 
     // ── Render ────────────────────────────────────────────────────
-    const app = document.getElementById('app');
+    const tpl = document.getElementById('audio-button')
+
+    function audioButton(key, label, { disabled = false } = {}) {
+      const btn = tpl.content.firstElementChild.cloneNode(true)
+      btn.setAttribute('aria-label', label)
+      if (disabled) {
+        btn.disabled = true
+      } else {
+        btn.dataset.audio = key
+        btn.setAttribute('aria-pressed', 'false')
+      }
+      return btn
+    }
+
+    const VERDICT = {
+      true: '<svg class="verdict" viewBox="0 0 1024 1024" fill="#43a047" aria-hidden="true"><path fill-rule="evenodd" d="M85.333 512.003C85.333 276.361 276.358 85.3359 512 85.3359C747.641 85.3359 938.666 276.361 938.666 512.003C938.666 747.644 747.641 938.669 512 938.669C276.358 938.669 85.333 747.644 85.333 512.003ZM426.662 743.005L828.335 341.332L767.996 280.992L426.662 622.325L255.996 451.659L195.656 511.999L426.662 743.005Z"/></svg>',
+      false: '<svg class="verdict" viewBox="0 0 1024 1024" fill="#e53935" aria-hidden="true"><path fill-rule="evenodd" d="M512 85.3359C276.358 85.3359 85.333 276.361 85.333 512.003C85.333 747.644 276.358 938.669 512 938.669C747.641 938.669 938.666 747.644 938.666 512.003C938.666 276.361 747.641 85.3359 512 85.3359ZM511.996 572.342L328.829 755.509L268.489 695.169L451.656 512.003L268.496 328.842L328.835 268.503L511.996 451.663L695.156 268.503L755.496 328.842L572.335 512.003L755.502 695.169L695.162 755.509L511.996 572.342Z"/></svg>',
+    }
 
     function render() {
-      current = nextCard();
-
-      if (!current) {
-        renderFinished();
-        return;
-      }
-
-      const done    = CARDS.length - queue.length;
-      const pct     = Math.round((done / CARDS.length) * 100);
-      const iv      = intervalLabel(current.stage);
-      const stageN  = Math.min(current.stage + 1, INTERVALS.correct.length);
-
+      const c = card()
+      if (!c) return renderFinished()
+      preloadCard(c)
+      preloadCard(CARDS[index + 1])
       app.innerHTML = `
-        <!-- Progress -->
-        <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
-        <div class="progress-label">${done} / ${CARDS.length} revisadas</div>
-
-        <div class="flashcard-player-main">
-
-          <!-- Audio button (decorative in demo) -->
-          <button class="play-audio-button-top" onclick="playAudio('${current.url}')">
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M13 2.23438L6.72302 6.00057H1V18.0006H6.72302L13 21.7668V2.23438ZM11 5.76676V18.2344L7.27698 16.0006H3V8.00057H7.27698L11 5.76676Z" />
-              <path d="M18.2729 5.13724C19.9645 6.92905 21 9.34283 21 12.0006C21 14.6584 19.9645 17.0722 18.2729 18.864L19.7271 20.237C21.7552 18.0888 23 15.189 23 12.0006C23 8.81229 21.7552 5.91251 19.7271 3.76428L18.2729 5.13724Z" />
-              <path d="M18.0002 12.0006C18.0002 10.3442 17.4262 8.82462 16.4654 7.62604L18.0259 6.3751C19.2609 7.91571 20.0002 9.87316 20.0002 12.0006C20.0002 14.128 19.2609 16.0854 18.0259 17.626L16.4654 16.3751C17.4262 15.1765 18.0002 13.6569 18.0002 12.0006Z" />
-              <path d="M14.2009 9.60114C14.703 10.2696 15.0001 11.0989 15.0001 12.0006C15.0001 12.9022 14.703 13.7316 14.2009 14.4L15.8001 15.6011C16.5534 14.5983 17.0001 13.3501 17.0001 12.0006C17.0001 10.651 16.5534 9.40287 15.8001 8.39999L14.2009 9.60114Z" "/>
-            </svg>
-            Tocar Áudio
-          </button>
-
-          <!-- Card -->
-          <div class="flashcard-content">
-            <div class="card-inner" id="cardInner">
-              <div class="card-face front">
-                <span class="hint">FRENTE</span>
-                <p class="flashcard-text-question">${current.q}</p>
-              </div>
-              <div class="card-face back">
-                <span class="hint">VERSO</span>
-                <p class="flashcard-text-answer">${current.a}</p>
-              </div>
+        <div class="progress">
+          <div class="segments" aria-hidden="true">
+            ${CARDS.map((_, i) => `<span class="${i <= index ? 'on' : ''}"></span>`).join('')}
+          </div>
+          <span class="position">Card ${index + 1} de ${CARDS.length}</span>
+        </div>
+        <div class="status" id="status" aria-live="polite"></div>
+        <div class="stage">
+          <div class="card-inner" id="cardInner">
+            <div class="card-face front" id="front">
+              <span class="side">FRENTE</span>
+              <div class="rows"></div>
+            </div>
+            <div class="card-face back" id="back" aria-hidden="true">
+              <span class="side">VERSO</span>
+              <div class="rows"></div>
             </div>
           </div>
-
-          <!-- Stage info 
-          <div class="stage-badge">
-            Próxima Revisão: <span class="${iv.cls}" style="margin-left:4px">${iv.text}</span>
-          </div>-->
-
-          <!-- Buttons -->
-          <div class="flashcard-buttons-container" id="btnArea">
-            ${phase === 'question'
-              ? `<div class="actions-container">
-                   <button class="flashcard-button-answer" onclick="showAnswer()">
-                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                     Mostrar Resposta
-                   </button>
-                 </div>`
-              : `<p>Você acertou?</p>
-                 <div class="actions-container" style="display:flex">
-                   <button class="flashcard-button-wrong" onclick="grade(false)" title="Forgot">
-                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f44336" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                   </button>
-                   <div style="width:24px"></div>
-                   <button class="flashcard-button-correct" onclick="grade(true)" title="Got it!">
-                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                   </button>
-                 </div>`
-            }
-          </div>
-
         </div>
-      `;
+        <div class="actions" id="actions"></div>
+      `
+      renderStatus()
+      renderFront()
+      renderBack()
+    }
+
+    function renderStatus() {
+      const status = document.getElementById('status')
+      if (marked) {
+        status.innerHTML = `${VERDICT[isCorrect()]}<span class="label">${isCorrect() ? 'CORRETO!' : 'INCORRETO!'}</span>`
+        return
+      }
+      status.innerHTML = ''
+      const c = card()
+      const main = c.options.find((o) => o.key === c.correctOption)
+      const btn = audioButton('main', 'Ouvir')
+      btn.addEventListener('click', () => toggleAudio('main', main.audioUrl))
+      const label = document.createElement('span')
+      label.className = 'label'
+      label.textContent = heard ? 'QUAL PALAVRA VOCÊ OUVIU?' : 'CLIQUE PARA OUVIR'
+      status.append(btn, label)
+      if (playingKey === 'main') setRing('main', 0)
+    }
+
+    function renderFront() {
+      const rows = document.querySelector('#front .rows')
+      rows.innerHTML = ''
+      for (const opt of card().options) {
+        const row = document.createElement('div')
+        row.className = 'row'
+        const option = document.createElement('button')
+        option.type = 'button'
+        option.className = 'option' + (heard ? '' : ' locked')
+        option.disabled = !heard || chosen !== null
+        option.innerHTML = `<span class="word">${opt.word}</span><span class="placeholder"></span>`
+        option.addEventListener('click', () => choose(opt.key))
+        row.append(audioButton(null, `Ouvir ${opt.word}`, { disabled: true }), option)
+        rows.append(row)
+      }
+    }
+
+    function renderBack() {
+      const rows = document.querySelector('#back .rows')
+      rows.innerHTML = ''
+      for (const opt of card().options) {
+        const row = document.createElement('div')
+        row.className = 'row'
+        const btn = audioButton(opt.key, `Ouvir ${opt.word}`)
+        btn.addEventListener('click', () => toggleAudio(opt.key, opt.audioUrl))
+        const option = document.createElement('div')
+        option.className = 'option'
+        if (marked && chosen === opt.key) option.classList.add(isCorrect() ? 'chosen-correct' : 'chosen-wrong')
+        option.innerHTML = `<span class="word">${opt.word}</span><span class="ipa">/<span>${opt.transcription}</span>/</span>`
+        row.append(btn, option)
+        rows.append(row)
+      }
     }
 
     function renderFinished() {
       app.innerHTML = `
-        <div class="flashcard-finished-container">
-          <div class="finished-icon">🎉</div>
-          <p class="finished-title">Sessão Finalizada!</p>
-          <p class="finished-subtitle">Você revisou todas as ${CARDS.length} cartas. Elas reaparecerão no tempo certo para serem revisadas.</p>
-
-          <div class="score-chips">
-            <div class="score-chip chip-correct">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              ${stats.correct} acertos
-            </div>
-            <div class="score-chip chip-wrong">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              ${stats.wrong} erros
-            </div>
+        <div class="finished">
+          <p class="finished-title">Revisão concluída!</p>
+          <p class="finished-subtitle">No Phoneticando, os cards voltam no momento certo: os que você errou aparecem de novo antes.</p>
+          <div class="score">
+            <span class="ok">${stats.correct} ${stats.correct === 1 ? 'acerto' : 'acertos'}</span>
+            <span class="bad">${stats.wrong} ${stats.wrong === 1 ? 'erro' : 'erros'}</span>
           </div>
-
-          <div class="next-review-info">
-            <p>Sua próxima revisão incluirá cartas que você errou e também novas cartas.</p>
-            <button class="action-button" onclick="restart()">Recomeçar →</button>
-          </div>
+          <button type="button" class="restart" id="restart">Recomeçar</button>
         </div>
-      `;
+      `
+      document.getElementById('restart').addEventListener('click', restart)
     }
 
-    // ── Actions ───────────────────────────────────────────────────
-    function showAnswer() {
-      phase = 'answer';
-      document.getElementById('cardInner').classList.add('flipped');
-      // swap buttons without full re-render for smooth flip
-      document.getElementById('btnArea').innerHTML = `
-        <p>Você acertou?</p>
-        <div class="actions-container" style="display:flex">
-          <button class="flashcard-button-wrong" onclick="grade(false)" title="Forgot">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f44336" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-          <div style="width:24px"></div>
-          <button class="flashcard-button-correct" onclick="grade(true)" title="Got it!">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </button>
-        </div>
-      `;
+    // ── Ações ─────────────────────────────────────────────────────
+    function choose(key) {
+      if (chosen !== null) return
+      stopAudio()
+      chosen = key
+      if (isCorrect()) stats.correct++
+      else stats.wrong++
+      renderFront()
+      // o card vira na hora; borda, veredito, som e "Próxima" só depois do giro
+      document.getElementById('cardInner').classList.add('flipped')
+      document.getElementById('front').setAttribute('aria-hidden', 'true')
+      document.getElementById('back').removeAttribute('aria-hidden')
+      markTimer = setTimeout(() => {
+        marked = true
+        playAnswerSound(isCorrect())
+        renderStatus()
+        renderBack()
+        const actions = document.getElementById('actions')
+        actions.innerHTML = '<button type="button" class="next">Próxima</button>'
+        actions.firstElementChild.addEventListener('click', next)
+      }, FLIP_MS)
     }
 
-    function grade(correct) {
-      queue.shift(); // remove from front
-      if (correct) {
-        current.stage = Math.min(current.stage + 1, INTERVALS.correct.length - 1);
-        stats.correct++;
-      } else {
-        current.stage = 0;
-        stats.wrong++;
-        queue.push(current); // re-add to end
-      }
-      phase = 'question';
-      render();
+    function resetCard() {
+      clearTimeout(markTimer)
+      stopAudio()
+      heard = false
+      chosen = null
+      marked = false
+    }
+
+    function next() {
+      resetCard()
+      index++
+      render()
     }
 
     function restart() {
-      deck  = CARDS.map((c, i) => ({ ...c, id: i, stage: 0 }));
-      queue = [...deck];
-      stats = { correct: 0, wrong: 0 };
-      phase = 'question';
-      render();
+      resetCard()
+      index = 0
+      stats.correct = 0
+      stats.wrong = 0
+      render()
     }
 
-    function playAudio(url) {
-      // Decorative in demo — show a brief visual pulse
-      const btn = document.querySelector('.play-audio-button-top');
-      if (!btn) return;
-      btn.style.background = 'var(--cerulean50)';
-      const audio = new Audio(url);
-      audio.addEventListener('ended', () => { btn.style.background = '#ffffff'});
-      audio.addEventListener('error', (e) => {
-        console.error('Audio failed to load:', url, e);
-        btn.style.background = '#ffffff';
-      });
-      audio.play().catch(err => {
-        console.error('Playback failed:', err);
-        btn.style.background = '#ffffff';
-      });
-    }
-
-    // ── Boot ──────────────────────────────────────────────────────
-    render();
-
-    
+    preloadSounds()
+    render()
   </script>
 </body>
 </html>
